@@ -6,7 +6,16 @@ var logger = require('morgan');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+var login = require('./routes/login');
+var register = require('./routes/register');
+var about = require('./routes/about');
+var support = require('./routes/support');
+var career = require('./routes/career');
+var faq = require('./routes/faq');
+var faql = require('./routes/faql');
+var features = require('./routes/features');
+var career_protech = require('./routes/career_protech');
+var how_it_works = require('./routes/how_it_works');
 var app = express();
 
 // view engine setup
@@ -23,7 +32,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users );
-
+app.use('/login', login);
+app.use('/register', register);
+app.use('/about', about);
+app.use('/support', support);
+app.use('/career', career);
+app.use('/faq', faq);
+app.use('/faql', faql);
+app.use('/features', features);
+app.use('/career-protech', career_protech);
+app.use('/hot_it_works', how_it_works);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error("Nor found");
