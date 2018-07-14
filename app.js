@@ -16,6 +16,9 @@ var faql = require('./routes/faql');
 var features = require('./routes/features');
 var career_protech = require('./routes/career_protech');
 var how_it_works = require('./routes/how_it_works');
+var pricing = require('./routes/pricing');
+var portfolio = require('./routes/portfolio');
+var apply_job = require('./routes/apply_job');
 var app = express();
 
 // view engine setup
@@ -41,7 +44,10 @@ app.use('/faq', faq);
 app.use('/faql', faql);
 app.use('/features', features);
 app.use('/career-protech', career_protech);
-app.use('/hot_it_works', how_it_works);
+app.use('/hot-it-works', how_it_works);
+app.use('/pricing', pricing);
+app.use('/portfolio', portfolio);
+app.use('/apply-job', apply_job);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error("Nor found");

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <% include part_element/head.ejs%>
+    <body>
+
+<!-- ==============================================
+**Preloader**
+=================================================== -->
+        <div id="loader">
+            <div id="element">
+                <div class="circ-one"></div>
+                <div class="circ-two"></div>
+            </div>
+        </div>
+
+<!-- ==============================================
+**Header**
+=================================================== -->
+      <% include part_element/header.ejs%>
+<!-- ==============================================
+**Inner Banner**
+=================================================== -->
+        <section class="inner-banner">
+            <div class="container">
+                <div class="contents">
+                    <h1>Portfolio</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <span>Lorem Ipsum has been the industry's standard dummy text ever since</span></p>
+                </div>
+            </div>
+        </section>
+
+<!-- ==============================================
+**Portfolio**
+=================================================== -->
+        <section class="portfolio-outer padding-lg"> 
+
+            <!-- Start portfolio filter -->
+            <div class="container text-center">
+                <div class="isotopeFilters">
+                    <ul class="portfolio-filter clearfix">
+                        <li class="active"><a href="#" data-filter="*">All</a></li>
+                        <li><a href="#" data-filter=".application">application</a></li>
+                        <li><a href="#" data-filter=".business">business</a></li>
+                        <li><a href="#" data-filter=".company">company</a></li>
+                        <li><a href="#" data-filter=".software">software</a></li>
+                        <li><a href="#" data-filter=".webapp">webapp</a></li>
+                    </ul>
+                </div>
+                <!-- end portfolio filter -->
+
+                <ul class="row portfolio clearfix isotopeContainer">
+                    <li class="col-6 col-md-4 isotopeSelector company">
+                        <div class="inner">
+                            <div class="overlay">
+                                <h2>Lorem ipsum</h2>
+                                <p>Application</p>
+                                <a class="galleryItem" href="images/portfolio-lg1.jpg"><span class="icon-expand"></span></a></div>
+                            <figure><img src="images/portfolio1.jpg" class="img-responsive" alt=""></figure>
+                        </div>
+                    </li>
+                    <li class="col-6 col-md-4 isotopeSelector business company application software">
+                        <div class="inner">
+                            <div class="overlay">
+                                <h2>Lorem ipsum</h2>
+                                <p>Application</p>
+                                <a class="galleryItem" href="images/portfolio-lg2.jpg"><span class="icon-expand"></span></a></div>
+                            <figure><img src="images/portfolio2.jpg" class="img-responsive" alt=""></figure>
+                        </div>
+                    </li>
+                    <li class="col-6 col-md-4 isotopeSelector company software webapp">
+                        <div class="inner">
+                            <div class="overlay">
+                                <h2>Lorem ipsum</h2>
+                                <p>Application</p>
+                                <a class="galleryItem" href="images/portfolio-lg3.jpg"><span class="icon-expand"></span></a></div>
+                            <figure><img src="images/portfolio3.jpg" class="img-responsive" alt=""></figure>
+                        </div>
+                    </li>
+                    <li class="col-6 col-md-4 isotopeSelector business software webapp">
+                        <div class="inner">
+                            <div class="overlay">
+                                <h2>Lorem ipsum</h2>
+                                <p>Application</p>
+                                <a class="galleryItem" href="images/portfolio-lg4.jpg"><span class="icon-expand"></span></a></div>
+                            <figure><img src="images/portfolio4.jpg" class="img-responsive" alt=""></figure>
+                        </div>
+                    </li>
+                    <li class="col-6 col-md-4 isotopeSelector business company application webapp">
+                        <div class="inner">
+                            <div class="overlay">
+                                <h2>Lorem ipsum</h2>
+                                <p>Application</p>
+                                <a class="galleryItem" href="images/portfolio-lg5.jpg"><span class="icon-expand"></span></a></div>
+                            <figure><img src="images/portfolio5.jpg" class="img-responsive" alt=""></figure>
+                        </div>
+                    </li>
+                    <li class="col-6 col-md-4 isotopeSelector software company application">
+                        <div class="inner">
+                            <div class="overlay">
+                                <h2>Lorem ipsum</h2>
+                                <p>Application</p>
+                                <a class="galleryItem" href="images/portfolio-lg6.jpg"><span class="icon-expand"></span></a></div>
+                            <figure><img src="images/portfolio6.jpg" class="img-responsive" alt=""></figure>
+                        </div>
+                    </li>
+                    <li class="col-6 col-md-4 isotopeSelector business company application webapp">
+                        <div class="inner">
+                            <div class="overlay">
+                                <h2>Lorem ipsum</h2>
+                                <p>Application</p>
+                                <a class="galleryItem" href="images/portfolio-lg7.jpg"><span class="icon-expand"></span></a></div>
+                            <figure><img src="images/portfolio7.jpg" class="img-responsive" alt=""></figure>
+                        </div>
+                    </li>
+                    <li class="col-6 col-md-4 isotopeSelector business company software company application webapp">
+                        <div class="inner">
+                            <div class="overlay">
+                                <h2>Lorem ipsum</h2>
+                                <p>Application</p>
+                                <a class="galleryItem" href="images/portfolio-lg8.jpg"><span class="icon-expand"></span></a></div>
+                            <figure><img src="images/portfolio8.jpg" class="img-responsive" alt=""></figure>
+                        </div>
+                    </li>
+                    <li class="col-6 col-md-4 isotopeSelector business software company application webapp">
+                        <div class="inner">
+                            <div class="overlay">
+                                <h2>Lorem ipsum</h2>
+                                <p>Application</p>
+                                <a class="galleryItem" href="images/portfolio-lg9.jpg"><span class="icon-expand"></span></a></div>
+                            <figure><img src="images/portfolio9.jpg" class="img-responsive" alt=""></figure>
+                        </div>
+                    </li>
+                </ul>
+                <div class="paging-block">
+                    <ul>
+                        <li><a href="#" class="prev"><span class="icon-left-arrow"></span></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#" class="dots"><span class="icon-paging-dots"></span></a></li>
+                        <li><a href="#">43</a></li>
+                        <li><a href="#" class="next"><span class="icon-right-arrow"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+<!-- ==============================================
+**Signup Section**
+=================================================== -->
+        <section class="signup-outer gradient-bg padding-lg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <ul class="clearfix">
+                            <li> <span class="icon-men"></span>
+                                <h4>Signup for an <span>Account</span></h4>
+                            </li>
+                            <li> <span class="icon-chat"></span>
+                                <h4>Discuss with <span>our team</span></h4>
+                            </li>
+                            <li> <span class="icon-lap"></span>
+                                <h4>Receive a <span>good support</span></h4>
+                            </li>
+                        </ul>
+                        <div class="signup-form">
+                            <form action="#" method="get">
+                                <div class="email">
+                                    <input name="email" type="text" placeholder="email">
+                                </div>
+                                <div class="password">
+                                    <input name="password" type="password" placeholder="password">
+                                </div>
+                                <button class="signup-btn">Sign up Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- ==============================================
+**Footer opt1**
+=================================================== -->
+        <% include part_element/footer.ejs%>
+
+        <!-- Scroll to top --> 
+        <a href="#" class="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a> 
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+        <script src="js/jquery.min.js"></script> 
+        <!-- Popper JS --> 
+        <script src="js/popper.min.js"></script> 
+        <!-- Bootsrap JS --> 
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script> 
+        <!-- Select2 JS --> 
+        <script src="assets/select2/js/select2.min.js"></script> 
+        <!-- Magnific Popup JS --> 
+        <script src="assets/magnific-popup/js/magnific-popup.min.js"></script> 
+        <!-- Isotop JS --> 
+        <script src="assets/isotope/js/isotope.min.js"></script> 
+        <!-- Custom JS --> 
+        <script src="js/custom.js"></script>
+    </body>
+</html>
