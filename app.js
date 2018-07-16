@@ -24,6 +24,21 @@ var privacy_policy = require('./routes/privacy_policy');
 var typography = require('./routes/typography');
 var components = require('./routes/components');
 var blog_grid = require('./routes/blog_grid');
+var blog_grid_sidebar = require('./routes/blog_grid_sidebar');
+var blog_list= require('./routes/blog_list');
+var blog_standard = require('./routes/blog_standard');
+var blog_single = require('./routes/blog_single');
+var shop_grid = require('./routes/shop_grid');
+var shop_grid_sidebar = require('./routes/shop_grid_sidebar');
+var shop_single = require('./routes/shop_single');
+var cart = require('./routes/cart');
+var checkout = require('./routes/checkout');
+var features_blocks = require('./routes/features_blocks');
+var call_to_action = require('./routes/call_to_action');
+var marketing_blocks = require('./routes/marketing_blocks');
+var team_blocks = require('./routes/team_blocks');
+var testimonial_blocks = require('./routes/testimonial_blocks');
+var blog_blocks = require('./routes/blog_blocks');
 var app = express();
 
 // view engine setup
@@ -58,7 +73,21 @@ app.use('/privacy-policy', privacy_policy);
 app.use('/typography', typography);
 app.use('/components', components);
 app.use('/blog-grid', blog_grid);
-
+app.use('/blog-grid-sidebar', blog_grid_sidebar);
+app.use('/blog-list', blog_list);
+app.use('/blog-standard', blog_standard);
+app.use('/blog-single', blog_single);
+app.use('/shop-grid', shop_grid);
+app.use('/shop-grid-sidebar', shop_grid_sidebar);
+app.use('/shop-single', shop_single);
+app.use('/cart', cart);
+app.use('/checkout', checkout);
+app.use('/features-blocks', features_blocks);
+app.use('/call-to-action', call_to_action);
+app.use('/marketing-blocks', marketing_blocks);
+app.use('/team-blocks', team_blocks);
+app.use('/testimonial-blocks', testimonial_blocks);
+app.use('/blog-blocks', blog_blocks);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+        <% include part_element/head.ejs%>
+
+    <body>
+
+<!-- ==============================================
+**Preloader**
+=================================================== -->
+        <div id="loader">
+            <div id="element">
+                <div class="circ-one"></div>
+                <div class="circ-two"></div>
+            </div>
+        </div>
+
+<!-- ==============================================
+**Header**
+=================================================== -->
+        <% include part_element/header.ejs%>
+
+<!-- ==============================================
+**Inner Banner**
+=================================================== -->
+        <section class="inner-banner">
+            <div class="container">
+                <div class="contents">
+                    <h1>Checkout</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <span>Lorem Ipsum has been the industry's standard dummy text ever since</span></p>
+                </div>
+            </div>
+        </section>
+
+<!-- ==============================================
+**Cart**
+=================================================== -->
+        <section class="padding-lg">
+            <div class="container">
+                <div class="error-msg">
+                    <span>i</span>Please enter a valid postcode / Zip 
+                </div>
+                <div class="row">
+                    <!-- Start Left --> 
+                    <div class="col-lg-8">
+                        <div class="cart-table checkout-table table-responsive mb-0">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>PRODUCT</th>
+                                        <th>PRICE</th>
+                                        <th>QUANTITY</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><table class="table product-name">
+                                            <tr>
+                                                <td><figure><img src="images/cart-img1.jpg" alt=""></figure></td>
+                                                <td><p>Apple Watch Series 3</p></td>
+                                            </tr>
+                                            </table></td>
+                                        <td>$257</td>
+                                        <td><div class="item-qty">
+                                            <select class="custom_select">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                            </div></td>
+                                        <td>$257</td>
+                                    </tr>
+                                    <tr>
+                                        <td><table class="table product-name">
+                                            <tr>
+                                                <td><figure><img src="images/cart-img2.jpg" alt=""></figure></td>
+                                                <td><p>Microsoft 13.5-inch</p></td>
+                                            </tr>
+                                            </table></td>
+                                        <td>$358</td>
+                                        <td><div class="item-qty">
+                                            <select class="custom_select">
+                                                <option value="1">3</option>
+                                                <option value="2">2</option>
+                                                <option value="3">1</option>
+                                            </select>
+                                            </div></td>
+                                        <td>$358</td>
+                                    </tr>
+                                    <tr>
+                                        <td><table class="table product-name">
+                                            <tr>
+                                                <td><figure><img src="images/cart-img3.jpg" alt=""></figure></td>
+                                                <td><p>Beats On-Ear Headphones</p></td>
+                                            </tr>
+                                            </table></td>
+                                        <td>$282</td>
+                                        <td><div class="item-qty">
+                                            <select class="custom_select">
+                                                <option value="1">2</option>
+                                                <option value="2">1</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                            </div></td>
+                                        <td>$282</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pay-outer">
+                            <div class="check-pay">
+                                <div class="radio-outer">
+                                    <input type="radio" name="radiogroup" id="radio1">
+                                    <label for="radio1">Check payments</label>
+                                </div>
+                                <div class="payment-box">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and simply dummy text of the typesetting industry. </p>
+                                </div>
+                            </div>
+                            <div class="method-paypal">
+                                <div class="radio-outer">
+                                    <input type="radio" name="radiogroup" id="radio2">
+                                    <label for="radio2">Paypal <span class="paypal-img"><img src="images/paypal.png" class="img-fluid" alt=""></span></label>
+                                    <a href="#" class="what-paypal">What is Paypal ?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shipping-address">
+                            <h2>Shipping Address</h2>
+                            <div class="contact-form-wrapper checkout-form">
+                                <div class="row">
+                                    <div class="col-md-6 input-col">
+                                        <label>First Name<span>*</span></label>
+                                        <input name="First Name" type="text" placeholder="">
+                                    </div>
+                                    <div class="col-md-6 input-col">
+                                        <label>Last Name<span>*</span></label>
+                                        <input name="Last Name" type="text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 input-col">
+                                        <label>Company name</label>
+                                        <input name="Company name" type="text" placeholder="">
+                                    </div>
+                                    <div class="col-md-6 input-col">
+                                        <label>Country<span>*</span></label>
+                                        <select class="custom_select">
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Algeria">Algeria</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 input-col">
+                                        <label>Address<span>*</span></label>
+                                        <textarea name="Address"></textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-12 input-col">
+                                                <label>Town / City<span>*</span></label>
+                                                <input name="Town / City" type="text" placeholder="">
+                                            </div>
+                                            <div class="col-md-12 input-col">
+                                                <label>Pincode<span>*</span></label>
+                                                <input name="Pincode" type="text" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 input-col">
+                                        <label>Phone<span>*</span></label>
+                                        <input name="Phone" type="text" placeholder="">
+                                    </div>
+                                    <div class="col-md-6 input-col">
+                                        <label>Email<span>*</span></label>
+                                        <input name="Email" type="text" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Left --> 
+                    
+                    <!-- Start Right --> 
+                    <div class="col-lg-4">
+                        <div class="checkout-right">
+                            <div class="have-coupon">
+                                <div class="icon">
+                                    <img src="images/coupon-ico.png" alt="">
+                                </div>
+                                <div class="cnt-right">
+                                    <h3>Have a coupon ?</h3>
+                                    <a href="#">Click enter your code</a>
+                                </div>
+                            </div>
+                            <div class="cart-total">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Totals</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Subtotal</th>
+                                            <td>$349</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Shipping</th>
+                                            <td>Flat rate: $50</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Total</th>
+                                            <td>$349</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="btn-outer">
+                                                    <button class="btn revise-btn">Revise Cart</button>
+                                                    <button class="btn checkout-btn">Checkout</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Right --> 
+                </div>
+            </div>
+        </section>
+
+<!-- ==============================================
+**Signup Section**
+=================================================== -->
+        <section class="signup-outer gradient-bg padding-lg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <ul class="clearfix">
+                            <li> <span class="icon-men"></span>
+                                <h4>Signup for an <span>Account</span></h4>
+                            </li>
+                            <li> <span class="icon-chat"></span>
+                                <h4>Discuss with <span>our team</span></h4>
+                            </li>
+                            <li> <span class="icon-lap"></span>
+                                <h4>Receive a <span>good support</span></h4>
+                            </li>
+                        </ul>
+                        <div class="signup-form">
+                            <form action="#" method="get">
+                                <div class="email">
+                                    <input name="email" type="text" placeholder="email">
+                                </div>
+                                <div class="password">
+                                    <input name="password" type="password" placeholder="password">
+                                </div>
+                                <button class="signup-btn">Sign up Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- ==============================================
+**Footer opt1**
+=================================================== -->
+        <% include part_element/footer.ejs%>
+
+        <!-- Scroll to top --> 
+        <a href="#" class="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a> 
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+        <script src="js/jquery.min.js"></script> 
+        <!-- Popper JS --> 
+        <script src="js/popper.min.js"></script> 
+        <!-- Bootsrap JS --> 
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script> 
+        <!-- Select2 JS --> 
+        <script src="assets/select2/js/select2.min.js"></script> 
+        <!-- Video Popup JS --> 
+        <script src="assets/magnific-popup/js/magnific-popup.min.js"></script> 
+        <!-- Waypoints JS --> 
+        <script src="assets/waypoints/js/waypoints.min.js"></script> 
+        <!-- Counter Up JS --> 
+        <script src="assets/counterup/js/counterup.min.js"></script> 
+        <!-- Custom JS --> 
+        <script src="js/custom.js"></script>
+    </body>
+</html>

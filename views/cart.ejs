@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <% include part_element/head.ejs%>
+
+    <body>
+
+<!-- ==============================================
+**Preloader**
+=================================================== -->
+        <div id="loader">
+            <div id="element">
+                <div class="circ-one"></div>
+                <div class="circ-two"></div>
+            </div>
+        </div>
+
+<!-- ==============================================
+**Header**
+=================================================== -->
+        <% include part_element/header.ejs%>
+
+<!-- ==============================================
+**Inner Banner**
+=================================================== -->
+        <section class="inner-banner">
+            <div class="container">
+                <div class="contents">
+                    <h1>Cart</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <span>Lorem Ipsum has been the industry's standard dummy text ever since</span></p>
+                </div>
+            </div>
+        </section>
+
+<!-- ==============================================
+**Cart**
+=================================================== -->
+        <section class="padding-lg">
+            <div class="container">
+                <div class="cart-table table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>PRODUCT</th>
+                                <th>PRICE</th>
+                                <th>QUANTITY</th>
+                                <th>TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                <td>
+                                    <table class="table product-name">
+                                        <tr>
+                                            <td><figure><img src="images/cart-img1.jpg" alt=""></figure></td>
+                                            <td><p>Apple Watch Series 3</p></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>$257</td>
+                                <td>         
+                                    <div class="item-qty">
+                                        <select class="custom_select">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>$257</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                <td>
+                                    <table class="table product-name">
+                                        <tr>
+                                            <td><figure><img src="images/cart-img2.jpg" alt=""></figure></td>
+                                            <td><p>Microsoft 13.5-inch</p></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>$358</td>
+                                <td>
+                                    <div class="item-qty">
+                                        <select class="custom_select">
+                                            <option value="1">3</option>
+                                            <option value="2">2</option>
+                                            <option value="3">1</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>$358</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                <td>
+                                    <table class="table product-name">
+                                        <tr>
+                                            <td><figure><img src="images/cart-img3.jpg" alt=""></figure></td>
+                                            <td><p>Beats On-Ear Headphones</p></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>$282</td>
+                                <td>
+                                    <div class="item-qty">
+                                        <select class="custom_select">
+                                            <option value="1">2</option>
+                                            <option value="2">1</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>$282</td>
+                            </tr>
+                            <tr class="coupon-row">
+                                <td colspan="3">
+                                    <div class="apply-coupon">
+                                        <input name="Apply Coupon" type="text" placeholder="Apply Coupon">
+                                        <button class="btn coupon-btn">Apply Coupon</button>
+                                    </div>
+                                </td>
+                                <td colspan="2"><button class="btn update-cart float-right">Update Cart</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cart-total">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Cart totals</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Subtotal</th>
+                                <td>$349</td>
+                            </tr>
+                            <tr>
+                                <th>Shipping</th>
+                                <td>Flat rate: $50<a href="#" class="calculate">Calculate shipping</a></td>
+                            </tr>
+                            <tr>
+                                <th>Subtotal</th>
+                                <td>$349</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button class="btn proceed-checkout">Proceed to checkout</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+<!-- ==============================================
+**Signup Section**
+=================================================== -->
+        <section class="signup-outer gradient-bg padding-lg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <ul class="clearfix">
+                            <li> <span class="icon-men"></span>
+                                <h4>Signup for an <span>Account</span></h4>
+                            </li>
+                            <li> <span class="icon-chat"></span>
+                                <h4>Discuss with <span>our team</span></h4>
+                            </li>
+                            <li> <span class="icon-lap"></span>
+                                <h4>Receive a <span>good support</span></h4>
+                            </li>
+                        </ul>
+                        <div class="signup-form">
+                            <form action="#" method="get">
+                                <div class="email">
+                                    <input name="email" type="text" placeholder="email">
+                                </div>
+                                <div class="password">
+                                    <input name="password" type="password" placeholder="password">
+                                </div>
+                                <button class="signup-btn">Sign up Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- ==============================================
+**Footer opt1**
+=================================================== -->
+        <% include part_element/footer.ejs%>
+
+        <!-- Scroll to top -->
+        <a href="#" class="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="js/popper.min.js"></script>
+        <!-- Bootsrap JS -->
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Select2 JS -->
+        <script src="assets/select2/js/select2.min.js"></script>
+        <!-- Video Popup JS -->
+        <script src="assets/magnific-popup/js/magnific-popup.min.js"></script>
+        <!-- Waypoints JS -->
+        <script src="assets/waypoints/js/waypoints.min.js"></script>
+        <!-- Counter Up JS -->
+        <script src="assets/counterup/js/counterup.min.js"></script>
+        <!-- Custom JS -->
+        <script src="js/custom.js"></script>
+    </body>
+
+</html>
