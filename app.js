@@ -19,6 +19,11 @@ var how_it_works = require('./routes/how_it_works');
 var pricing = require('./routes/pricing');
 var portfolio = require('./routes/portfolio');
 var apply_job = require('./routes/apply_job');
+var contact = require('./routes/contact');
+var privacy_policy = require('./routes/privacy_policy');
+var typography = require('./routes/typography');
+var components = require('./routes/components');
+var blog_grid = require('./routes/blog_grid');
 var app = express();
 
 // view engine setup
@@ -48,6 +53,13 @@ app.use('/hot-it-works', how_it_works);
 app.use('/pricing', pricing);
 app.use('/portfolio', portfolio);
 app.use('/apply-job', apply_job);
+app.use('/contact', contact);
+app.use('/privacy-policy', privacy_policy);
+app.use('/typography', typography);
+app.use('/components', components);
+app.use('/blog-grid', blog_grid);
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error("Nor found");
