@@ -40,7 +40,7 @@ var team_blocks = require('./routes/team_blocks');
 var testimonial_blocks = require('./routes/testimonial_blocks');
 var blog_blocks = require('./routes/blog_blocks');
 var app = express();
-
+let db = require("./db");
 // view engine setup
 app.engine('ejs', require('ejs-locals'));
 
@@ -52,6 +52,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', index);
 app.use('/users', users );
@@ -86,14 +87,15 @@ app.use('/features-blocks', features_blocks);
 app.use('/call-to-action', call_to_action);
 app.use('/marketing-blocks', marketing_blocks);
 app.use('/team-blocks', team_blocks);
+app.use('/team-blocks', team_blocks);
 app.use('/testimonial-blocks', testimonial_blocks);
 app.use('/blog-blocks', blog_blocks);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error("Nor found");
-  err.status(404);
-  next(err);
+    let err = new Error("Not found");
+    err.status = 404;
+    next(err);
 });
 
 // error handler
@@ -105,6 +107,16 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+db.connect("mongodb://localhost:27017/multipos", function (err){
+    if(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
+    else{
+        console.log("Db connect");
+    }
 });
 
 module.exports = app;

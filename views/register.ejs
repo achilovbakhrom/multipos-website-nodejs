@@ -13,6 +13,7 @@
             </div>
         </div>
 
+
 <!-- ==============================================
 **Register**
 =================================================== -->
@@ -22,22 +23,26 @@
                     <div class="inner">
                         <div class="login-form">
                             <h3>Register Now</h3>
-                            <form>
-                                <div class="user-name">
-                                    <label>User Name</label>
-                                    <input name="User Name" placeholder="" type="text">
+                                <form action="javascript:void(0);">
+                                <div class="first-name" >
+                                    <label>First Name</label>
+                                    <input name="First Name" placeholder="" type="text" id="billing_first_name">
                                 </div>
-                                <div class="mail">
+                                <div class="last-name" >
+                                    <label>Last Name</label>
+                                    <input name="Last Name" placeholder="" type="text" id="billing_last_name">
+                                </div>
+                                <div class="mail" >
                                     <label>Email Address</label>
-                                    <input name="Email Address" placeholder="" type="text">
+                                    <input name="Email Address" placeholder="" type="text" id="billing_email">
                                 </div>
-                                <div class="password">
+                                <div class="password" >
                                     <label>Password</label>
-                                    <input name="Password" placeholder="" type="text">
+                                    <input name="Password" placeholder="" type="text" id="billing_password">
                                 </div>
-                                <div class="confirm-password">
+                                <div class="confirm-password" >
                                     <label>Confirm Password</label>
-                                    <input name="Confirm Password" placeholder="" type="text">
+                                    <input name="Confirm Password" placeholder="" type="text" id="confirm_password">
                                 </div>
                                 <div class="terms">
                                     <label>
@@ -45,13 +50,13 @@
                                         <span>I agree to all <a href="">terms</a></span></label>
                                 </div>
                                 <div class="login-btn-sec">
-                                    <button class=" btn login-btn">Register</button>
+                                    <button id="register_now" class="btn login-btn">Register</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="box-hav-accnt">
-                        <p>Already have an account? <a href="login.ejs">Sign in</a></p>
+                        <p>Already have an account? <a href="/login">Sign in</a></p>
                     </div>
                 </div>
             </div>
@@ -67,5 +72,7 @@
         <script src="assets/select2/js/select2.min.js"></script> 
         <!-- Custom JS --> 
         <script src="js/custom.js"></script>
+
+        <script src="js/main.js"></script>
     </body>
 </html>
