@@ -1,45 +1,46 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var login = require('./routes/login');
-var register = require('./routes/register');
-var about = require('./routes/about');
-var support = require('./routes/support');
-var career = require('./routes/career');
-var faq = require('./routes/faq');
-var faql = require('./routes/faql');
-var features = require('./routes/features');
-var career_protech = require('./routes/career_protech');
-var how_it_works = require('./routes/how_it_works');
-var pricing = require('./routes/pricing');
-var portfolio = require('./routes/portfolio');
-var apply_job = require('./routes/apply_job');
-var contact = require('./routes/contact');
-var privacy_policy = require('./routes/privacy_policy');
-var typography = require('./routes/typography');
-var components = require('./routes/components');
-var blog_grid = require('./routes/blog_grid');
-var blog_grid_sidebar = require('./routes/blog_grid_sidebar');
-var blog_list= require('./routes/blog_list');
-var blog_standard = require('./routes/blog_standard');
-var blog_single = require('./routes/blog_single');
-var shop_grid = require('./routes/shop_grid');
-var shop_grid_sidebar = require('./routes/shop_grid_sidebar');
-var shop_single = require('./routes/shop_single');
-var cart = require('./routes/cart');
-var checkout = require('./routes/checkout');
-var features_blocks = require('./routes/features_blocks');
-var call_to_action = require('./routes/call_to_action');
-var marketing_blocks = require('./routes/marketing_blocks');
-var team_blocks = require('./routes/team_blocks');
-var testimonial_blocks = require('./routes/testimonial_blocks');
-var blog_blocks = require('./routes/blog_blocks');
-var app = express();
+let index = require('./routes/index');
+let users = require('./routes/users');
+let login = require('./routes/login');
+let register = require('./routes/register');
+let about = require('./routes/about');
+let support = require('./routes/support');
+let career = require('./routes/career');
+let faq = require('./routes/faq');
+let faql = require('./routes/faql');
+let features = require('./routes/features');
+let career_protech = require('./routes/career_protech');
+let how_it_works = require('./routes/how_it_works');
+let pricing = require('./routes/pricing');
+let portfolio = require('./routes/portfolio');
+let apply_job = require('./routes/apply_job');
+let contact = require('./routes/contact');
+let privacy_policy = require('./routes/privacy_policy');
+let typography = require('./routes/typography');
+let components = require('./routes/components');
+let blog_grid = require('./routes/blog_grid');
+let blog_grid_sidebar = require('./routes/blog_grid_sidebar');
+let blog_list= require('./routes/blog_list');
+let blog_standard = require('./routes/blog_standard');
+let blog_single = require('./routes/blog_single');
+let shop_grid = require('./routes/shop_grid');
+let shop_grid_sidebar = require('./routes/shop_grid_sidebar');
+let shop_single = require('./routes/shop_single');
+let cart = require('./routes/cart');
+let checkout = require('./routes/checkout');
+let features_blocks = require('./routes/features_blocks');
+let call_to_action = require('./routes/call_to_action');
+let marketing_blocks = require('./routes/marketing_blocks');
+let team_blocks = require('./routes/team_blocks');
+let testimonial_blocks = require('./routes/testimonial_blocks');
+let blog_blocks = require('./routes/blog_blocks');
+let app = express();
 let db = require("./db");
 // view engine setup
 app.engine('ejs', require('ejs-locals'));
@@ -48,11 +49,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.use('/', index);
 app.use('/users', users );
@@ -104,9 +104,10 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+  console.log("log: " + err.message);
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {message: err.message});
 });
 
 db.connect("mongodb://localhost:27017/multipos", function (err){

@@ -2,11 +2,44 @@
 
 (function() {
 
-    var $body = jQuery('body');
-    var $window = jQuery(window);
+    $('#login_now').click(function () {
+        let email = $('#email_now').val();
+        let password = $('#password_now').val();
+        $.ajax({
+            type: "POST",
+            url:"login/authorize",
+            data: {
+                "email": email,
+                "password": password
+            },
+            statusCode:{
+                404: function (error) {
+                    alert(error.message);
+                    window.location.replace("http://localhost:3000");
+                },
+                401: function (error) {
+                    alert(error.message);
+                    window.location.replace("http://localhost:3000/login");
+                },
+                500: function (error) {
+                    alert(error.message);
+                    window.location.replace("http://localhost:3000/login");
+                }
+            },
+            success: function (response) {
+                var date = new Date(43200);
+                var expirationDateString = date.toUTCString();
+                var sessionId = response.sessionId;
+                $.cookie("username", email);
+                $.cookie("sessionId", sessionId);
+                $.cookie("expires", expirationDateString);
+                window.location.replace("http://localhost:3000");
+            },
+            dataType:'json'
+        });
+    });
 
     var sending = false;
-
 
     $('#register_now').click(function() {
         if (sending) return;
@@ -56,7 +89,7 @@
                 "last_name": lastNameValue,
                 "email": emailValue,
                 "password": passwordValue,
-                "confirm": passwordConfirm
+                "comfirm": passwordConfirm
             },
             statusCode: {
                 500: function(error) {

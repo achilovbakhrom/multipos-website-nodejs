@@ -22,21 +22,21 @@
                     <div class="inner">
                         <div class="login-form">
                             <h3>Login Now</h3>
-                            <form>
-                                <div class="mail">
+                            <form class="contact-form" action="javascript:void(0);">
+                                    <div class="mail">
                                     <label>Email Address</label>
-                                    <input name="Email Address" placeholder="" type="text">
+                                    <input name="Email Address" placeholder="" type="text" id="email_now">
                                 </div>
                                 <div class="password">
                                     <label>Password</label>
-                                    <input name="Password" placeholder="" type="text">
+                                    <input name="Password" placeholder="" type="text" id="password_now">
                                 </div>
                                 <div class="forgot">
                                     <label>
                                         <input value="" type="checkbox">
                                         <span>Remember me</span></label>
                                     <a href="#"><span class="q-mark">?</span>Forgot password</a> </div>
-                                <button class="btn login-btn">Login Now</button>
+                                <button class="btn login-btn" type="submit" id="login_now" name="contact_submit">Login Now</button>
                             </form>
                         </div>
                         <div class="social-media-box">
@@ -61,7 +61,10 @@
         <script src="js/popper.min.js"></script> 
         <!-- Bootsrap JS --> 
         <script src="assets/bootstrap/js/bootstrap.min.js"></script> 
-        <!-- Custom JS --> 
+        <!-- Custom JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="js/custom.js"></script>
+        <script src="js/jquery.cookie.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
