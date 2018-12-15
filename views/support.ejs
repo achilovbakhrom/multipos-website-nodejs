@@ -70,17 +70,17 @@
                         <div class="support-request">
                             <h2>Support Request</h2>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                            <form action="#" method="get" class="support-form">
+                            <form action="/support" method="POST" class="support-form">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input name="Name" type="text" placeholder="Name">
-                                        <input name="Email" type="text" placeholder="Email">
+                                        <input name="name" type="text" placeholder="Name">
+                                        <input name="email" type="text" placeholder="Email">
                                     </div>
                                     <div class="col-md-6">
-                                        <textarea name="Mesage" placeholder="Mesage"></textarea>
+                                        <textarea name="message" placeholder="Message"></textarea>
                                     </div>
                                     <div class="col-md-12">
-                                        <button class="submit-btn">Submit</button>
+                                        <button type="submit" class="submit-btn" >Submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -95,15 +95,6 @@
 =================================================== -->
         <section class="advices-outer padding-lg">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-8">
-                        <h2>Advice and answers from Our Team</h2>
-                        <form action="#" method="get" class="search-outer d-flex">
-                            <input name="Search" type="text" placeholder="Search">
-                            <button class="go-btn"><span class="icon-search"></span></button>
-                        </form>
-                    </div>
-                </div>
                 <ul class="row features-listing">
                     <li class="col-md-4">
                         <div class="inner"> <span class="icon"><img src="images/info-ico.png" alt=""></span>
@@ -149,9 +140,9 @@
 **Signup Section**
 =================================================== -->
         <section class="signup-outer gradient-bg padding-lg">
-            <div class="container">
+            <!--<div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-10">
+                    <div class="col-md-2">
                         <ul class="clearfix">
                             <li> <span class="icon-men"></span>
                                 <h4>Signup for an <span>Account</span></h4>
@@ -176,7 +167,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </section>
 
 <!-- ==============================================
@@ -199,5 +190,7 @@
         <script src="assets/matchHeight/js/matchHeight-min.js"></script> 
         <!-- Custom JS --> 
         <script src="js/custom.js"></script>
+        <!--Cookie JS-->
+        <script src="js/jquery.cookie.js"></script>
     </body>
 </html>

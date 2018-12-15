@@ -1,9 +1,11 @@
 let express = require('express');
 let path = require('path');
-let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+
+let oauthserver  = require('oauth2-server');
 
 let index = require('./routes/index');
 let users = require('./routes/users');
@@ -16,7 +18,7 @@ let faq = require('./routes/faq');
 let faql = require('./routes/faql');
 let features = require('./routes/features');
 let career_protech = require('./routes/career_protech');
-let how_it_works = require('./routes/how_it_works');
+let how_it_work = require('./routes/how_it_work');
 let pricing = require('./routes/pricing');
 let portfolio = require('./routes/portfolio');
 let apply_job = require('./routes/apply_job');
@@ -50,9 +52,49 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.post('/support',  function (req, res) {
+       var name = req.body.name;
+       var email = req.body.email;
+       var message = req.body.message;
+
+    let transporter = nodemailer.createTransport({
+        service: "Gmail",
+        auth: {
+            user: 's.nodir9494@gmail.com', // generated ethereal user
+            pass: 'password' // generated ethereal password
+        },
+        tls:{
+            rejectUnauthorized: false
+        }
+    });
+
+    let mailOptions = {
+        from: '"Multipos Contact" <s.nodir_94@mail.ru>', // sender address
+        to: 's.nodir_94@mail.ru', // list of receivers
+        subject: 'User support', // Subject line
+        text: "Name: " + name + '\n' + "Email: " + email + '\n' + "Text: " + message + '\n' // plain text body
+    };
+
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+        res.redirect('/support');
+    });
+});
+// oauth area
+app.oauth = oauthserver({
+    model: require("./model.js"),
+    grants: ['password'],
+    debug: true
+});
 
 app.use('/', index);
 app.use('/users', users );
@@ -65,14 +107,14 @@ app.use('/faq', faq);
 app.use('/faql', faql);
 app.use('/features', features);
 app.use('/career-protech', career_protech);
-app.use('/hot-it-works', how_it_works);
+app.use('/how-it-work', how_it_work);
 app.use('/pricing', pricing);
 app.use('/portfolio', portfolio);
 app.use('/apply-job', apply_job);
 app.use('/contact', contact);
 app.use('/privacy-policy', privacy_policy);
 app.use('/typography', typography);
-app.use('/components', components);
+// app.use('/components', components);
 app.use('/blog-grid', blog_grid);
 app.use('/blog-grid-sidebar', blog_grid_sidebar);
 app.use('/blog-list', blog_list);
@@ -90,6 +132,12 @@ app.use('/team-blocks', team_blocks);
 app.use('/team-blocks', team_blocks);
 app.use('/testimonial-blocks', testimonial_blocks);
 app.use('/blog-blocks', blog_blocks);
+
+
+
+app.all('/oauth/token', app.oauth.grant());
+
+// oauth area end
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -109,6 +157,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {message: err.message});
 });
+
+app.use(app.oauth.errorHandler());
 
 db.connect("mongodb://localhost:27017/multipos", function (err){
     if(err){

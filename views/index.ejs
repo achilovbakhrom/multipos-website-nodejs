@@ -1,28 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8">
-      <title>SaaS - Responsive SaaS, Software, Web App & Mobile App Template</title>
-      <link rel='stylesheet' href='../public/stylesheets/style.css' />
-      <!-- Bootstrap core CSS -->
-      <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-      <!-- Required meta tags -->
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- Select2 -->
-      <link href="/assets/select2/css/select2.min.css" rel="stylesheet">
-      <!-- Font Awesome -->
-      <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-      <!-- Iconmoon -->
-      <link href="/assets/iconmoon/css/iconmoon.css" rel="stylesheet">
-      <!-- Owl Carousel -->
-      <link href="/assets/owl-carousel/css/owl.carousel.min.css" rel="stylesheet">
-      <!-- Video Popup -->
-      <link href="/assets/magnific-popup/css/magnific-popup.css" rel="stylesheet">
-      <!-- Custom styles for this template -->
-      <link href="/css/custom.css" rel="stylesheet">
-  </head>
+    <% include part_element/head.ejs%>
   <body>
 
   <!-- ==============================================
@@ -361,36 +339,36 @@
   <!-- ==============================================
   **Signup Section**
   =================================================== -->
-  <section class="signup-outer gradient-bg padding-lg">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-10">
-          <ul class="clearfix">
-            <li> <span class="icon-men"></span>
-              <h4>Signup for an <span>Account</span></h4>
-            </li>
-            <li> <span class="icon-chat"></span>
-              <h4>Discuss with <span>our team</span></h4>
-            </li>
-            <li> <span class="icon-lap"></span>
-              <h4>Receive a <span>good support</span></h4>
-            </li>
-          </ul>
-          <div class="signup-form">
-            <form action="#" method="get">
-              <div class="email">
-                <input name="email" type="text" placeholder="email">
+      <section class="signup-outer gradient-bg padding-lg">
+          <!--<div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-md-10">
+                      <ul class="clearfix">
+                          <li> <span class="icon-men"></span>
+                            <h4>Signup for an <span>Account</span></h4>
+                          </li>
+                          <li> <span class="icon-chat"></span>
+                            <h4>Discuss with <span>our team</span></h4>
+                          </li>
+                          <li> <span class="icon-lap"></span>
+                            <h4>Receive a <span>good support</span></h4>
+                        </li>
+                      </ul>
+                      <div class="signup-form">
+                          <form action="#" method="get">
+                              <div class="email">
+                                <input name="email" type="text" placeholder="email">
+                              </div>
+                              <div class="password">
+                                <input name="password" type="password" placeholder="password">
+                              </div>
+                              <button class="signup-btn">Sign up Now</button>
+                          </form>
+                      </div>
+                  </div>
               </div>
-              <div class="password">
-                <input name="password" type="password" placeholder="password">
-              </div>
-              <button class="signup-btn">Sign up Now</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          </div>-->
+      </section>
 
   <!-- ==============================================
   **Footer opt1**
@@ -416,7 +394,11 @@
   <script src="/assets/magnific-popup/js/magnific-popup.min.js"></script>
   <!-- Custom JS -->
   <script src="/js/custom.js"></script>
-
+  <!-- Bootsrap JS -->
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/custom.js"></script>
+  <script src="js/jquery.cookie.js"></script>
 
 
   </body>

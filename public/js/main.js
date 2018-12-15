@@ -2,15 +2,34 @@
 
 (function() {
 
+    if ($.cookie("username")) {
+        var username = $.cookie("username");
+        $('#login_area').append("<p><a>" + username + " </a>&nbsp&nbsp|&nbsp&nbsp <a class=\"btn blue\" id=\"logout\" href=\"#\"> Logout </a></p>");
+    } else {
+        $('#login_area').append("<ul style='margin-left: 25%;' class=\"navbar-right d-flex\"> <li><a href=\"/login\"> Sign In </a> </li><li><a href=\"/register\"> Sign Up </a></li></ul>");
+    }
+
+    $('#logout').click(function () {
+        $.removeCookie('username', { path: '/' });
+        $.removeCookie('expires', { path: '/' });
+        $.removeCookie('access_token', {path: '/'});
+        $.removeCookie('sessionId', {path:'/'});
+        window.location.replace("http://localhost:3000");
+    });
+
+
     $('#login_now').click(function () {
         let email = $('#email_now').val();
         let password = $('#password_now').val();
         $.ajax({
             type: "POST",
-            url:"login/authorize",
+            url:"http://localhost:3000/oauth/token",
             data: {
-                "email": email,
-                "password": password
+                "username": email,
+                "password": password,
+                "client_id": 'application',
+                "client_secret": 'secret',
+                "grant_type": "password"
             },
             statusCode:{
                 404: function (error) {
@@ -27,11 +46,11 @@
                 }
             },
             success: function (response) {
+                console.log(response);
                 var date = new Date(43200);
                 var expirationDateString = date.toUTCString();
-                var sessionId = response.sessionId;
                 $.cookie("username", email);
-                $.cookie("sessionId", sessionId);
+                $.cookie("access_token", response.access_token);
                 $.cookie("expires", expirationDateString);
                 window.location.replace("http://localhost:3000");
             },
@@ -45,11 +64,12 @@
         if (sending) return;
         var firstNameValue = $('#billing_first_name').val();
         var lastNameValue = $('#billing_last_name').val();
+        var companyNameValue = $('#billing_company_name').val();
         var emailValue = $('#billing_email').val();
         var passwordValue = $('#billing_password').val();
         var passwordConfirm = $('#confirm_password').val();
 
-        if(passwordConfirm == null || passwordConfirm != passwordValue){
+        if(passwordConfirm == null || passwordConfirm !== passwordValue){
             alert("Please replay password");
             return;
         }
@@ -60,6 +80,10 @@
 
         if (lastNameValue === null || lastNameValue.length < 3) {
             alert("Last name must contain at least 3 letters");
+            return;
+        }
+        if (companyNameValue === null || companyNameValue.length < 3) {
+            alert("Company name must contain at least 3 letters");
             return;
         }
 
@@ -87,6 +111,7 @@
             data: {
                 "first_name": firstNameValue,
                 "last_name": lastNameValue,
+                "company_name": companyNameValue,
                 "email": emailValue,
                 "password": passwordValue,
                 "comfirm": passwordConfirm

@@ -175,12 +175,12 @@ select:focus {
 }
 .btn {
 	display: inline-block;
-	padding: 14px 45px;
+	padding: 3px 12px;
 	background: #57bce2;
 	font-size: 16px;
 	color: #fff;
 	font-weight: 700;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	border-radius: 5px;
 }
 .btn:hover {
@@ -1205,6 +1205,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3edc93', end
 .banner-outer .bx-pager.bx-default-pager a:focus {
 	background: #f29a32;
 }
+
 .delay-02s {
 	animation-delay: 0.2s;
 	-webkit-animation-delay: 0.2s;
@@ -1252,7 +1253,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3edc93', end
 	Content Marketing opt1
 ----------------------------------*/
 .padding-lg {
-	padding: 90px 0;
+	padding: 60px 0;
 }
 .content-marketing {
 	display: block;
@@ -5804,10 +5805,10 @@ ul.our-values li .text-area p {
 .login-outer {
 	width: 100%;
 	height: 100%;
-	padding: 40px 20px;
+	padding: 0px 20px;
 	display: table;
 	position: absolute;
-	background: url(../images/login-pg-bg.jpg) no-repeat fixed;
+	background: url(../images/zafar_decstop.jpg) no-repeat fixed;
 	background-size: cover;
 }
 .login-outer:after {
@@ -5816,7 +5817,7 @@ ul.our-values li .text-area p {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: rgba(255, 255, 255, 0.8);
+	background: rgba(20, 0, 0, 0.7);
 	content: "";
 }
 .login-outer .content-area {
@@ -5832,10 +5833,11 @@ ul.our-values li .text-area p {
 }
 .login-form-holder .inner {
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+	height: 80%;
 }
 .login-form-holder .login-form {
 	background: #fff;
-	padding: 50px 35px 48px;
+	padding: 30px 25px 10px;
 	text-align: left;
 }
 .login-form-holder h3 {
@@ -5961,8 +5963,8 @@ ul.our-values li .text-area p {
 	background: #57bce2;
 }
 .social-media-box {
-	background: rgba(255, 255, 255, 0.8);
-	padding: 20px 35px;
+	background: rgba(255, 255, 255, 1);
+	padding: 10px 25px;
 	box-shadow: inset 0 15px 20px -20px rgba(0, 0, 0, 0.2);
 }
 .social-media-box p {
@@ -10429,5 +10431,8 @@ ul.Product-listing.right-sec li .bottom .add-cart{
 	}
 	.footer .recent-post ul li figure {
 		width: 25%;
+	}
+	#index_login_hover a:hover {
+		color: #000;
 	}
 }

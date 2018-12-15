@@ -8,10 +8,9 @@ router.get('/', function(req, res, next) {
     res.render('login');
 });
 
-router.post('/authorize', function (request, response, next) {
+router.post('/token', function (request, response, next) {
      let email = request.body.email;
      let password = request.body.password;
-
      Users.findByEmail(email, function (err, res) {
          if(err){
              let err = new Error();
@@ -37,10 +36,8 @@ router.post('/authorize', function (request, response, next) {
                  next(err);
                  return;
              }
-             let sessionId = guid();
              response.json({
-                 message: "OK",
-                 sessionId: sessionId
+                 message: "OK"
              });
              response.statusCode = 200;
              response.send();

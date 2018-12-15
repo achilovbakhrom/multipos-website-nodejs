@@ -14,7 +14,7 @@
          *  Language Select dropdown  *
          ******************************/
         function formatState(state) {
-            var $state = $('<span><img src="images/' + $.trim(state.text.toLowerCase()) + '.png" class="img-flag" /> ' + state.text + '</span>');
+            var $state = $('<span>'+ state.text + '</span>');
             return $state;
         };
 

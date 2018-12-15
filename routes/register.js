@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 router.post("/save", function (req, response, next) {
     var firstName = req.body.first_name;
     var lastName = req.body.last_name;
+    var companyName = req.body.company_name;
     var emailAdress = req.body.email;
     var userPassword = req.body.password;
     var confirmPassword = req.body.comfirm;
@@ -41,6 +42,7 @@ router.post("/save", function (req, response, next) {
             Users.create({
                 firstName: firstName,
                 lastName: lastName,
+                copmanyName: companyName,
                 email: emailAdress,
                 password: userPassword,
                 comfirms: confirmPassword,
