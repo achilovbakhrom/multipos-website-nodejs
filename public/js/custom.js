@@ -13,6 +13,7 @@
         /******************************
          *  Language Select dropdown  *
          ******************************/
+
         function formatState(state) {
             var $state = $('<span>'+ state.text + '</span>');
             return $state;

@@ -60,12 +60,14 @@ app.post('/support',  function (req, res) {
        var name = req.body.name;
        var email = req.body.email;
        var message = req.body.message;
+       var number = req.body.phone;
+       var company = req.body.company;
 
     let transporter = nodemailer.createTransport({
         service: "Gmail",
         auth: {
             user: 's.nodir9494@gmail.com', // generated ethereal user
-            pass: 'password' // generated ethereal password
+            pass: 'goroskop123' // generated ethereal password
         },
         tls:{
             rejectUnauthorized: false
@@ -76,7 +78,7 @@ app.post('/support',  function (req, res) {
         from: '"Multipos Contact" <s.nodir_94@mail.ru>', // sender address
         to: 's.nodir_94@mail.ru', // list of receivers
         subject: 'User support', // Subject line
-        text: "Name: " + name + '\n' + "Email: " + email + '\n' + "Text: " + message + '\n' // plain text body
+        text: "Name: " + name + '\n' + "Email: " + email + '\n'+ "Phone: " + number + '\n'+ "Company: " + company + '\n' + "Text: " + message + '\n' // plain text body
     };
 
 
@@ -86,7 +88,7 @@ app.post('/support',  function (req, res) {
         }
         console.log('Message sent: %s', info.messageId);
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-        res.redirect('/support');
+        res.redirect('/');
     });
 });
 // oauth area
@@ -132,7 +134,6 @@ app.use('/team-blocks', team_blocks);
 app.use('/team-blocks', team_blocks);
 app.use('/testimonial-blocks', testimonial_blocks);
 app.use('/blog-blocks', blog_blocks);
-
 
 
 app.all('/oauth/token', app.oauth.grant());

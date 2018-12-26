@@ -1,0 +1,10 @@
+﻿{
+	"en": {
+		"langdesc": "English",
+        "about": "about"
+	},
+	"ru": {
+		"langdesc": "Russian",
+        "about": "О нас"
+	}
+}
