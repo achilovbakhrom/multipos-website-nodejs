@@ -1,49 +1,83 @@
 var language = {
   es: {
     appTitle: "mulipos",
-    appdescrip: "Convierta cualquier aplicación web en una aplicación de escritorio nativa para Windows, Linux o Mac OS X.",
+    lfuture: "Преимущества",
+    lservices: "Особенности",
+    lblog: "Блог",
+    lteam: "Команда",
+    lprice: "Прайс",
+    lfaq: "FAQ",
+    lcontact: "Контакты",
     setflag: "assets/flags/4x3/ru.svg",
-    ldwnload: "DESCARGAR",
-    ldwnloadwin: "WINDOWS",
-    ldwnloadwin32: "WINDOWS 32BIT",
-    ldwnloadmac: "MAC",
-    ldwnloadlin: "LINUX I832",
-    ldwnloadlin64: "LINUX",
-    ldwnloadc: "CROMADA",
-    ldwnloadce: "EXTENSIÓN CROMADA",
-    ldwnloada: "ANDROID",
-    ldwnloadjp: "PLUGIN JAVASCRIPT",
-    ldonate: "Будущий",
-    ldonatepp: "DONAR CON PAYPAL",
-    ldonatesc: "DONAR CON SQUARECASH",
-    lcontribute: "CONTRIBUIR",
-    lstore: "ALMACENAR",
-    lrun: "LANZAMIENTO",
-    intro: "¡Convierte fácilmente cualquier sitio web o aplicación web (HTML / CSS / JS) como una aplicación de escritorio nativa!",
-    playvid: "Ver video",
-    vidURL1: "https://www.youtube.com/watch?v=aFaNSzWpd0U",
-    vidURL2: "https://www.youtube.com/embed/aFaNSzWpd0U?rel=0&amp;enablejsapi=1",
-    donatebtn: "¡Dona al proyecto!",
-    donateh1: "¡Ayude a mantener este proyecto gratis!",
-    donateh2: "Reduzca el tiempo de desarrollo ayudando a nuestros desarrolladores.",
-    appshirt: "Camiseta oficial de WebDGap",
-    wapptsub: "Edición Blanca",
-    bapptsub: "Edición negro",
-    openappt: "Camiseta de código abierto",
-    openapptsub: "¡Demuestra que apoyas el software de código abierto!",
-    apptdescr: "Disponible para los hombres, las mujeres, el equipo del cabrito, v-cuello, hoddie, etc:",
-    buybtn: "¡Cómpralo ahora!",
-    revh1: "LO QUE DICEN NUESTROS FANTÁSTICOS USUARIOS",
-    revh2: "¡Forme su futuro proyecto de escritorio con WebDGap!",
-    rev1: "\"En primer lugar manos fuera a ustedes por su esfuerzo y agradable, super herramienta. Buen trabajo WebDGap equipo! Gran esfuerzo y experiencia super de interfaz de usuario. Increíblemente fácil! \"",
-    rev1name: "Mark C.",
-    rev2: "\"Es una aplicación muy sorprendente que me hace hacer aplicaciones de escritorio en 3 minutos (que por lo general se tarda más de 2 horas al menos de mí si lo hice desde cero). Espero tener una biblioteca muy grande y plugins para esta APP gracias de nuevo por tu bonita aplicación \"",
-    rev2name: "Sarah Y.",
-    rev3: "\"A primera vista, se ve como una buena herramienta innovadora. Me gusta el gran enfoque y el tiempo que se dio a la respuesta diseño claro. La aplicación me da más control sobre qué plataformas quiero exportar. Estaré usando esta herramienta para proyectos más serios. Saludos.\"",
-    rev3name: "Jon E.",
-    userbio: "Usuario",
-    madewwebdgap: "Hecho con WebDGap",
-    submitapp: "¡Presente el suyo hoy!",
+    lsignin: "Логин",
+    lsignup: "Регистрация",
+    lincrease: "Увеличивайте прибыль и Снижайте затраты на 20% за 30 дней, Контролируя и Ускояя Ваш бизнес",
+    lwith: "С нашим технологичным продуктом!",
+    lpurchase: "Купить сейчас",
+    ltheworld: "Первая в мире децентрализованная Система Бизнес Автоматизация c интегрированным искусственным интелектом.",
+    lmanage: "Управляйте своими аккаунтами SEO",
+    lgetlive: "Получите Онлайн Отчет о SEO",
+    lourfeat: "Наши преимущества",
+    lsubour: "MultiPOS System предлагает множество удобных и полезных ключевых функций для вашего бизнеса. Многофункциональность - позволяет контролировать каждый аспект вашего бизнеса. Быстрая интеграция помогает снизить затраты, не тратя время на изучение приложения. И самое главное - новая система безопасности защищает ваш бизнес по всем направлениям.",
+    lmultifunction: "Многофункциональность",
+    lsubmultifunction: "CRM, HRM, WMS, склады, транзакции, заказы, платежи, тайм-менеджмент, управление персоналом.",
+    lcostreduction: "Снижение затрат",
+    lsubcostreduction: "Наша система анализирует эффективность Вашего бизнеса и позволяет увеличить рентабельность инвестиций за счет сокращения ненужных затрат и увеличения продаж.",
+    lfastintegration: "Быстрая интеграция",
+    lsubfast: "Интуитивно понятный интерфейс позволяет сразу использовать нашу систему. Приступайте к работе прямо сейчас.",
+    lwhenever: "``У истоков каждого успешного предпринимателя стоит однажды принятое смелое решение. ``",
+    lprotect: "Защита",
+    lsubprotect: "MultiPOS Система защищает Вашу финансовую информацию, благодаря нашим новейшим технологиям защиты данных. Вы будете чувствовать себя в безопасности в любой точке мира.",
+    lpeterdrucker: "Питер Дракер",
+    lourservices: "Наши особенности",
+    lsubservices: "Система призвана обобщить в себе самые продвинутые технологии и сделать их доступными для всех.",
+    lcontrol: "КОНТРОЛЬ",
+    lsubcontrol: "Полное управление вашим бизнесом с любой точки мира.",
+    lscalability: "МАСШТАБИРУЕМОСТЬ",
+    lsubscalability: "Масштабируемость системы зависит только от размера бизнеса.",
+    lprotectservices: "ЗАЩИТА",
+    lsubprotectservices: "Данные защищены самой надежной системой безопасности.",
+    ltasks: "ЗАДАЧИ",
+    lsubtasks: "Задания для персонала с авто контролем. Новый уровень управления персоналом.",
+    lscreenshot: "Скриншоты приложения",
+    lourblog: "Наш блог",
+    lreadourlatest: "Читайте наши последние новости",
+    lourteam: "Наша Команда",
+    lsubourteam: "Знакомьтесь - наша Multipos команда. Эти мотивированные люди вложили свой труд , энергию и время, чтобы вывести Multipos онлайн.",
+    likromwords: "Если не идеально, то никак. Сложные задачи, как вода, больше трех дней не прожить",
+    lnodirwords: "Нет ничего невозможного, всё в наших руках. И только - понятие невозможного - делает нашу жизнь интересной.",
+    ljamawords: "Всё придуманно до нас, всё это необходимо изучить. Идеальность в простоте.",
+    lceowords: "Основная задача сделать доступными высокие технологии для каждого, внедряя их в наши продукты.",
+    lhowmuchdoes: "Сколько стоит MultiPOS Система?",
+    lourprices:"Наши цены доступны для любого бизнеса.",
+    lstarter: "Начальный пакет",
+    lpluspack: "Дополнительный пакет",
+    lprofpack: "Профессиональный пакет",
+    lprempack: "Премиум пакет",
+    lstandtablet: "Подставка для планшета",
+    luserlimit: "Ограничение пользователей",
+    lunlimusers: "Без ограничения пользователей",
+    ladminpanel: "Панель админ (Веб, IOS, Андройд)",
+    lthirdparty: "Сторонняя интеграция",
+    lfreeupdates: "Бесплатные обновления",
+    lsupport: "Поддержка 24/7",
+    lapp: "Система",
+    lgetstart: "НАЧНЁМ",
+    lfrequently: "Часто Задаваемые Вопросы",
+    lsubfrequently: "Здесь Вы найдёте ответы на Ваши вопросы, не обращаясь в службу поддержки. Если Вы не нашли ответа на Ваш вопрос, то задайте Ваш вопрос нам в форме обратной связи.",
+    lfaqrow1: "Мы с радостью ответим на Ваши вопросы и если вопрос будет интересным, то разместим его в данном разделе вместе с нашим ответом",
+    lfaqrow2: "Глупых вопросов не бывает. Самый глупый вопрос - это незаданный вопрос.",
+    lsubfaq1: "Что такое MultiPOS Система?",
+    lsubfaq2: "Концептуально, это глобальная децентрализованная и многофункциональная мобильная система взаимодействия между всеми сторонами бизнес-сообщества. Она создана для ведения и развития бизнеса. Система имеет возможность идентифицировать, оценивать и удовлетворять потенциальный спрос потребителей, а также создавать каналы для обмена информацией и использовать интеллектуальную аналитику.",
+    lsubfaq3: "Что такое Belief Network?",
+    lsubfaq4: "Belief Network - это децентрализованная нейронная сеть (И.И.) , которая взаимодействует с системой Multipos для анализа и прогноза данных, тем самым выполняя функцию независимого аналитика.",
+    lsubfaq5: "Что такое VACOIN?",
+    lsubfaq6: "VACOIN - это децентрализованная криптовалюта. С помощью которой будут осуществляться платежные операции между пользователями Системы Multipos для удобства и контроля над учётом финансовых транзакций.",
+    lsubfaq7: "Кто Вы и где Вы?",
+    lsubfaq8: "Наша компания Basic Steps Development Ltd. : Suite 6, 5 Percy Street, W1T 1DG, London, United Kingdom занимается разработкой программного обеспечения и инновационных технологий с офисами в различных странах (Европа, Индия и Средняя Азия)",
+    lcontacinfo: "Контактные данные",
+    lcontactadres: "Адрес",
+    lconnectwith: "подключайтесь с",
     madeby: "Hecho con <span class=\"fa fa-heart\" style=\"color: #f66;\"></span> y <span class=\"fa fa-coffee\" style=\"color: #52bab3;\"></span> por <a href=\"http://michaelsboost.github.io/\" target=\"_blank\">Michael</a> y otros.",
     "discontinued": "A partir del 13 de abril de 2018, WebDGap ya no es un proyecto activo.<br>Todas las actualizaciones a partir de esa fecha y en adelante son implementaciones basadas exclusivamente en colaboradores."
   }
@@ -62,49 +96,84 @@ if (window.location.hash) {
     document.title = language.es.appTitle;
     $("meta[name-description]").attr('content', language.es.appdescrip);
     $("[data-language=llogo]").attr('href', $("[data-language=llogo]").attr('href') + "#ru");
-    $("[data-language=ldwnload]").text(language.es.ldwnload);
-    $("[data-language=ldwnloadwin]").text(language.es.ldwnloadwin);
-    $("[data-language=ldwnloadwin32]").text(language.es.ldwnloadwin32);
-    $("[data-language=ldwnloadmac]").text(language.es.ldwnloadmac);
-    $("[data-language=ldwnloadlin]").text(language.es.ldwnloadlin);
-    $("[data-language=ldwnloadlin64]").text(language.es.ldwnloadlin64);
-    $("[data-language=ldwnloadc]").text(language.es.ldwnloadc);
-    $("[data-language=ldwnloadce]").text(language.es.ldwnloadce);
-    $("[data-language=ldwnloada]").text(language.es.ldwnloada);
-    $("[data-language=ldwnloadjp]").text(language.es.ldwnloadjp);
-    $("[data-language=ldonate]").text(language.es.ldonate);
-    $("[data-language=ldonate]").attr('href', $("[data-language=ldonate]").attr('href') + "#ru");
-    $("[data-language=ldonatepp]").text(language.es.ldonatepp);
-    $("[data-language=ldonatesc]").text(language.es.ldonatesc);
-    $("[data-language=lcontribute]").text(language.es.lcontribute);
-    $("[data-language=lstore]").text(language.es.lstore);
-    $("[data-language=lrun]").text(language.es.lrun);
+    $("[data-language=lfuture]").text(language.es.lfuture);
+    $("[data-language=lfuture]").attr('href', $("[data-language=lfuture]").attr('href') + "#ru");
+    $("[data-language=lservices]").text(language.es.lservices);
+    $("[data-language=lblog]").text(language.es.lblog);
+    $("[data-language=lteam]").text(language.es.lteam);
+    $("[data-language=lprice]").text(language.es.lprice);
+    $("[data-language=lfaq]").text(language.es.lfaq);
     $("[data-language=lrun]").attr("href", "app/" + location.hash);
-    $("[data-language=intro]").text(language.es.intro);
-    $("[data-language=playvid]").text(language.es.playvid);
-    window.onload = function() {
-      $("[data-language=vidURL2]").attr('src', language.es.vidURL2);
-      $("[data-language=vidURL1]").attr('href', language.es.vidURL1);
-    };
-    $("[data-language=donatebtn]").text(language.es.donatebtn);
-    $("[data-language=donateh1]").text(language.es.donateh1);
-    $("[data-language=donateh2]").text(language.es.donateh2);
-    $("[data-language=appshirt]").text(language.es.appshirt);
-    $("[data-language=wapptsub]").text(language.es.wapptsub);
-    $("[data-language=bapptsub]").text(language.es.bapptsub);
-    $("[data-language=openappt]").text(language.es.openappt);
-    $("[data-language=openapptsub]").text(language.es.openapptsub);
-    $("[data-language=apptdescr]").text(language.es.apptdescr);
-    $("[data-language=buybtn]").text(language.es.buybtn);
-    $("[data-language=revh1]").text(language.es.revh1);
-    $("[data-language=revh2]").text(language.es.revh2);
-    $("[data-language=rev1]").text(language.es.rev1);
-    $("[data-language=rev2]").text(language.es.rev2);
-    $("[data-language=rev3]").text(language.es.rev3);
-    $("[data-language=userbio]").text(language.es.userbio);
-    $("[data-language=madewwebdgap]").text(language.es.madewwebdgap);
-    $("[data-language=submitapp]").text(language.es.submitapp);
-    $("[data-language=madeby]").html(language.es.madeby);
+    $("[data-language=lcontact]").text(language.es.lcontact);
+    $("[data-language=lsignin]").text(language.es.lsignin);
+    $("[data-language=lsignup]").html(language.es.lsignup);
+    $("[data-language=lincrease]").text(language.es.lincrease);
+    $("[data-language=lwith]").text(language.es.lwith);
+    $("[data-language=lpurchase]").text(language.es.lpurchase);
+    $("[data-language=ltheworld]").text(language.es.ltheworld);
+    $("[data-language=lmanage]").text(language.es.lmanage);
+    $("[data-language=lgetlive]").text(language.es.lgetlive);
+    $("[data-language=lourfeat]").text(language.es.lourfeat);
+    $("[data-language=lsubour]").text(language.es.lsubour);
+    $("[data-language=lmultifunction]").text(language.es.lmultifunction);
+    $("[data-language=lsubmultifunction]").text(language.es.lsubmultifunction);
+    $("[data-language=lcostreduction]").text(language.es.lcostreduction);
+    $("[data-language=lsubcostreduction]").text(language.es.lsubcostreduction);
+    $("[data-language=lfastintegration]").text(language.es.lfastintegration);
+    $("[data-language=lsubfast]").text(language.es.lsubfast);
+    $("[data-language=lwhenever]").text(language.es.lwhenever);
+    $("[data-language=lpeterdrucker]").text(language.es.lpeterdrucker);
+    $("[data-language=lprotect]").text(language.es.lprotect);
+    $("[data-language=lsubprotect]").text(language.es.lsubprotect);
+    $("[data-language=lourservices]").text(language.es.lourservices);
+    $("[data-language=lsubservices]").text(language.es.lsubservices);
+    $("[data-language=lcontrol]").text(language.es.lcontrol);
+    $("[data-language=lsubcontrol]").text(language.es.lsubcontrol);
+    $("[data-language=lscalability]").text(language.es.lscalability);
+    $("[data-language=lsubscalability]").text(language.es.lsubscalability);
+    $("[data-language=lprotectservices]").text(language.es.lprotectservices);
+    $("[data-language=lsubprotectservices]").text(language.es.lsubprotectservices);
+    $("[data-language=ltasks]").text(language.es.ltasks);
+    $("[data-language=lsubtasks]").text(language.es.lsubtasks);
+    $("[data-language=lscreenshot]").text(language.es.lscreenshot);
+    $("[data-language=lourblog]").text(language.es.lourblog);
+    $("[data-language=lreadourlatest]").text(language.es.lreadourlatest);
+    $("[data-language=lourteam]").text(language.es.lourteam);
+    $("[data-language=lsubourteam]").text(language.es.lsubourteam);
+    $("[data-language=likromwords]").text(language.es.likromwords);
+    $("[data-language=lnodirwords]").text(language.es.lnodirwords);
+    $("[data-language=ljamawords]").text(language.es.ljamawords);
+    $("[data-language=lceowords]").text(language.es.lceowords);
+    $("[data-language=lhowmuchdoes]").text(language.es.lhowmuchdoes);
+    $("[data-language=lourprices]").text(language.es.lourprices);
+    $("[data-language=lstarter]").text(language.es.lstarter);
+    $("[data-language=lpluspack]").text(language.es.lpluspack);
+    $("[data-language=lprofpack]").text(language.es.lprofpack);
+    $("[data-language=lprempack]").text(language.es.lprempack);
+    $("[data-language=lstandtablet]").text(language.es.lstandtablet);
+    $("[data-language=luserlimit]").text(language.es.luserlimit);
+    $("[data-language=lunlimusers]").text(language.es.lunlimusers);
+    $("[data-language=ladminpanel]").text(language.es.ladminpanel);
+    $("[data-language=lthirdparty]").text(language.es.lthirdparty);
+    $("[data-language=lfreeupdates]").text(language.es.lfreeupdates);
+    $("[data-language=lsupport]").text(language.es.lsupport);
+    $("[data-language=lapp]").text(language.es.lapp);
+    $("[data-language=lgetstart]").text(language.es.lgetstart);
+    $("[data-language=lfrequently]").text(language.es.lfrequently);
+    $("[data-language=lsubfrequently]").text(language.es.lsubfrequently);
+    $("[data-language=lfaqrow1]").text(language.es.lfaqrow1);
+    $("[data-language=lfaqrow2]").text(language.es.lfaqrow2);
+    $("[data-language=lsubfaq1]").text(language.es.lsubfaq1);
+    $("[data-language=lsubfaq2]").text(language.es.lsubfaq2);
+    $("[data-language=lsubfaq3]").text(language.es.lsubfaq3);
+    $("[data-language=lsubfaq4]").text(language.es.lsubfaq4);
+    $("[data-language=lsubfaq5]").text(language.es.lsubfaq5);
+    $("[data-language=lsubfaq6]").text(language.es.lsubfaq6);
+    $("[data-language=lsubfaq7]").text(language.es.lsubfaq7);
+    $("[data-language=lsubfaq8]").text(language.es.lsubfaq8);
+    $("[data-language=lcontacinfo]").text(language.es.lcontacinfo);
+    $("[data-language=lcontactadres]").text(language.es.lcontactadres);
+    $("[data-language=lconnectwith]").text(language.es.lconnectwith);
     $("[data-language=discontinued]").html(language.es.discontinued);
   }
 }

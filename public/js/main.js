@@ -6,7 +6,7 @@
         var username = $.cookie("username");
         $('#login_area').append("<p><a>" + username + " </a>&nbsp&nbsp|&nbsp&nbsp <a class=\"btn blue\" id=\"logout\" href=\"#\"> Logout </a></p>");
     } else {
-        $('#login_area').append("<ul style='margin-left: 25%;' class=\"navbar-right d-flex\"> <li><a href=\"/login\"> Sign In </a> </li><li><a href=\"/register\"> Sign Up </a></li></ul>");
+        $('#login_area').append("<ul style='margin-left: 5%;' class=\"navbar-right d-flex\"> <li><a href=\"/login\" data-language='lsignin'> Sign In </a> </li><li><a data-language='lsignup' href=\"/register\"> Sign Up </a></li></ul>");
     }
 
     $('#logout').click(function () {

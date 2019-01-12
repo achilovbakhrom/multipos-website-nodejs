@@ -119,7 +119,7 @@ app.use('/typography', typography);
 // app.use('/components', components);
 app.use('/blog-grid', blog_grid);
 app.use('/blog-grid-sidebar', blog_grid_sidebar);
-app.use('/blog-list', blog_list);
+app.use('/addblog', blog_list);
 app.use('/blog-standard', blog_standard);
 app.use('/blog-single', blog_single);
 app.use('/shop-grid', shop_grid);
