@@ -83,8 +83,12 @@ var language = {
   }
 };
 
+function getQueryStringValue (key) {
+  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+}
+console.log(getQueryStringValue("name"));
 
-if (window.location.hash) {
+if (window.location.query) {
     console.log(window.location.hash);
 
     if (location.hash.substring(1) === "eng") {
@@ -97,7 +101,7 @@ if (window.location.hash) {
     $("meta[name-description]").attr('content', language.es.appdescrip);
     $("[data-language=llogo]").attr('href', $("[data-language=llogo]").attr('href') + "#ru");
     $("[data-language=lfuture]").text(language.es.lfuture);
-    $("[data-language=lfuture]").attr('href', $("[data-language=lfuture]").attr('href') + "#ru");
+   // $("[data-language=lfuture]").attr('href', $("[data-language=lfuture]").attr('href') + "#ru");
     $("[data-language=lservices]").text(language.es.lservices);
     $("[data-language=lblog]").text(language.es.lblog);
     $("[data-language=lteam]").text(language.es.lteam);

@@ -13,69 +13,10 @@
         <div class="circ-two"></div>
     </div>
 </div>
-<!--<div class="login-form-holder" style="padding: 20px; max-width: 600px">-->
-<!--<div class="inner">-->
-<!--<div class="login-form">-->
-<!--<h3>RU</h3>-->
-<!--<form action="javascript:void(0);">-->
-<!--<div class="col-md-6 input-col">-->
-<!--<label>Title</label>-->
-<!--<input name="First Name" placeholder="" type="text" id="billing_first_name">-->
-<!--</div>-->
-<!--<div class="col-md-10 input-col">-->
-<!--<label>Short text</label>-->
-<!--<input name="Last Name" placeholder="" type="text" id="billing_last_name">-->
-<!--</div>-->
-<!--<div class="form-group col-md-12">-->
-<!--<label for="exampleFormControlTextarea1">Full text</label>-->
-<!--<textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>-->
-<!--</div>-->
-<!--</form>-->
-<!--<form>-->
-<!--<div class="form-group">-->
-<!--<label for="exampleFormControlFile1">Example file input</label>-->
-<!--<input type="file" class="form-control-file" id="exampleFormControlFile1">-->
-<!--</div>-->
-<!--</form>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div class="class-blog-inline">-->
-<!--<div class="login-form-holder" style="padding: 20px; max-width: 600px">-->
-<!--<div class="inner">-->
-<!--<div class="login-form">-->
-<!--<h3>En</h3>-->
-<!--<form action="javascript:void(0);">-->
-<!--<div class="col-md-6 input-col">-->
-<!--<label>Title</label>-->
-<!--<input name="First Name" placeholder="" type="text" id="billing_first_name">-->
-<!--</div>-->
-<!--<div class="col-md-10 input-col">-->
-<!--<label>Short text</label>-->
-<!--<input name="Last Name" placeholder="" type="text" id="billing_last_name">-->
-<!--</div>-->
-<!--<div class="form-group col-md-12">-->
-<!--<label for="exampleFormControlTextarea1">Full text</label>-->
-<!--<textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>-->
-<!--</div>-->
-<!--</form>-->
-<!--<form>-->
-<!--<div class="form-group">-->
-<!--<label for="exampleFormControlFile1">Example file input</label>-->
-<!--<input type="file" class="form-control-file" id="exampleFormControlFile1">-->
-<!--</div>-->
-<!--</form>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div class="class-blog-inline">-->
 <div class="blog-form-holder" style="padding: 20px;">
     <div class="inner">
         <div class="login-form">
-            <form action="javascript:void(0);">
+            <form action="../blog-standard/save" method="post">
 
                 <div class="row">
                     <div class="col-md-6" style="float: left;">
@@ -89,65 +30,45 @@
                 <div class="row">
                     <div class="col-md-6 input-col" style="float: left;">
                         <label>Title</label>
-                        <input name="First Name" placeholder="" type="text" id="billing_first_name">
+                        <input name="titleEn" placeholder="English Title" type="text" id="titleEn">
                     </div>
                     <div class="col-md-6 input-col" style="float: left;">
                         <label>Title</label>
-                        <input name="First Name" placeholder="" type="text" id="billing_first_name">
+                        <input name="titleRu" placeholder="Russian Title" type="text" id="titleRu">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 input-col">
-                        <label>Short text</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                        <label for="shortTextEn">Short text</label>
+                        <textarea class="form-control" id="shortTextEn" rows="6" name="shortTextEn"></textarea>
                     </div>
                     <div class="col-md-6 input-col">
-                        <label>Short text</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                        <label for="shortTextRu">Short text</label>
+                        <textarea class="form-control" id="shortTextRu" rows="6" name="shortTextRu"></textarea>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="exampleFormControlTextarea1">Full text</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                        <label for="fullTextEn">Full text</label>
+                        <textarea class="form-control" id="fullTextEn" rows="6" name="fullTextEn"></textarea>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="exampleFormControlTextarea1">Full text</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                        <label for="fullTextRu">Full text</label>
+                        <textarea class="form-control" id="fullTextRu" rows="6" name="fullTextRu"></textarea>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="exampleFormControlFile1">Example file input</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <button class="btn submit" style="float: right;">Submit</button>
-                    </div>
-                </div>
-
-
-                <!--<div class="col-md-6">-->
-                    <!--<div class="col-md-6 input-col" style="float: left">-->
-                        <!--<label>Title</label>-->
-                        <!--<input name="First Name" placeholder="" type="text" id="billing_first_name">-->
-                    <!--</div>-->
-                    <!--<div class="col-md-10 input-col">-->
-                        <!--<label>Short text</label>-->
-                        <!--<input name="Last Name" placeholder="" type="text" id="billing_last_name">-->
-                    <!--</div>-->
-                    <!--<div class="form-group col-md-12">-->
-                        <!--<label for="exampleFormControlTextarea1">Full text</label>-->
-                        <!--<textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
+                    <!--<div class="form-group col-md-6">-->
                         <!--<label for="exampleFormControlFile1">Example file input</label>-->
                         <!--<input type="file" class="form-control-file" id="exampleFormControlFile1">-->
                     <!--</div>-->
-                <!--</div>-->
+                    <div class="form-group col-md-6">
+                        <button type="submit" class="btn submit" style="float: right;">Submit</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

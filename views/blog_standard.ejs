@@ -1,190 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-    <% include part_element/head.ejs%>
-    <body>
+<% include part_element/head.ejs %>
+<body>
 
 <!-- ==============================================
 **Preloader**
 =================================================== -->
-        <div id="loader">
-            <div id="element">
-                <div class="circ-one"></div>
-                <div class="circ-two"></div>
-            </div>
-        </div>
+<div id="loader">
+    <div id="element">
+        <div class="circ-one"></div>
+        <div class="circ-two"></div>
+    </div>
+</div>
 
 <!-- ==============================================
 **Header**
 =================================================== -->
-       <% include part_element/header.ejs%>
+<% include part_element/header.ejs %>
 
 <!-- ==============================================
 **Inner Banner**
 =================================================== -->
-        <section class="inner-banner">
-            <div class="container">
-                <div class="contents">
-                    <h1>Blog</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <span>Lorem Ipsum has been the industry's standard dummy text ever since</span></p>
-                </div>
-            </div>
-        </section>
+<section class="inner-banner">
+    <div class="container">
+        <div class="contents">
+            <h1>Multipos Blog</h1>
+            <p>Latest news about Multipos <span></span></p>
+        </div>
+    </div>
+</section>
 
 <!-- ==============================================
 **Blog section**
 =================================================== -->
-        <section class="blog-section">
-            <div class="container">
-                <div class="blog-sigle-item">
-                    <div class="blog-content">
-                        <ul>
-                            <li>
-                                <h4>Lorem Ipsum is simply dummy text of theprinting and typese theprinting ...</h4>
-                                <div class="box">
-                                    <ul class="blog-tag">
-                                        <li><a href="#">Email Templaes</a></li>
-                                        <li><a href="#">Email Templaes</a></li>
-                                        <li>
-                                            <p class="time">December 28, <span>2017</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <figure class="blog-pic"><img class="img-fluid" src="images/blog-img-lg-1.jpg" alt=""></figure>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to makeLorem Ipsum is simply dummyunknown printer took a galley of type and scrambled it to makeLorem Ipsum is simply dummy</p>
-                                <ul class="blog-info">
-                                    <li class="comment">5623 <a href="#">Comments</a></li>
-                                    <li class="like">455 <a href="#">Likes</a></li>
-                                    <li><a href="blog_single.ejs" class="know-more">Know more</a></li>
+<section class="blog-section">
+    <div class="container">
+        <div class="blog-sigle-item">
+            <div class="blog-content">
+
+
+                <ul>
+                    <% result.forEach(function(item) { %>
+                        <li>
+                            <%if(currentHash == "#ru") {%>
+                                <h4><%= item.titleRu %></h4>
+                            <%} else {%>
+                                <h4><%= item.titleEn %></h4>
+                            <%}%>
+                            <div class="box">
+                                <ul class="blog-tag">
+                                    <li>
+                                        <p class="time"><%= item.date %></p>
+                                    </li>
                                 </ul>
-                            </li>
-                            <li>
-                                <h4>Lorem Ipsum is simply dummy text of theprinting</h4>
-                                <div class="box">
-                                    <ul class="blog-tag">
-                                        <li><a href="#">Email Templaes</a></li>
-                                        <li><a href="#">Email Templaes</a></li>
-                                        <li>
-                                            <p class="time">October 17, <span>2017</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <figure class="blog-pic"><img class="img-fluid" src="images/blog-img-lg-2.jpg" alt=""></figure>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to makeLorem Ipsum is simply dummyunknown printer took a galley of type and scrambled it to makeLorem Ipsum is simply dummy</p>
-                                <ul class="blog-info">
-                                    <li class="comment">5457 <a href="#">Comments</a></li>
-                                    <li class="like">358 <a href="#">Likes</a></li>
-                                    <li><a href="blog_single.ejs" class="know-more">Know more</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h4>Lorem Ipsum is simply dummy text of theprinting and typese theprinting ...</h4>
-                                <div class="box">
-                                    <ul class="blog-tag">
-                                        <li><a href="#">Email Templaes</a></li>
-                                        <li><a href="#">Email Templaes</a></li>
-                                        <li>
-                                            <p class="time">September 20, <span>2017</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <figure class="blog-pic"><img class="img-fluid" src="images/blog-img-lg-3.jpg" alt=""></figure>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to makeLorem Ipsum is simply dummyunknown printer took a galley of type and scrambled it to makeLorem Ipsum is simply dummy</p>
-                                <ul class="blog-info">
-                                    <li class="comment">3568 <a href="#">Comments</a></li>
-                                    <li class="like">689 <a href="#">Likes</a></li>
-                                    <li><a href="blog_single.ejs" class="know-more">Know more</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h4>Lorem Ipsum is simply dummy text of theprinting</h4>
-                                <div class="box">
-                                    <ul class="blog-tag">
-                                        <li><a href="#">Email Templaes</a></li>
-                                        <li><a href="#">Email Templaes</a></li>
-                                        <li>
-                                            <p class="time">August 25, <span>2017</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <figure class="blog-pic"><img class="img-fluid" src="images/blog-img-lg-4.jpg" alt=""></figure>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to makeLorem Ipsum is simply dummyunknown printer took a galley of type and scrambled it to makeLorem Ipsum is simply dummy</p>
-                                <ul class="blog-info">
-                                    <li class="comment">6547 <a href="#">Comments</a></li>
-                                    <li class="like">2589 <a href="#">Likes</a></li>
-                                    <li><a href="blog_single.ejs" class="know-more">Know more</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="paging-block">
-                            <ul>
-                                <li><a href="#" class="prev"><span class="icon-left-arrow"></span></a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#" class="dots"><span class="icon-paging-dots"></span></a></li>
-                                <li><a href="#">43</a></li>
-                                <li><a href="#" class="next"><span class="icon-right-arrow"></span></a></li>
+                            </div>
+                            <figure class="blog-pic"><img class="img-fluid" src="../images/blog-img-lg-1.jpg" alt="">
+                            </figure>
+                            <%if(window.location.hash == "#ru") {%>
+                                <p><%= item.shortTextRu %></p>
+                            <%} else {%>
+                                <p><%= item.shortTextEn %></p>
+                            <%}%>
+                            <ul class="blog-info">
+                                <!--<li class="comment">5623 <a href="#">Comments</a></li>-->
+                                <!--<li class="like">455 <a href="#">Likes</a></li>-->
+                                <li><a href="../blog-single/<%= item._id %>" class="know-more">Know more</a></li>
                             </ul>
-                        </div>
-                    </div>
+                        </li>
+                    <% }) %>
+                </ul>
+                <div class="paging-block">
+                    <% if (pages > 0) { %>
+                        <ul class="pagination text-center">
+                            <% if (current == 1) { %>
+                                <li><a href="#" style="padding: 0;"><span style="font-size: 22px;"><<</span></a></li>
+                                <li><a href="#" style="padding: 0;"><span style="font-size: 22px;"><</span></a></li>
+                            <% } else { %>
+                                <li><a href="1" style="padding: 0;"><span style="font-size: 22px;"><<</span></a></li>
+                                <li><a href="<%=current-1%>" style="padding: 0;"><span style="font-size: 22px;"><</span></a></li>
+                            <% } %>
+                            <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                            <% if (i !== 1) { %>
+                                <li class="disabled"><a>...</a></li>
+                            <% } %>
+                            <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                                <% if (i == current) { %>
+                                    <li class="active"><a><%= i %></a></li>
+                                <% } else { %>
+                                    <li><a href="<%= i %>"><%= i %></a></li>
+                                <% } %>
+                                <% if (i == Number(current) + 4 && i < pages) { %>
+                                    <li class="disabled"><a>...</a></li>
+                                <% } %>
+                            <% } %>
+                            <% if (current == pages) { %>
+                                    <li><a href="#" style="padding: 0;"><span style="font-size: 22px;">></span></a></li>
+                                    <li><a href="#" style="padding: 0;"><span style="font-size: 22px;">>></span></a></li>
+                            <% } else { %>
+                                <li><a href="<%=parseInt(current)+1%>" style="padding: 0;"><span style="font-size: 22px;">></span></a></li>
+                                <li><a href="<%=pages%>" style="padding: 0;"><span style="font-size: 22px;">>></span></a></li>
+                            <% } %>
+                        </ul>
+                    <% } %>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
 <!-- ==============================================
 **Signup Section**
 =================================================== -->
-        <section class="signup-outer gradient-bg padding-lg">
-            <!--<div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-10">
-                        <ul class="clearfix">
-                            <li> <span class="icon-men"></span>
-                                <h4>Signup for an <span>Account</span></h4>
-                            </li>
-                            <li> <span class="icon-chat"></span>
-                                <h4>Discuss with <span>our team</span></h4>
-                            </li>
-                            <li> <span class="icon-lap"></span>
-                                <h4>Receive a <span>good support</span></h4>
-                            </li>
-                        </ul>
-                        <div class="signup-form">
-                            <form action="#" method="get">
-                                <div class="email">
-                                    <input name="email" type="text" placeholder="email">
-                                </div>
-                                <div class="password">
-                                    <input name="password" type="password" placeholder="password">
-                                </div>
-                                <button class="signup-btn">Sign up Now</button>
-                            </form>
+<section class="signup-outer gradient-bg padding-lg">
+    <!--<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <ul class="clearfix">
+                    <li> <span class="icon-men"></span>
+                        <h4>Signup for an <span>Account</span></h4>
+                    </li>
+                    <li> <span class="icon-chat"></span>
+                        <h4>Discuss with <span>our team</span></h4>
+                    </li>
+                    <li> <span class="icon-lap"></span>
+                        <h4>Receive a <span>good support</span></h4>
+                    </li>
+                </ul>
+                <div class="signup-form">
+                    <form action="#" method="get">
+                        <div class="email">
+                            <input name="email" type="text" placeholder="email">
                         </div>
-                    </div>
+                        <div class="password">
+                            <input name="password" type="password" placeholder="password">
+                        </div>
+                        <button class="signup-btn">Sign up Now</button>
+                    </form>
                 </div>
-            </div>-->
-        </section>
+            </div>
+        </div>
+    </div>-->
+</section>
 
 <!-- ==============================================
 **Footer opt1**
 =================================================== -->
-        <% include part_element/footer.ejs%>
+<% include part_element/footer.ejs %>
 
-        <!-- Scroll to top --> 
-        <a href="#" class="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a> 
+<!-- Scroll to top -->
+<a href="#" class="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 
-        <!-- jQuery first, then Popper.js, then Bootstrap JS --> 
-        <script src="js/jquery.min.js"></script> 
-        <!-- Popper JS --> 
-        <script src="js/popper.min.js"></script> 
-        <!-- Bootsrap JS --> 
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script> 
-        <!-- Select2 JS --> 
-        <script src="assets/select2/js/select2.min.js"></script> 
-        <!-- Custom JS --> 
-        <script src="js/custom.js"></script>
-        <!--Cookie JS-->
-        <script src="js/jquery.cookie.js"></script>
-    </body>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../js/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="../js/popper.min.js"></script>
+<!-- Bootsrap JS -->
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- Select2 JS -->
+<script src="../assets/select2/js/select2.min.js"></script>
+<!-- Custom JS -->
+<script src="../js/custom.js"></script>
+<!--Cookie JS-->
+<script src="../js/jquery.cookie.js"></script>
+<script src="../js/index.js"></script>
+
+</body>
 </html>
