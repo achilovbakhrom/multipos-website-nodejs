@@ -4,11 +4,11 @@ var router = express.Router();
 var Users = require('../modal/user');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/:lang', function(req, res, next) {
     res.render('registration');
 });
 
-router.post("/save", function (req, response, next) {
+router.post("/save/:lang", function (req, response, next) {
     var firstName = req.body.first_name;
     var lastName = req.body.last_name;
     var companyName = req.body.company_name;
@@ -21,13 +21,10 @@ router.post("/save", function (req, response, next) {
         if (err) {
             let err = new Error();
             err.status = 500;
-            console.log("error");
             err.message = "DB read is failed";
             next(err);
             return;
         }
-        console.log("error2");
-
         if (res.length === 0) {
             let guid = function() {
                 function s4() {
@@ -46,6 +43,7 @@ router.post("/save", function (req, response, next) {
                 email: emailAdress,
                 password: userPassword,
                 comfirms: confirmPassword,
+                role: 'user',
             }, function(err, res) {
                 if (err) {
                     var err = new Error();

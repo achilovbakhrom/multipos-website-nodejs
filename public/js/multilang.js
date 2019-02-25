@@ -33,7 +33,6 @@ var MultiLang = function(url, lang, onload)
 
 				// do callback when loading JSON is ready
 				if (this.onLoad) {
-                    console.log("a");
 					this.onLoad();
 				}
 

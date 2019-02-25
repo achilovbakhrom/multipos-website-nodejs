@@ -4,7 +4,7 @@ var router = express.Router();
 var Users = require('../modal/user');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/:lang', function(req, res, next) {
     res.render('login');
 });
 

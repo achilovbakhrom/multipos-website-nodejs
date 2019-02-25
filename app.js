@@ -4,6 +4,15 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+// var i18n = require('../../i18n');
+var i18n = require('i18n')
+i18n.configure({
+    locales: ['en', 'ru'],
+    register: funkyObject,
+    directory: __dirname + '/locales'
+});
+
+var funkyObject = {};
 
 let oauthserver  = require('oauth2-server');
 
@@ -55,6 +64,24 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// var authenticateRequest = function (req, res, next) {
+//
+//     console.log(req);
+//     var request = new Request(req);
+//     var response = new Response(res);
+//
+//     return app.oauth.authenticate(request, response)
+//         .then(function(token) {
+//
+//             next();
+//         }).catch(function(err) {
+//
+//             res.status(err.code || 500).json(err);
+//         });
+// };
+// console.log(typeof authenticateRequest);
+// exports.method = authenticateRequest;
 
 app.post('/support',  function (req, res) {
        var name = req.body.name;
@@ -171,4 +198,15 @@ db.connect("mongodb://localhost:27017/multipos", function (err){
     }
 });
 
+// function testAuth() {
+//     return new authenticateRequest;
+// }
+
+// console.log(typeof authenticateRequest);
+// console.log(typeof authenticateRequest);
+// module.exports = {
+//     app: app,
+//     // authReq: testAuth
+// };
 module.exports = app;
+// module.exports = authenticateRequest;

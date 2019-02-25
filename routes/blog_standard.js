@@ -4,12 +4,21 @@ var router = express.Router();
 var moment = require('moment');
 
 var Blogs = require('../modal/blog');
+// var test = require('../app');
+// console.log(JSON.stringify(test));
+// console.log(test);
+// console.log(test);
+// console.log(test.oauth);
+// console.log(typeof (test.oauth.model.authenticateRequest));
+// console.log(typeof test.authReq);
+
+// var module = require('../app');
 
 /* GET home page. */
 
-router.get('/:page', function(req, res, next) {
+
+router.get('/:page/:lang', function(req, res, next) {
     // console.log(req.headers["accept-language"]);
-    console.log(req);
     // console.log(window.location.hash);
     var perPage = 5;
     var page = req.params.page || 1;
@@ -35,7 +44,7 @@ router.get('/:page', function(req, res, next) {
             return value
         }
 
-        res.render('blog_standard', {result: result, current: page, pages: Math.ceil(resultAndCount.count / perPage)});
+        res.render('blog_standard', {result: result, current: page, pages: Math.ceil(resultAndCount.count / perPage), lang: req.params.lang});
     });
 });
 

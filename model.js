@@ -19,12 +19,12 @@ var config = {
  * Dump the memory storage content (for debug).
  */
 
-var dump = function() {
-
-    console.log('clients', config.clients);
-    console.log('confidentialClients', config.confidentialClients);
-    console.log('tokens', config.tokens);
-};
+// var dump = function() {
+//
+//     console.log('clients', config.clients);
+//     console.log('confidentialClients', config.confidentialClients);
+//     console.log('tokens', config.tokens);
+// };
 
 /*
  * Methods used by all grant types.
@@ -90,8 +90,8 @@ var saveAccessToken = function(accessToken, clientId, expires, user, callback) {
  */
 
 var getUser = function (email, password, callback) {
-    console.log(email);
-    console.log(password);
+    // console.log(email);
+    // console.log(password);
     db.get().collection('users').find({email: email, password: password}).toArray(function (err, res) {
         if (res[0] !== undefined) {
             callback(false, res[0]);

@@ -4,9 +4,12 @@
 
     if ($.cookie("username")) {
         var username = $.cookie("username");
-        $('#login_area').append("<p><a>" + username + " </a>&nbsp&nbsp|&nbsp&nbsp <a class=\"btn blue\" id=\"logout\" href=\"#\"> Logout </a></p>");
+        $('#login_area').append("<p><a>" + username + " </a>&nbsp&nbsp|&nbsp&nbsp <a data-language='llogout'  class=\"btn blue\" id=\"logout\" href=\"#\"> Logout </a></p>");
     } else {
-        $('#login_area').append("<ul style='margin-left: 5%;' class=\"navbar-right d-flex\"> <li><a href=\"/login\" data-language='lsignin'> Sign In </a> </li><li><a data-language='lsignup' href=\"/register\"> Sign Up </a></li></ul>");
+        var urlParams = window.location.pathname.split('/');
+        var lang = urlParams[urlParams.length-1];
+        var username = $.cookie("username");
+        $('#login_area').append("<ul style='margin-left: 5%;' class=\"navbar-right d-flex\"> <li><a href=\"/login/"+lang+"\" data-language='lsignin'> Sign In </a> </li><li><a data-language='lsignup' href=\"/register/"+lang+"\"> Sign Up </a></li></ul>");
     }
 
     $('#logout').click(function () {
@@ -14,13 +17,18 @@
         $.removeCookie('expires', { path: '/' });
         $.removeCookie('access_token', {path: '/'});
         $.removeCookie('sessionId', {path:'/'});
-        window.location.replace("http://localhost:3000");
+        $.removeCookie('user_role', {path:'/'});
+        var urlParams = window.location.pathname.split('/');
+        var lang = urlParams[urlParams.length-1];
+        window.location.replace("http://localhost:3000/" + lang);
     });
 
 
-    $('#login_now').click(function () {
-        let email = $('#email_now').val();
-        let password = $('#password_now').val();
+    $('#login_now').click(login);
+
+    function login() {
+        let email = $('#billing_email').val();
+        let password = $('#billing_password').val();
         $.ajax({
             type: "POST",
             url:"http://localhost:3000/oauth/token",
@@ -34,29 +42,51 @@
             statusCode:{
                 404: function (error) {
                     alert(error.message);
-                    window.location.replace("http://localhost:3000");
+                    window.location.replace("http://localhost:3000/" + lang);
                 },
                 401: function (error) {
                     alert(error.message);
-                    window.location.replace("http://localhost:3000/login");
+                    window.location.replace("http://localhost:3000/login/" + lang);
                 },
                 500: function (error) {
                     alert(error.message);
-                    window.location.replace("http://localhost:3000/login");
+                    window.location.replace("http://localhost:3000/login/" + lang);
                 }
             },
             success: function (response) {
-                console.log(response);
-                var date = new Date(43200);
-                var expirationDateString = date.toUTCString();
-                $.cookie("username", email);
-                $.cookie("access_token", response.access_token);
-                $.cookie("expires", expirationDateString);
-                window.location.replace("http://localhost:3000");
+                var userRole = "";
+                $.ajax({
+                   type: "POST",
+                   url: "http://localhost:3000/users/"+email,
+                    statusCode:{
+                        404: function (error) {
+                            alert(error.message);
+                            window.location.replace("http://localhost:3000/" + lang);
+                        },
+                        401: function (error) {
+                            alert(error.message);
+                            window.location.replace("http://localhost:3000/login/" + lang);
+                        },
+                        500: function (error) {
+                            alert(error.message);
+                            window.location.replace("http://localhost:3000/login/" + lang);
+                        }
+                    },
+                    success: function (response2) {
+                        var date = new Date(43200);
+                        var expirationDateString = date.toUTCString();
+                        $.cookie("username", email, {path: '/'});
+                        $.cookie("user_role", response2, {path: '/'});
+                        $.cookie("access_token", response.access_token, {path: '/'});
+                        $.cookie("expires", expirationDateString, {path: '/'});
+                        window.location.replace("http://localhost:3000/"+ lang);
+
+                    }
+                });
             },
             dataType:'json'
         });
-    });
+    }
 
     var sending = false;
 
@@ -107,7 +137,7 @@
         sending = true;
         $.ajax({
             type: "POST",
-            url: "register/save",
+            url: "/register/save/en",
             data: {
                 "first_name": firstNameValue,
                 "last_name": lastNameValue,
@@ -119,22 +149,23 @@
             statusCode: {
                 500: function(error) {
                     alert(error.message);
-                    window.location.replace("http://localhost:3000");
+                    window.location.replace("http://localhost:3000/" + lang);
                 },
                 409: function () {
                     alert("Such email is already exists");
-                    window.location.replace("http://localhost:3000/register");
+                    window.location.replace("http://localhost:3000/register/" + lang);
                 }
             },
                 success: function (response) {
-                var date = new Date(43200);
-                var expirationDateString = date.toUTCString();
-                var sessionId = response.sessionId;
-                var email = emailValue;
-                $.cookie("username", email);
-                $.cookie("sessionId", sessionId);
-                $.cookie("expires", expirationDateString);
-                window.location.replace("http://localhost:3000");
+                login();
+                // var date = new Date(43200);
+                // var expirationDateString = date.toUTCString();
+                // var sessionId = response.sessionId;
+                // var email = emailValue;
+                // $.cookie("username", email, {path: '/'});
+                // $.cookie("sessionId", sessionId, {path: '/'});
+                // $.cookie("expires", expirationDateString, {path: '/'});
+                // window.location.replace("http://localhost:3000/" + lang);
             },
             dataType: 'json'
         });

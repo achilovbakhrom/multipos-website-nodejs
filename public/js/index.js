@@ -8,9 +8,10 @@ var language = {
     lprice: "Прайс",
     lfaq: "FAQ",
     lcontact: "Контакты",
-    setflag: "assets/flags/4x3/ru.svg",
+    setflag: "../../assets/flags/4x3/ru.svg",
     lsignin: "Логин",
     lsignup: "Регистрация",
+    llogout: "Выйти",
     lincrease: "Увеличивайте прибыль и Снижайте затраты на 20% за 30 дней, Контролируя и Ускояя Ваш бизнес",
     lwith: "С нашим технологичным продуктом!",
     lpurchase: "Купить сейчас",
@@ -83,23 +84,26 @@ var language = {
   }
 };
 
-function getQueryStringValue (key) {
-  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
-}
-console.log(getQueryStringValue("name"));
+if (window.location.pathname) {
+    // console.log(window.location.pathname);
 
-if (window.location.query) {
-    console.log(window.location.hash);
+    var urlParams = window.location.pathname.split('/');
+    var lang = urlParams[urlParams.length-1];
+    // console.log(lang);
 
-    if (location.hash.substring(1) === "eng") {
+
+    // if (location.hash.substring(1) === "eng") {
+    // // remove all hash tags and reload page to default text
+    // window.location.href = window.location.toString().split(/\?|#/)[0];
+  if (lang === "en") {
     // remove all hash tags and reload page to default text
-    window.location.href = window.location.toString().split(/\?|#/)[0];
+    // window.location.href = window.location.toString().split(/\?|#/)[0];
   }
-  else if (location.hash.substring(1) === "ru") {
+  else if (lang === "ru") {
     $("[data-language=setflag]").attr('src', language.es.setflag);
     document.title = language.es.appTitle;
     $("meta[name-description]").attr('content', language.es.appdescrip);
-    $("[data-language=llogo]").attr('href', $("[data-language=llogo]").attr('href') + "#ru");
+    // $("[data-language=llogo]").attr('href', $("[data-language=llogo]").attr('href') + "/ru");
     $("[data-language=lfuture]").text(language.es.lfuture);
    // $("[data-language=lfuture]").attr('href', $("[data-language=lfuture]").attr('href') + "#ru");
     $("[data-language=lservices]").text(language.es.lservices);
@@ -107,9 +111,12 @@ if (window.location.query) {
     $("[data-language=lteam]").text(language.es.lteam);
     $("[data-language=lprice]").text(language.es.lprice);
     $("[data-language=lfaq]").text(language.es.lfaq);
-    $("[data-language=lrun]").attr("href", "app/" + location.hash);
+    $("[data-language=lrun]").attr("href", "app/" + lang);
     $("[data-language=lcontact]").text(language.es.lcontact);
+    console.log(language.es.lsignin);
     $("[data-language=lsignin]").text(language.es.lsignin);
+    console.log($("[data-language=lsignin]"));
+    $("[data-language=llogout]").text(language.es.llogout);
     $("[data-language=lsignup]").html(language.es.lsignup);
     $("[data-language=lincrease]").text(language.es.lincrease);
     $("[data-language=lwith]").text(language.es.lwith);
@@ -186,9 +193,10 @@ $('[data-callLang]').on('click', function() {
   //change flag to selected language
   $("[data-language=setflag]").attr('src', $(this).find('img').attr('src'));
 
-    if ($(this).attr('data-callLang') === "eng") {
+    if ($(this).attr('data-callLang') === "en") {
+      urlParams.replace('/','/en');
 
-      window.location.href = window.location.toString().split(/\?|#/)[0];
+      // window.location.href = window.location.toString().split(/\?|#/)[0];
     return false;
   }
 
