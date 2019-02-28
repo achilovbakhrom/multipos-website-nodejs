@@ -2,8 +2,34 @@
 
 (function() {
 
+// <a class='nav-link dropdown-toggle' id='dropdown5' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><img src='../../images/profile/user.svg' style='height: 17px;'></a>
+//         <div class='dropdown-menu' style='min-width: auto; width: auto; padding: 20px 0;'>
+//         <a class='dropdown-item' id='enFlag' href='#' data-callLang='en'>
+//         Profile
+//         </a>
+//         <a class='dropdown-item' id='ruFlag' href='#' data-callLang='ru'>
+//         Logout
+//         </a>
+//         <script language='javascript' type='text/javascript'>
+//     var url = window.location.pathname
+//     var value = url.substring(url.lastIndexOf('/') + 1);
+//     document.getElementById("enFlag").href = url.replace(value, 'en');
+//     document.getElementById("ruFlag").href = url.replace(value, 'ru');
+//     document.getElementById("logoUrl").href = url;
+// </script>
+//     </div>
+
     if ($.cookie("username")) {
         var username = $.cookie("username");
+        // $('#login_area').append("<a class='nav-link dropdown-toggle' id='dropdown5' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><img src='../../images/profile/user.svg' style='height: 17px;'></a>" +
+        //     "<div class='dropdown-menu' style='min-width: auto; width: auto; padding: 20px 0;'>" +
+        //     "<a class='dropdown-item' id='enFlag' href='#' data-callLang='en'>" +
+        //     "Profile" +
+        //     "</a>" +
+        //     "<a class='dropdown-item' id='ruFlag' href='#' data-callLang='ru'>" +
+        //     "Logout" +
+        //     "</a>" +
+        //     "</div>");
         $('#login_area').append("<p><a>" + username + " </a>&nbsp&nbsp|&nbsp&nbsp <a data-language='llogout'  class=\"btn blue\" id=\"logout\" href=\"#\"> Logout </a></p>");
     } else {
         var urlParams = window.location.pathname.split('/');
