@@ -345,8 +345,31 @@
                 <li data-language="lfreeupdates">Free updates</li>
                 <li data-language="lsupport">24/7 Support</li>
               </ul>
-              <a href="#" class="btn get-started" data-language="lgetstart">Get Started</a> </div>
-          </div>
+              <a href="#" class="btn get-started" data-language="lgetstart" data-toggle="modal" data-target="#payment">Get Started</a> </div>
+              <div class="modal fade" id="payment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Company Information</h5>
+                    </div>
+                    <div class="modal-body">
+                      <div>
+                        <form action="#" method="get" class="support-form">
+                          <h5 style="margin-top: -45px;">Create company and type ID of Company</h5>
+                          <br>
+                          <input name="CompanyName" type="text" placeholder="Company Name">
+                          <input name="CompanyID" type="text" placeholder="Company ID">
+                        </form>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Go to paymnet</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
         </li>
         <li class="col-md-3">
           <div class="inner">
