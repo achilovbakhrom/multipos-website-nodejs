@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include part_element/head.ejs %>
+<body>
+
+<!-- ==============================================
+**Preloader**
+=================================================== -->
+<div id="loader">
+    <div id="element">
+        <div class="circ-one"></div>
+        <div class="circ-two"></div>
+    </div>
+</div>
+<div class="blog-form-holder" style="padding: 20px;">
+    <div class="inner">
+        <div class="login-form">
+            <form action="../../../../admin-panel/plan/save" method="post">
+
+                <div class="row">
+                    <div class="col-md-6 input-col" style="float: left;">
+                        <label for="planNameEn">Name</label>
+                        <input name="planNameEn" placeholder="English Name" type="text" id="planNameEn">
+                    </div>
+                    <div class="col-md-6 input-col" style="float: left;">
+                        <label for="planNameRu">Наименование</label>
+                        <input name="planNameRu" placeholder="Наименование на русском" type="text" id="planNameRu">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 input-col">
+                        <label for="price">Price</label>
+                        <input name="price" placeholder="1" type="number" min="1" step="any" id="price">
+                    </div>
+                    <div class="col-md-6 input-col">
+                        <label for="cashierLimit">Cashier Limit</label>
+                        <input name="cashierLimit" placeholder="1" type="number" min="1" id="cashierLimit">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="adminLimit">Admin Limit</label>
+                        <input name="adminLimit" placeholder="1" type="number" min="1" id="adminLimit">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="active">Active</label>
+                        <input name="active" type="checkbox" id="active">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <button type="submit" class="btn submit" style="float: right;">Submit</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!--</div>-->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../../js/jquery.min.js"></script>
+<!-- Bootsrap JS -->
+<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- Popper JS -->
+<script src="../../js/popper.min.js"></script>
+ <!--Custom JS-->
+<script src="../../js/custom.js"></script>
+
+</body>
+</html>

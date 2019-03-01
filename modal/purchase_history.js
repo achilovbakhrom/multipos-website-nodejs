@@ -4,7 +4,7 @@ const mongodb = require("mongodb");
 
 exports.get = function(callback)
 {
-    db.get().collection('cart').find().toArray(function(err, doc) {
+    db.get().collection('purchaseHistory').find().toArray(function(err, doc) {
         // doc.sort(function(a, b){
         //     return new Date(b.purchaseDate) - new Date(a.purchaseDate);
         // });
@@ -14,7 +14,7 @@ exports.get = function(callback)
 
 exports.findByEmail = function(email, callback)
 {
-    db.get().collection('cart').find({email: email}).toArray(function (err, res) {
+    db.get().collection('purchaseHistory').find({email: email}).toArray(function (err, res) {
         // doc.sort(function(a, b){
         //     return new Date(b.purchaseDate) - new Date(a.purchaseDate);
         // });
@@ -22,17 +22,17 @@ exports.findByEmail = function(email, callback)
     });
 };
 
-exports.create = function (cart, callback)
+exports.create = function (purchaseHistory, callback)
 {
-    db.get().collection('cart').insert(cart, function(err, res)
+    db.get().collection('purchaseHistory').insert(purchaseHistory, function(err, res)
     {
         callback(err, res)
     });
 };
 
-exports.update = function (cart, callback)
+exports.update = function (purchaseHistory, callback)
 {
-    db.get().collection('cart').update(cart, function(err, res)
+    db.get().collection('purchaseHistory').update(purchaseHistory, function(err, res)
     {
         callback(err, res)
     });
@@ -40,7 +40,7 @@ exports.update = function (cart, callback)
 
 exports.findById = function (id, callback)
 {
-    db.get().collection('cart').findOne({_id: mongodb.ObjectID(id)}, function(error, cart) {
-        callback(error, cart);
+    db.get().collection('purchaseHistory').findOne({_id: mongodb.ObjectID(id)}, function(error, purchaseHistory) {
+        callback(error, purchaseHistory);
     });
 };
