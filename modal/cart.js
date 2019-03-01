@@ -15,19 +15,6 @@ exports.findByEmail = function(email, callback)
         callback(err, res)
     });
 };
-//
-// exports.resultAndCount = function(perPage, page, callback)
-// {
-//     let skip = (perPage * page) - perPage;
-//     db.get().collection('cart').find({}, {skip: skip, limit:perPage}).sort({date: -1}).toArray(function(err, elements) {
-//         db.get().collection('cart').count(function(err, count) {
-//             let result = {elements: elements, count: count};
-//             callback(err, result)
-//         });
-//     });
-//
-//
-// };
 
 exports.create = function (cart, callback)
 {

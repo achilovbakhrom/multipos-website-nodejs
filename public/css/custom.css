@@ -5942,6 +5942,31 @@ ul.our-values li .text-area p {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+/*input[type="checkbox"] {*/
+	/*width: 20px;*/
+	/*height: 20px;*/
+	/*line-height: 20px;*/
+	/*display: inline-block;*/
+	/*padding: 0;*/
+	/*margin: 2px 0 0;*/
+	/*cursor: pointer;*/
+	/*vertical-align: top;*/
+/*}*/
+
+/*input[type="checkbox"]:checked + span:before {*/
+	/*position: absolute;*/
+	/*top: -1px;*/
+	/*left: 4px;*/
+	/*display: block;*/
+	/*content: "";*/
+	/*content: "\f00c";*/
+	/*font-family: 'FontAwesome';*/
+	/*font-size: 12px;*/
+	/*color: #69c2e4;*/
+	/*-webkit-font-smoothing: antialiased;*/
+	/*-moz-osx-font-smoothing: grayscale;*/
+/*}*/
 .login-form .forgot {
 	padding: 16px 0 0;
 }
@@ -6062,9 +6087,6 @@ ul.our-values li .text-area p {
     color: #697980;
     padding: 0 20px;
     margin: 0 0 14px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     border: 1px solid #d8dfe3;
     border-radius: 3px;
 }
