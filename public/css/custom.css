@@ -4799,8 +4799,8 @@ ul.contact-list li .inner a.live-chat.support:hover {
 /* 16. Career */ 
 /* ================================================== */
 .career-banner.inner-banner {
-	min-height: 400px;
-	background: url(../images/banner-career.jpg) no-repeat center top;
+	min-height: 200px;
+	background: url(../images/banner-features.jpg) no-repeat center top;
 }
 .career-banner .get-started {
 	max-width: 230px;
