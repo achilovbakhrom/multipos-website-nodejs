@@ -12,14 +12,20 @@ exports.get = function(callback)
     });
 };
 
-exports.findByEmail = function(email, callback)
+exports.findByEmail = function(username, callback)
 {
-    db.get().collection('purchaseHistory').find({email: email}).toArray(function (err, res) {
-        // doc.sort(function(a, b){
-        //     return new Date(b.purchaseDate) - new Date(a.purchaseDate);
-        // });
-        callback(err, res)
+
+    db.get().collection('purchaseHistory').find({username: username}).sort({purhcaseDate: -1}).toArray(function(err, elements) {
+        callback(err, elements)
     });
+    //
+    //
+    // db.get().collection('purchaseHistory').find({email: email}).toArray(function (err, res) {
+    //     // doc.sort(function(a, b){
+    //     //     return new Date(b.purchaseDate) - new Date(a.purchaseDate);
+    //     // });
+    //     callback(err, res)
+    // });
 };
 
 exports.create = function (purchaseHistory, callback)

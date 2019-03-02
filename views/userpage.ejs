@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <% include part_element/head.ejs%>
-        
-    <body>
+<% include part_element/head.ejs %>
+
+<body>
 
 <!-- ==============================================
 **Preloader**
 =================================================== -->
-        <div id="loader">
-            <div id="element">
-                <div class="circ-one"></div>
-                <div class="circ-two"></div>
-            </div>
-        </div>
+<div id="loader">
+    <div id="element">
+        <div class="circ-one"></div>
+        <div class="circ-two"></div>
+    </div>
+</div>
 
 <!-- ==============================================
 **Header**
 =================================================== -->
-<% include part_element/header.ejs%>
+<% include part_element/header.ejs %>
 <!-- ==============================================
 **Inner Banner**
 =================================================== -->
-        <section class="inner-banner career-banner">
-            <div class="container">
-                <div class="contents">
-                    <h1>User page</h1>
-            </div>
-            </div>
-        </section>
-
-
+<section class="inner-banner career-banner">
+    <div class="container">
+        <div class="contents">
+            <h1>User page</h1>
+        </div>
+    </div>
+</section>
 
 
 <!-- ==============================================
@@ -38,47 +36,51 @@
 <section class="our-team-outer padding-lg">
     <div class="container">
         <div>
-            
-        
-        <ul class="row team-listing">
-            <li class="col-md-2 col-lg-3">
-                <figure><img src="../../images/testimonial-thumb1.jpg" class="rounded-circle img-fluid" alt=""></figure>
-                <h3>Pamela Redmond</h3>
-                <p>Address: Uzbekistan, Tashkent. Mirzo Ulugbek </p>
-                <br>
-                <a href="#" class="btn small orange" data-toggle="modal" data-target="#editProfile">Edit information</a>
-                <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+            <ul class="row team-listing">
+                <li class="col-md-2 col-lg-3">
+                    <figure><img src="../../images/testimonial-thumb1.jpg" class="rounded-circle img-fluid" alt="">
+                    </figure>
+                    <h3><%= user.firstName + " " + user.lastName %></h3>
+                    <h3><%= user.email %></h3>
+                    <p>Address: <%= user.address %></p>
+                    <br>
+                    <a href="#" class="btn small orange" data-toggle="modal" data-target="#editProfile">Edit
+                        information</a>
+                    <div class="modal fade" id="editProfile" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="support-request">
+                                        <form action="#" method="get" class="support-form">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input name="firstName" type="text" placeholder="Firs tName">
+                                                    <input name="lastName" type="text" placeholder="Last Email">
+                                                    <input name="password" type="text" placeholder="Current Password">
+                                                    <input name="newPassword" type="text" placeholder="New Password">
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                              <div class="support-request">
-                              <form action="#" method="get" class="support-form">
-                                  <div class="row">
-                                      <div class="col-md-12">
-                                          <input name="firstName" type="text" placeholder="Firs tName">
-                                          <input name="lastName" type="text" placeholder="Last Email">
-                                          <input name="password" type="text" placeholder="Current Password">
-                                          <input name="newPassword" type="text" placeholder="New Password">
-                                      </div>
-                                      
-                                  </div>
-                              </form>
-                          </div>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                          </div>
                         </div>
-                      </div>
-            </li>
-            
-        </ul>
-    </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
     </div>
 </section>
 
@@ -86,81 +88,81 @@
     <div class="container">
         <h4>Cart History </h4>
         <br>
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">MPK</th>
-            <th scope="col">Package Type</th>
-            <th scope="col">Price</th>
-            <th scope="col">Purchase Date</th>
-            <th scope="col">Activation Date</th>
-            <th scope="col">Experation Date</th>
-            <th scope="col">Company</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>AS3H-DJ72-JYT1-745F</td>
-            <td>Package type 1</td>
-            <td>Price 1</td>
-            <td>Pur Date 1</td>
-            <td>Active Date 1</td>
-            <td>Exp Date 1</td>
-            <td>Company info 1</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>AS3H-DJ72-JYT1-745F</td>
-            <td>Package type 2</td>
-            <td>Price 2</td>
-            <td>Pur Date 2</td>
-            <td>Active Date 2</td>
-            <td>Exp Date 2</td>
-            <td>Company info 2</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>AS3H-DJ72-JYT1-745F</td>
-            <td>Package type 3</td>
-            <td>Price 3</td>
-            <td>Pur Date 3</td>
-            <td>Active Date 3</td>
-            <td>Exp Date 3</td>
-            <td>Company info 3</td>
-          </tr>
-        </tbody>
-      </table>
-      
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <% if(lang == "en"){ %>
+                    <th scope="col">Purchase Date</th>
+                    <th scope="col">Purchase Code</th>
+                    <th scope="col">Package</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Activation Date</th>
+                    <th scope="col">Expiration Date</th>
+                    <th scope="col">Company</th>
+                <% } else { %>
+                    <th scope="col">Дата покупки</th>
+                    <th scope="col">Код покупки</th>
+                    <th scope="col">План</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col">Дата активации</th>
+                    <th scope="col">Дата окончания</th>
+                    <th scope="col">Компания</th>
+                <% } %>
+                <!--<th scope="col">Purchase Date</th>-->
+                <!--<th scope="col">Purchase code</th>-->
+                <!--<th scope="col">Package Type</th>-->
+                <!--<th scope="col">Price</th>-->
+                <!--<th scope="col">Activation Date</th>-->
+                <!--<th scope="col">Expiration Date</th>-->
+                <!--<th scope="col">Company</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <% histories.forEach(function(item){ %>
+            <tr>
+                <th scope="row"><%= item.purchaseDate %></th>
+                <td><%= item._id %></td>
+                <% if(lang == "en"){ %>
+                <td><%= item.plan.planNameEn %></td>
+                <% } else { %>
+                <td><%= item.plan.planNameRu %></td>
+                <% } %>
+                <td>$<%= item.price %></td>
+                <td><%= item.activationDate %></td>
+                <td><%= item.expirationDate %></td>
+                <td><%= item.company %></td>
+            </tr>
+            <% }) %>
+            </tbody>
+        </table>
+
     </div>
 </section>
-
 
 
 <!-- ==============================================
 **Footer opt1**
 =================================================== -->
-            <% include part_element/footer.ejs%>
+<% include part_element/footer.ejs %>
 
-        <!-- Scroll to top --> 
-        <a href="#" class="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a> 
+<!-- Scroll to top -->
+<a href="#" class="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 
-        <!-- jQuery first, then Popper.js, then Bootstrap JS --> 
-        <script src="../../js/jquery.min.js"></script> 
-        <!-- Popper JS --> 
-        <script src="../../js/popper.min.js"></script> 
-        <!-- Bootsrap JS --> 
-        <script src="../../assets/bootstrap/js/bootstrap.min.js"></script> 
-        <!-- Select2 JS --> 
-        <script src="../../assets/select2/js/select2.min.js"></script> 
-        <!-- Owl Carousal JS --> 
-        <script  src="../../assets/owl-carousel/js/owl.carousel.min.js"></script> 
-        <!-- Match Height JS --> 
-        <script src="../../assets/matchHeight/js/matchHeight-min.js"></script> 
-        <!-- Custom JS --> 
-        <script src="../../js/custom.js"></script>
-        <!--Cookie JS-->
-        <script src="../../js/jquery.cookie.js"></script>
-    </body>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../../js/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="../../js/popper.min.js"></script>
+<!-- Bootsrap JS -->
+<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- Select2 JS -->
+<script src="../../assets/select2/js/select2.min.js"></script>
+<!-- Owl Carousal JS -->
+<script src="../../assets/owl-carousel/js/owl.carousel.min.js"></script>
+<!-- Match Height JS -->
+<script src="../../assets/matchHeight/js/matchHeight-min.js"></script>
+<!-- Custom JS -->
+<script src="../../js/custom.js"></script>
+<!--Cookie JS-->
+<script src="../../js/jquery.cookie.js"></script>
+</body>
 </html>

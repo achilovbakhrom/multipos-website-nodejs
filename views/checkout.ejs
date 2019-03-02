@@ -38,7 +38,7 @@
 <section class="padding-lg">
     <div class="container">
         <!--<div class="error-msg">-->
-            <!--<span>i</span>Please enter a valid postcode / Zip-->
+        <!--<span>i</span>Please enter a valid postcode / Zip-->
         <!--</div>-->
         <div class="row">
             <!-- Start Left -->
@@ -48,8 +48,6 @@
                         <thead>
                         <tr>
                             <th>PRODUCT</th>
-                            <!--<th>PRICE</th>-->
-                            <!--<th>QUANTITY</th>-->
                             <th>TOTAL</th>
                         </tr>
                         </thead>
@@ -62,57 +60,15 @@
                                             <figure><img src="images/cart-img1.jpg" alt=""></figure>
                                         </td>
                                         <% if(lang === "en") { %>
-                                        <td><p><%= plan.planNameEn %></p></td>
+                                            <td><p><%= plan.planNameEn %></p></td>
                                         <% } else { %>
-                                        <td><p><%= plan.planNameRu %></p></td>
+                                            <td><p><%= plan.planNameRu %></p></td>
                                         <% } %>
                                     </tr>
                                 </table>
                             </td>
-                            <!--<td>$257</td>-->
-                            <!--<td><div class="item-qty">-->
-                            <!--<select class="custom_select">-->
-                            <!--<option value="1">1</option>-->
-                            <!--<option value="2">2</option>-->
-                            <!--<option value="3">3</option>-->
-                            <!--</select>-->
-                            <!--</div></td>-->
                             <td>$<%= plan.price %></td>
                         </tr>
-                        <!--<tr>-->
-                        <!--<td><table class="table product-name">-->
-                        <!--<tr>-->
-                        <!--<td><figure><img src="images/cart-img2.jpg" alt=""></figure></td>-->
-                        <!--<td><p>Microsoft 13.5-inch</p></td>-->
-                        <!--</tr>-->
-                        <!--</table></td>-->
-                        <!--<td>$358</td>-->
-                        <!--<td><div class="item-qty">-->
-                        <!--<select class="custom_select">-->
-                        <!--<option value="1">3</option>-->
-                        <!--<option value="2">2</option>-->
-                        <!--<option value="3">1</option>-->
-                        <!--</select>-->
-                        <!--</div></td>-->
-                        <!--<td>$358</td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                        <!--<td><table class="table product-name">-->
-                        <!--<tr>-->
-                        <!--<td><figure><img src="images/cart-img3.jpg" alt=""></figure></td>-->
-                        <!--<td><p>Beats On-Ear Headphones</p></td>-->
-                        <!--</tr>-->
-                        <!--</table></td>-->
-                        <!--<td>$282</td>-->
-                        <!--<td><div class="item-qty">-->
-                        <!--<select class="custom_select">-->
-                        <!--<option value="1">2</option>-->
-                        <!--<option value="2">1</option>-->
-                        <!--<option value="3">3</option>-->
-                        <!--</select>-->
-                        <!--</div></td>-->
-                        <!--<td>$282</td>-->
-                        <!--</tr>-->
                         </tbody>
                     </table>
                 </div>
@@ -126,7 +82,7 @@
                             </label>
                         </div>
                     </div>
-                    <hr style="height:1px;border:none;color:#bac1c4;background-color:#bac1c4;" />
+                    <hr style="height:1px;border:none;color:#bac1c4;background-color:#bac1c4;"/>
                     <div class="method-paypal">
                         <div class="radio-outer">
                             <input type="radio" name="radiogroup" id="radio2">
@@ -143,15 +99,6 @@
             <!-- Start Right -->
             <div class="col-lg-4">
                 <div class="checkout-right">
-                    <!--<div class="have-coupon">-->
-                        <!--<div class="icon">-->
-                            <!--<img src="images/coupon-ico.png" alt="">-->
-                        <!--</div>-->
-                        <!--<div class="cnt-right">-->
-                            <!--<h3>Have a coupon ?</h3>-->
-                            <!--<a href="#">Click enter your code</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
                     <div class="cart-total">
                         <table class="table">
                             <thead>
@@ -160,23 +107,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <!--<tr>-->
-                                <!--<th>Subtotal</th>-->
-                                <!--<td>$349</td>-->
-                            <!--</tr>-->
-                            <!--<tr>-->
-                                <!--<th>Shipping</th>-->
-                                <!--<td>Flat rate: $50</td>-->
-                            <!--</tr>-->
                             <tr>
                                 <th>Total</th>
-                                <td>$349</td>
+                                <td>$<%= plan.price %></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <div class="btn-outer">
                                         <button class="btn revise-btn">Revise Cart</button>
-                                        <button class="btn checkout-btn">Checkout</button>
+                                        <button class="btn checkout-btn" onclick="processPurchse()">Checkout</button>
                                     </div>
                                 </td>
                             </tr>
@@ -194,34 +133,6 @@
 **Signup Section**
 =================================================== -->
 <section class="signup-outer gradient-bg padding-lg">
-    <!--<div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <ul class="clearfix">
-                    <li> <span class="icon-men"></span>
-                        <h4>Signup for an <span>Account</span></h4>
-                    </li>
-                    <li> <span class="icon-chat"></span>
-                        <h4>Discuss with <span>our team</span></h4>
-                    </li>
-                    <li> <span class="icon-lap"></span>
-                        <h4>Receive a <span>good support</span></h4>
-                    </li>
-                </ul>
-                <div class="signup-form">
-                    <form action="#" method="get">
-                        <div class="email">
-                            <input name="email" type="text" placeholder="email">
-                        </div>
-                        <div class="password">
-                            <input name="password" type="password" placeholder="password">
-                        </div>
-                        <button class="signup-btn">Sign up Now</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>-->
 </section>
 
 <!-- ==============================================
@@ -231,6 +142,42 @@
 
 <!-- Scroll to top -->
 <a href="#" class="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+<script type="text/javascript">
+    function processPurchse() {
+        // var menuId = $("ul.nav").first().attr("id");
+        $.post('/checkout/process',
+            {
+                planId: '<%= plan._id %>'
+            },
+            function (data, status) {
+                if (data === "Success") {
+                    alert("Package Successfully Purchased")
+                    window.location = "/userpage/"+ '<%=lang%>'
+                } else {
+                    alert("Something went wrong. Please try again later")
+
+                }
+            }
+        )
+        // var request = $.ajax({
+        //
+        //     url: "/checkout/process",
+        //     type: "POST",
+        //     data: { planId : "5c77e909fc25a827541424aa" },
+        //     dataType : "json",
+        //     contentType: "application/json; charset=utf-8",
+        // });
+        //
+        // request.done(function(msg) {
+        //     $("#log").html( msg );
+        // });
+        //
+        // request.fail(function(jqXHR, textStatus) {
+        //     alert( "Request failed: " + textStatus );
+        // });
+    }
+</script>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="../../js/jquery.min.js"></script>
