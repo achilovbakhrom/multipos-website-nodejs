@@ -17,7 +17,47 @@
 <!-- ==============================================
 **Header**
 =================================================== -->
-<% include part_element/header.ejs %>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container"><a id="homeUrl" href="" data-language="llogo" class="navbar-brand"><img
+                    src="../../images/logo.png" class="img-fluid" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="dropdown5" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"><img data-language="setflag" src="../../assets/flags/4x3/us.svg"
+                                                  style="height: 17px;"></a>
+                    <div class="dropdown-menu" style="min-width: auto; width: auto; padding: 20px 0;">
+                        <a class="dropdown-item" id="enFlag" href="" data-callLang="en">
+                            <img src="../../assets/flags/4x3/us.svg" style="height: 24px;">
+                        </a>
+                        <a class="dropdown-item" id="ruFlag" href="" data-callLang="ru">
+                            <img src="../../assets/flags/4x3/ru.svg" style="height: 24px;">
+                        </a>
+                        <script language="javascript" type="text/javascript">
+                            var url = window.location.pathname
+                            var value = url.substring(url.lastIndexOf('/') + 1);
+                            document.getElementById("enFlag").href = url.replace(value, 'en');
+                            document.getElementById("ruFlag").href = url.replace(value, 'ru');
+                            var urlParams = window.location.pathname.split('/');
+                            var lang = urlParams[urlParams.length - 1];
+                            document.getElementById("homeUrl").href = "/" + lang;
+                        </script>
+                    </div>
+                </li>
+            </ul>
+            <div id="login_area" class="col-md-4 text-center text-md-right"></div>
+            <!-- <div id="login_area">
+                <ul class="navbar-right d-flex">
+                    <li><a href="/register">Signup</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+</nav>
 
 <!-- ==============================================
 **Inner Banner**
@@ -56,9 +96,9 @@
                             <td>
                                 <table class="table product-name">
                                     <tr>
-                                        <td>
-                                            <figure><img src="images/cart-img1.jpg" alt=""></figure>
-                                        </td>
+                                        <!--<td>-->
+                                            <!--<figure><img src="images/cart-img1.jpg" alt=""></figure>-->
+                                        <!--</td>-->
                                         <% if(lang === "en") { %>
                                             <td><p><%= plan.planNameEn %></p></td>
                                         <% } else { %>
@@ -153,7 +193,7 @@
             function (data, status) {
                 if (data === "Success") {
                     alert("Package Successfully Purchased")
-                    window.location = "/userpage/"+ '<%=lang%>'
+                    window.location = "/userpage/" + '<%= lang %>'
                 } else {
                     alert("Something went wrong. Please try again later")
 
@@ -197,5 +237,6 @@
 <script src="../../js/custom.js"></script>
 <!--Cookie JS-->
 <script src="../../js/jquery.cookie.js"></script>
+<script src="../../js/main.js"></script>
 </body>
 </html>

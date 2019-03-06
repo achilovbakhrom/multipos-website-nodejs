@@ -151,7 +151,7 @@ app.use('/blog-grid-sidebar', blog_grid_sidebar);
 app.use('/addblog', blog_list);
 app.use('/admin-panel', admin_panel);
 app.use('/purchase-history', purchase_history);
-app.use('/blog-standard', blog_standard);
+app.use('/blog', blog_standard);
 app.use('/blog-single', blog_single);
 app.use('/shop-grid', shop_grid);
 app.use('/shop-grid-sidebar', shop_grid_sidebar);

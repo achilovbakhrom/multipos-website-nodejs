@@ -6029,6 +6029,15 @@ ul.our-values li .text-area p {
 .social-media-box ul li a i.fa-linkedin {
 	background: #007ebb;
 }
+.social-media-box ul li a i.fa-telegram {
+	background: #32afed;
+}
+.social-media-box ul li a i.fa-youtube {
+	background: #FF0000;
+}
+.social-media-box ul li a i.fa-whatsapp {
+	background: #1ebea5;
+}
 .social-media-box ul li a:hover i {
 	background: #2c5260;
 }

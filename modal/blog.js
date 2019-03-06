@@ -9,14 +9,6 @@ exports.get = function(callback)
     });
 };
 
-// exports.findPage = function(perPage, page, callback)
-// {
-//     let skip = (perPage * page) - perPage;
-//     db.get().collection('blog').find({}, {skip: skip, limit:perPage}).sort({date: -1}).toArray(function(err, doc) {
-//         callback(err, doc)
-//     });
-// };
-
 exports.resultAndCount = function(perPage, page, callback)
 {
     let skip = (perPage * page) - perPage;
@@ -51,10 +43,3 @@ exports.delete = function (id, callback)
         callback(err, res);
     })
 };
-
-// exports.findByEmail = function(email, callback)
-// {
-//     db.get().collection('blog').find({email: email}).toArray(function (err, res) {
-//         callback(err, res)
-//     });
-// };

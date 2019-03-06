@@ -5,7 +5,7 @@ var moment = require('moment');
 
 var Blogs = require('../modal/blog');
 
-router.get('/:blogId', function (req, res, next) {
+router.get('/:blogId/:lang', function (req, res, next) {
 
     Blogs.findById(req.params.blogId,function (err, blog) {
         if (err) {
@@ -18,7 +18,9 @@ router.get('/:blogId', function (req, res, next) {
 
         blog.date =  moment(blog.date).format('MMMM DD YYYY');
 
-        res.render('blog_single', {blog: blog});
+        console.log(blog);
+
+        res.render('blog_single', {blog: blog, lang: req.params.lang});
     });
 
 });

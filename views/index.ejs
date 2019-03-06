@@ -42,7 +42,7 @@
                 <div class="pop-box clearfix">
                     <figure class="icon"><img src="images/manage-seo-ico.png" alt=""></figure>
                     <div class="right-cnt">
-                        <h3 data-language="lmanage">Manage your SEO Accounts</h3>
+                        <h3 data-language="lmanage">Manage your Business</h3>
                         <p></p>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="pop-box right clearfix">
                     <figure class="icon"><img src="images/seo-reports-ico.png" alt=""></figure>
                     <div class="right-cnt">
-                        <h3 data-language="lgetlive">Get Live Online SEO Report</h3>
+                        <h3 data-language="lgetlive">Get Real Time Reports</h3>
                         <p></p>
                     </div>
                 </div>
@@ -146,9 +146,7 @@
             <div class="col-md-10">
                 <div class="head-block">
                     <h2 data-language="lourservices">Our Services</h2>
-                    <p data-language="lsubservices" style="font-size: 15px">Admin Terminal – an application for a
-                        smartphone (installed on manager's or business owner’s smartphone to be fully engaged with the
-                        business processes within the POS terminal and neural Belief Network.)</p>
+                    <p data-language="lsubservices" style="font-size: 15px">Admin Panel - Fully secure panel for Business Administration, with easy to set-up roles available on Web, Tablet and Mobile devices.</p>
                 </div>
             </div>
         </div>
@@ -158,14 +156,15 @@
                     <div class="icon"><span>01</span></div>
                     <div class="text-area">
                         <h2 data-language="lcontrol">CONTROL</h2>
-                        <p data-language="lsubcontrol">Total control your business from anywhere.</p>
+                        <p data-language="lsubcontrol">Full control of Your Business from any location on globe.</p>
                     </div>
                 </div>
                 <div class="content-area">
                     <div class="icon"><span>02</span></div>
                     <div class="text-area">
                         <h2 data-language="lscalability">SCALABILITY</h2>
-                        <p data-language="lsubscalability">Scalability of the system that is contingent only on the
+                        <p data-language="lsubscalability">Scale
+                            Scalability of the system that is contingent only on the
                             business size.</p>
                     </div>
                 </div>
@@ -244,27 +243,26 @@
                     <h2 data-language="lreadourlatest">Read our latest Stories</h2>
                     <p>An online journal or informational website displaying information in the reverse chronological
                         order, with latest posts appearing first.</p>
+                    <button class="btn submit" onclick="goToBlog()">Blog</button>
                 </div>
             </div>
-            <div class="card">
-                <figure><img src="images/blog-img1.jpg" class="img-fluid" alt=""></figure>
-                <div class="card-body">
-                    <h3><a id="blogUrl" href="">Lorem Ipsum is simply dummy text of the printin...</a></h3>
-                    <span class="date">27 Dec 2017</span>
-                    <script language="javascript" type="text/javascript">
-                        var url = window.location.pathname
-                        var urlParams = window.location.pathname.split('/');
-                        var lang = urlParams[urlParams.length - 1];
-                        document.getElementById("blogUrl").href = "/blog-standard/1/" + lang;
-                    </script>
+            <% data.blog.forEach(function (item) { %>
+                <div class="card">
+                    <figure><img src="images/blog-img1.jpg" class="img-fluid" alt=""></figure>
+                    <div class="card-body">
+                        <% if(data.lang == "en"){ %>
+                            <h3><a id="blogUrl"
+                                   href="<%= '../blog-single/' + item._id + '/' + data.lang %>"><%= item.titleEn %></a>
+                            </h3>
+                        <% } else { %>
+                            <h3><a id="blogUrl"
+                                   href="<%= '../blog-single/' + item._id + '/' + data.lang %>"><%= item.titleEn %></a>
+                            </h3>
+                        <% } %>
+                        <span class="date"><%= item.date %></span>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <figure><img src="images/blog-img2.jpg" class="img-fluid" alt=""></figure>
-                <div class="card-body">
-                    <h3><a href="blog-standard/1">Lorem Ipsum is simply dummy text of the printin...</a></h3>
-                    <span class="date">25 Nov 2017</span></div>
-            </div>
+            <% }) %>
         </div>
     </div>
 </section>
@@ -374,8 +372,15 @@
                                 <li data-language="lfreeupdates">Free updates</li>
                                 <li data-language="lsupport">24/7 Support</li>
                             </ul>
-                            <a href="../checkout/<%= item._id+"/"+ data.lang %>" class="btn get-started" data-language="lgetstart">Get
-                                Started</a>
+                            <% if(data.authorised){ %>
+                                <a href="../checkout/<%= item._id + "/" + data.lang %>" class="btn get-started"
+                                   data-language="lgetstart">Get
+                                    Started</a>
+                            <% } else { %>
+                                <a href="../login/<%= data.lang %>" class="btn get-started" data-language="lgetstart">Get
+                                    Started</a>
+                            <% } %>
+
                         </div>
                     </div>
                 </li>
@@ -573,13 +578,13 @@
                     <div class="social-media-box">
                         <h6><span data-language="lconnectwith">Connect with</span></h6>
                         <ul>
-                            <li><a href="https://www.facebook.com/multipossystem"><i class="fa fa-facebook"></i></a>
-                            </li>
+                            <li><a href="https://www.facebook.com/multiposERP"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.linkedin.com/company/basic-steps-development/about"><i class="fa fa-linkedin"></i></a></li>
                             <li><a href="https://twitter.com/LtdBasic?lang=en"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://plus.google.com/u/0/103005406419764022286"><i
-                                            class="fa fa-google-plus"></i></a></li>
-                            <li><a href="https://www.youtube.com/channel/UCV40QtoSeYS_dWHmuphpBVw"><i
-                                            class="fa fa-youtube"></i></a></li>
+                            <li><a href="https://plus.google.com/u/0/103005406419764022286"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCV40QtoSeYS_dWHmuphpBVw"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="https://chat.whatsapp.com/invite/FK3Rk00MLqs74DZJmyL25v"><i class="fa fa-whatsapp"></i></a></li>
+                            <li><a href="https://telegram.me/multipos_news"><i class="fa fa-telegram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -606,6 +611,10 @@
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script type="text/javascript">
+    function goToBlog() {
+        window.location = "/blog/1/" + lang;
+    }
+
     $(document).ready(function () {
 
         $('.js--scroll-to-features').click(function () {
@@ -655,5 +664,5 @@
 <script src="js/jquery.cookie.js"></script>
 
 
-  </body>
+</body>
 </html>

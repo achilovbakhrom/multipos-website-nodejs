@@ -30,7 +30,8 @@
         //     "Logout" +
         //     "</a>" +
         //     "</div>");
-        $('#login_area').append("<p><a>" + username + " </a>&nbsp&nbsp|&nbsp&nbsp <a data-language='llogout'  class=\"btn blue\" id=\"logout\" href=\"#\"> Logout </a></p>");
+        var urlParams = window.location.pathname.split('/');
+        $('#login_area').append("<p><a onclick='location.href = /userpage/ + urlParams[urlParams.length-1]'>" + username + " </a>&nbsp&nbsp|&nbsp&nbsp <a data-language='llogout'  class=\"btn blue\" id=\"logout\" href=\"#\"> Logout </a></p>");
     } else {
         var urlParams = window.location.pathname.split('/');
         var lang = urlParams[urlParams.length-1];

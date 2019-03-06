@@ -15,7 +15,7 @@ exports.get = function(callback)
 exports.findByEmail = function(username, callback)
 {
 
-    db.get().collection('purchaseHistory').find({username: username}).sort({purhcaseDate: -1}).toArray(function(err, elements) {
+    db.get().collection('purchaseHistory').find({username: username}).sort({purchaseDate: -1}).toArray(function(err, elements) {
         callback(err, elements)
     });
     //

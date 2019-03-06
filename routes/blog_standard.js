@@ -4,18 +4,6 @@ var router = express.Router();
 var moment = require('moment');
 
 var Blogs = require('../modal/blog');
-// var test = require('../app');
-// console.log(JSON.stringify(test));
-// console.log(test);
-// console.log(test);
-// console.log(test.oauth);
-// console.log(typeof (test.oauth.model.authenticateRequest));
-// console.log(typeof test.authReq);
-
-// var module = require('../app');
-
-/* GET home page. */
-
 
 router.get('/:page/:lang', function(req, res, next) {
     // console.log(req.headers["accept-language"]);
@@ -69,7 +57,7 @@ router.post("/save", function (req, response, next) {
             next(err);
         }
     });
-    response.redirect("/blog-standard/1");
+    response.redirect("/blog/1/en");
 });
 
 
