@@ -30,12 +30,12 @@
         //     "Logout" +
         //     "</a>" +
         //     "</div>");
-        $('#login_area').append("<p><a>" + username + " </a>&nbsp&nbsp|&nbsp&nbsp <a data-language='llogout'  class=\"btn blue\" id=\"logout\" href=\"#\"> Logout </a></p>");
+        $('#login_area').append("<p><div class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" + username + " </a> <div class=\"dropdown-menu dropdown-menu-left\" aria-labelledby=\"dropdownMenuLink\"> <a class=\"dropdown-item\" href=\"#\"><h5> <i class=\"fas fa-user\"></i> &nbsp&nbsp Go to profile </h5></a><div class=\"dropdown-divider\"></div> <a class=\"dropdown-item\" href=\"#\"><h5> <i class=\"fas fa-sign-out-alt\"></i> &nbsp&nbsp Log out</h5></a></div></div></p>");
     } else {
         var urlParams = window.location.pathname.split('/');
         var lang = urlParams[urlParams.length-1];
         var username = $.cookie("username");
-        $('#login_area').append("<ul style='margin-left: 5%;' class=\"navbar-right d-flex\"> <li><a href=\"/login/"+lang+"\" data-language='lsignin'> Sign In </a> </li><li><a data-language='lsignup' href=\"/register/"+lang+"\"> Sign Up </a></li></ul>");
+        $('#login_area').append("<ul class=\"navbar-right d-flex\"> <li><a href=\"/login/"+lang+"\" data-language='lsignin'> Sign In </a> </li><li><a data-language='lsignup' href=\"/register/"+lang+"\"> Sign Up </a></li></ul>");
     }
 
     $('#logout').click(function () {
