@@ -14,7 +14,9 @@ i18n.configure({
 
 var funkyObject = {};
 
-let oauthserver  = require('oauth2-server');
+let oauthserver = require('oauth2-server');
+
+let User = require('./modal/user');
 
 let index = require('./routes/index');
 let users = require('./routes/users');
@@ -37,9 +39,9 @@ let payment = require('./routes/payment');
 let components = require('./routes/components');
 let blog_grid = require('./routes/blog_grid');
 let blog_grid_sidebar = require('./routes/blog_grid_sidebar');
-let blog_list= require('./routes/blog_list');
-let admin_panel= require('./routes/admin_panel');
-let purchase_history= require('./routes/purchase_history');
+let blog_list = require('./routes/blog_list');
+let admin_panel = require('./routes/admin_panel');
+let purchase_history = require('./routes/purchase_history');
 let blog_standard = require('./routes/blog_standard');
 let blog_single = require('./routes/blog_single');
 let shop_grid = require('./routes/shop_grid');
@@ -63,7 +65,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -85,12 +87,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // console.log(typeof authenticateRequest);
 // exports.method = authenticateRequest;
 
-app.post('/support',  function (req, res) {
-       var name = req.body.name;
-       var email = req.body.email;
-       var message = req.body.message;
-       var number = req.body.phone;
-       var company = req.body.company;
+app.post('/support', function (req, res) {
+    var name = req.body.name;
+    var email = req.body.email;
+    var message = req.body.message;
+    var number = req.body.phone;
+    var company = req.body.company;
 
     let transporter = nodemailer.createTransport({
         service: "Gmail",
@@ -98,7 +100,7 @@ app.post('/support',  function (req, res) {
             user: 's.nodir9494@gmail.com', // generated ethereal user
             pass: 'goroskop123' // generated ethereal password
         },
-        tls:{
+        tls: {
             rejectUnauthorized: false
         }
     });
@@ -107,7 +109,7 @@ app.post('/support',  function (req, res) {
         from: '"Multipos Contact" <s.nodir_94@mail.ru>', // sender address
         to: 's.nodir_94@mail.ru', // list of receivers
         subject: 'User support', // Subject line
-        text: "Name: " + name + '\n' + "Email: " + email + '\n'+ "Phone: " + number + '\n'+ "Company: " + company + '\n' + "Text: " + message + '\n' // plain text body
+        text: "Name: " + name + '\n' + "Email: " + email + '\n' + "Phone: " + number + '\n' + "Company: " + company + '\n' + "Text: " + message + '\n' // plain text body
     };
 
 
@@ -128,7 +130,7 @@ app.oauth = oauthserver({
 });
 
 app.use('/', index);
-app.use('/users', users );
+app.use('/users', users);
 app.use('/login', login);
 app.use('/register', register);
 app.use('/about', about);
@@ -167,37 +169,102 @@ app.use('/testimonial-blocks', testimonial_blocks);
 app.use('/blog-blocks', blog_blocks);
 
 
+var busboy = require('connect-busboy'); //middleware for form/file upload
+var filePath = require('path');     //used for file path
+var fs = require('fs-extra');       //File System - for file manipulation
+
+app.use(busboy());
+app.use(express.static(filePath.join(__dirname, 'public')));
+
+app.route('/userpage/upload')
+    .post(function (req, res, next) {
+
+        if(req.cookies.username){
+            var username = req.cookies.username;
+            User.findByEmail(username, function (err, user) {
+                if(err){
+                    let err = new Error();
+                    err.status = 500;
+                    err.message = "failed to read DB";
+                    next(err);
+                }
+                var fstream;
+                req.pipe(req.busboy);
+                req.busboy.on('file', function (fieldname, file, filename) {
+                    let elements = filename.split('.');
+                    let extention = elements[elements.length-1]
+                    // console.log("Uploading: " + filename);
+                    console.log(filename);
+                    filename = username + "." + extention
+
+                    //Path where image will be uploaded
+                    fstream = fs.createWriteStream(__dirname + '/public/images/userprofile/' + filename);
+                    file.pipe(fstream);
+                    fstream.on('close', function () {
+                        // console.log("Upload Finished of " + filename);
+                        res.redirect('back');           //where to go next
+                    });
+                });
+            });
+        } else {
+            res.redirect('/'+req.params.lang);
+        }
+    });
+
+// app.route('/userpage/upload')
+//     .post(function (req, res, next) {
+//
+//         var fstream;
+//         req.pipe(req.busboy);
+//         req.busboy.on('file', function (fieldname, file, filename) {
+//             console.log("Uploading: " + filename);
+//
+//
+//             //Path where image will be uploaded
+//             fstream = fs.createWriteStream(__dirname + '/public/images/userprofile/' + filename);
+//             file.pipe(fstream);
+//             fstream.on('close', function () {
+//                 console.log("Upload Finished of " + filename);
+//                 res.redirect('back');           //where to go next
+//             });
+//         });
+//     });
+
+// var server = app.listen(3030, function() {
+//     console.log('Listening on port %d', server.address().port);
+// });
+
+
 app.all('/oauth/token', app.oauth.grant());
 
 // oauth area end
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     let err = new Error("Not found");
     err.status = 404;
     next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  console.log("log: " + err.message);
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error', {message: err.message});
+    console.log("log: " + err.message);
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error', {message: err.message});
 });
 
 app.use(app.oauth.errorHandler());
 
-db.connect("mongodb://localhost:27017/multipos", function (err){
-    if(err){
+db.connect("mongodb://localhost:27017/multipos", function (err) {
+    if (err) {
         console.log(err);
         return res.sendStatus(500);
-    }
-    else{
+    } else {
         console.log("Db connect");
     }
 });
@@ -212,5 +279,6 @@ db.connect("mongodb://localhost:27017/multipos", function (err){
 //     app: app,
 //     // authReq: testAuth
 // };
+
 module.exports = app;
 // module.exports = authenticateRequest;

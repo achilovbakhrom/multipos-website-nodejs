@@ -35,12 +35,15 @@
 =================================================== -->
 <section class="our-team-outer padding-lg">
     <div class="container">
+        <form method='post' action='/userpage/upload' enctype="multipart/form-data">
+            <input type='file' name='fileUploaded'>
+            <input type='submit'>
         <div>
 
 
             <ul class="row team-listing">
                 <li class="col-md-2 col-lg-3">
-                    <figure><img src="../../images/testimonial-thumb1.jpg" class="rounded-circle img-fluid" alt="">
+                    <figure><img src="../../images/userprofile/test@mail.com.jpeg" class="rounded-circle img-fluid" alt="">
                     </figure>
                     <h3><%= user.firstName + " " + user.lastName %></h3>
                     <h3><%= user.email %></h3>
