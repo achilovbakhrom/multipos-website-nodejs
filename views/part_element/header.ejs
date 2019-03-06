@@ -28,9 +28,15 @@
 
     <!-- Start Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container"> <a id="logoUrl" href="/" data-language="llogo" class="navbar-brand"><img src="../images/logo.png" class="img-fluid" alt=""></a>
+        <div class="col-md-2 col-xs-2">
+            <a id="logoUrl" href="/" data-language="llogo" class="navbar-brand">
+                <img src="../images/logo.png" class="img-fluid" alt="">
+            </a>
+        </div>
+        <div class="col-md-8 col-xs-8">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+               
                 <ul class="navbar-nav mr-auto">
                     <li>
                         <a class="nav-link js--scroll-to-features" id="dropdown1" aria-haspopup="true" data-language="lfuture" aria-expanded="false" >Features</a>
@@ -72,16 +78,11 @@
                         </div>
                     </li>
                 </ul>
-                <!-- <div id="login_area">
-                    <ul class="navbar-right d-flex">
-                        <li><a href="/register">Signup</a></li>
-                        <li><a href="/login">Login</a></li>
-                    </ul>
-                </div> -->
-                <div id="login_area" class="col-md-4 text-center text-md-right" ></div>
             </div>
         </div>
-    </nav>
+        <div id="login_area" class="col-md-2 col-xs-2" ></div>
+    </div>
+</nav>
     <!-- End Navigation -->
     <script src="../js/jquery.min.js"></script>
     <script src="../js/jquery.cookie.js"></script>
