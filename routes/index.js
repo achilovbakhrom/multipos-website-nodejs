@@ -6,6 +6,10 @@ var Blog = require('../modal/blog');
 var moment = require('moment');
 
 /* GET home page. */
+router.get('/', function(req, res, next) {
+  res.redirect("/en")
+});
+
 router.get('/:lang', async function(req, res, next) {
 
   Plan.get(function (e, plans) {
