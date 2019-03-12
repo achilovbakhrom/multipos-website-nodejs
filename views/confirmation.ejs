@@ -57,30 +57,32 @@
             <div class="inner">
                 <div class="login-form">
                     <% if(lang === "en"){ %>
-                        <h3 data-language='lsignin'>Confirm</h3>
+                    <h3>
+                        Confirm
+                    </h3>
 
-                        <p>Email with confirmation code has been sent to email address indicated!<br/>Please check your
-                            email and activate profile to proceed!</p><br/>
-                        <form class="contact-form" method="post" action="../confirmation/confirm">
-                            <div class="mail">
-                                <label>Email Address</label>
-                                <input name="email" placeholder="" type="text" id="email">
-                            </div>
-                            <div class="password">
-                                <label>Confirmation Code</label>
-                                <input name="confirmationNumber" placeholder="" type="text" id="confirmationNumber">
-                            </div>
-                            <button class="btn login-btn" type="submit" id="confirm" name="submit"
-                                    data-language='lsignin'>Confirm
-                            </button>
-                        </form>
+                    <p>Email with confirmation code has been sent to email address indicated!<br/>Please check your
+                        email and activate profile to proceed!</p><br/>
+                    <form class="contact-form" method="post" action="http://multipos.io/confirmation/confirm">
+                        <div class="mail">
+                            <label>Email Address</label>
+                            <input name="email" placeholder="" type="text" id="email">
+                        </div>
+                        <div class="password">
+                            <label>Confirmation Code</label>
+                            <input name="confirmationNumber" placeholder="" type="text" id="confirmationNumber">
+                        </div>
+                        <button class="btn login-btn" type="submit" id="confirm" name="submit">
+                            Confirm
+                        </button>
+                    </form>
                     <% } else { %>
-                        <h3 data-language='lsignin'>Подтверждение</h3>
+                        <h3>Подтверждение</h3>
 
                         <p>Email с кодом активации был отправлен на Вашу електроннею почту указанную при
                             регистрации!<br/> Пожалуйста, проверьте вашу электронную почту и активируйте профиль чтобы
                             продолжить!</p><br/>
-                        <form class="contact-form" method="post" action="../confirmation/confirm">
+                        <form class="contact-form" method="post" action="http://multipos.io/confirmation/confirm">
                             <div class="mail">
                                 <label>Email Адрес</label>
                                 <input name="email" placeholder="" type="text" id="email">
@@ -89,8 +91,7 @@
                                 <label>Код активации</label>
                                 <input name="confirmationNumber" placeholder="" type="text" id="confirmationNumber">
                             </div>
-                            <button class="btn login-btn" type="submit" id="confirm" name="submit"
-                                    data-language='lsignin'>Подтвердить
+                            <button class="btn login-btn" type="submit" id="confirm" name="submit">Подтвердить
                             </button>
                         </form>
                     <% } %>
@@ -98,9 +99,9 @@
             </div>
             <div class="box-hav-accnt">
                 <% if(lang === "en"){ %>
-                    <p>Don't have an account? <a id="signupUrl" href="" data-language='lsignup'>Sign up</a></p>
+                    <p>Don't have an account? <a id="signupUrl" href="">Sign up</a></p>
                 <% } else { %>
-                    <p>Ещё не зарегистрированы? <a id="signupUrl" href="" data-language='lsignup'>Регистрация</a></p>
+                    <p>Ещё не зарегистрированы? <a id="signupUrl" href="">Регистрация</a></p>
                 <% } %>
                 <script language="javascript" type="text/javascript">
                     var urlParams = window.location.pathname.split('/');

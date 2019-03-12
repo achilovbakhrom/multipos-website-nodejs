@@ -46,7 +46,7 @@
     } else {
         // var urlParams = window.location.pathname.split('/');
         // var username = $.cookie("username");
-        $('#login_area').append("<ul style='margin-left: 5%;' class=\"navbar-right d-flex\"> <li><a href=\"/login/" + lang + "\" data-language='lsignin'> Sign In </a> </li><li><a data-language='lsignup' href=\"/register/" + lang + "\"> Sign Up </a></li></ul>");
+        $('#login_area').append("<ul style='margin-right: 10%;' class=\"navbar-right d-flex\"> <li><a href=\"/login/" + lang + "\" data-language='lsignin'> Sign In </a> </li><li><a data-language='lsignup' href=\"/register/" + lang + "\"> Sign Up </a></li></ul>");
     }
 
     $('#logout').click(function () {
@@ -57,7 +57,7 @@
         $.removeCookie('user_role', {path: '/'});
         var urlParams = window.location.pathname.split('/');
         var lang = urlParams[urlParams.length - 1];
-        window.location.replace("http://localhost:3000/" + lang);
+        window.location.replace("http://multipos.io/" + lang);
     });
 
 
@@ -68,7 +68,7 @@
         let password = $('#billing_password').val();
         $.ajax({
             type: "POST",
-            url: "http://localhost:3000/oauth/token",
+            url: "http://multipos.io/oauth/token",
             data: {
                 "username": email,
                 "password": password,
@@ -79,34 +79,34 @@
             statusCode: {
                 404: function (error) {
                     alert("Username or password are incorrect");
-                    window.location.replace("http://localhost:3000/" + lang);
+                    window.location.replace("http://multipos.io/" + lang);
                 },
                 401: function (error) {
                     alert("Username or password are incorrect");
-                    window.location.replace("http://localhost:3000/login/" + lang);
+                    window.location.replace("http://multipos.io/login/" + lang);
                 },
                 500: function (error) {
                     alert("Username or password are incorrect");
-                    window.location.replace("http://localhost:3000/login/" + lang);
+                    window.location.replace("http://multipos.io/login/" + lang);
                 }
             },
             success: function (response) {
                 var userRole = "";
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost:3000/users/" + email,
+                    url: "http://multipos.io/users/" + email,
                     statusCode: {
                         404: function (error) {
                             alert("Username or password are incorrect");
-                            window.location.replace("http://localhost:3000/" + lang);
+                            window.location.replace("http://multipos.io/" + lang);
                         },
                         401: function (error) {
                             alert("Username or password are incorrect");
-                            window.location.replace("http://localhost:3000/login/" + lang);
+                            window.location.replace("http://multipos.io/login/" + lang);
                         },
                         500: function (error) {
                             alert("Username or password are incorrect");
-                            window.location.replace("http://localhost:3000/login/" + lang);
+                            window.location.replace("http://multipos.io/login/" + lang);
                         }
                     },
                     success: function (response2) {
@@ -116,7 +116,7 @@
                         $.cookie("user_role", response2, {path: '/'});
                         $.cookie("access_token", response.access_token, {path: '/'});
                         $.cookie("expires", expirationDateString, {path: '/'});
-                        window.location.replace("http://localhost:3000/" + lang);
+                        window.location.replace("http://multipos.io/" + lang);
 
                     }
                 });
@@ -180,11 +180,11 @@
             statusCode: {
                 500: function (error) {
                     // alert("Email with confirmation code has been sent to email address indicated! \n Please check your email and activate profile to proceed!");
-                    window.location.replace("http://localhost:3000/confirmation/" + lang);
+                    window.location.replace("http://multipos.io/confirmation/" + lang);
                 },
                 409: function () {
                     alert("Such email is already exists");
-                    window.location.replace("http://localhost:3000/register/" + lang);
+                    window.location.replace("http://multipos.io/register/" + lang);
                 }
             },
             success: function (response) {
