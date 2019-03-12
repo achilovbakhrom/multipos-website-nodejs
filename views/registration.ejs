@@ -57,42 +57,75 @@
                     <h3 data-language='lsignup'>Register Now</h3>
                     <form action="javascript:void(0);">
                         <div class="first-name" >
-                            <label>First Name</label>
+                            <%if(lang === "en"){%>
+                                <label>First Name</label>
+                            <%} else {%>
+                                    <label>Имя</label>
+                            <%}%>
                             <input name="First Name" placeholder="" type="text" id="billing_first_name">
                         </div>
                         <div class="last-name" >
-                            <label>Last Name</label>
+                            <%if(lang === "en"){%>
+                                <label>Last Name</label>
+                            <%} else {%>
+                                    <label>Фамилия</label>
+                            <%}%>
                             <input name="Last Name" placeholder="" type="text" id="billing_last_name">
                         </div>
-                        <div class="company-name" >
-                            <label>Company Name</label>
-                            <input name="Company Name" placeholder="" type="text" id="billing_company_name">
-                        </div>
                         <div class="mail" >
-                            <label>Email Address</label>
+                            <%if(lang === "en"){%>
+                                <label>Email Address</label>
+                            <%} else {%>
+                                    <label>Email Адрес</label>
+                            <%}%>
                             <input name="Email Address" placeholder="" type="text" id="billing_email">
                         </div>
                         <div class="password" >
-                            <label>Password</label>
+                            <%if(lang === "en"){%>
+                                <label>Password</label>
+                            <%} else {%>
+                                    <label>Пароль</label>
+                            <%}%>
                             <input name="Password" placeholder="" type="text" id="billing_password">
                         </div>
                         <div class="confirm-password" >
-                            <label>Confirm Password</label>
+                            <%if(lang === "en"){%>
+                                <label>Confirm Password</label>
+                            <%} else {%>
+                                    <label>Подтверждение пароля</label>
+                            <%}%>
                             <input name="Confirm Password" placeholder="" type="text" id="confirm_password">
                         </div>
                         <div class="terms">
                             <label>
-                                <input value="" type="checkbox">
-                                <span>I agree to all <a href="">terms</a></span></label>
+                                <input value="" type="checkbox" id="cbx_agree" onclick="enableReg()">
+                                <%if(lang === "en"){%>
+                                    <span>I agree to all <a href="">terms</a></span>
+                                <%} else {%>
+                                    <span>Я согласен со всеми <a href="">условиями</a></span>
+                                <%}%>
+                            </label>
                         </div>
                         <div class="login-btn-sec">
-                            <button id="register_now" data-language='lsignup' class="btn login-btn">Register</button>
+                            <button id="register_now" data-language='lsignup' class="btn login-btn" disabled>Register</button>
                         </div>
+                        <script>
+                            function enableReg() {
+                                if($("#cbx_agree").is(':checked'))
+                                    $("#register_now").prop("disabled", false);
+                                else
+                                    $("#register_now").prop("disabled", true);
+                            }
+                        </script>
                     </form>
                 </div>
             </div>
             <div class="box-hav-accnt">
-                <p>Already have an account? <a id="loginUrl" href="" data-language="lsignin">Sign in</a></p>
+                <%if(lang === "en"){%>
+                    <p>Already have an account? <a id="loginUrl" href="" data-language="lsignin">Sign in</a></p>
+                <%} else {%>
+                        <p>Уже зарегистрированы? <a id="loginUrl" href="" data-language="lsignin">Войти</a></p>
+                <%}%>
                 <script language="javascript" type="text/javascript">
                     var urlParams = window.location.pathname.split('/');
                     var lang = urlParams[urlParams.length-1];

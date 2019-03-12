@@ -92,7 +92,7 @@ var saveAccessToken = function(accessToken, clientId, expires, user, callback) {
 var getUser = function (email, password, callback) {
     // console.log(email);
     // console.log(password);
-    db.get().collection('users').find({email: email, password: password}).toArray(function (err, res) {
+    db.get().collection('users').find({email: email, password: password, confirmed: true}).toArray(function (err, res) {
         if (res[0] !== undefined) {
             callback(false, res[0]);
         } else {

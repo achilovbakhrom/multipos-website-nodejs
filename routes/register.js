@@ -1,17 +1,18 @@
 var express = require('express');
 var router = express.Router();
+var nodemailer = require('nodemailer');
+
 
 var Users = require('../modal/user');
 
 /* GET home page. */
 router.get('/:lang', function(req, res, next) {
-    res.render('registration');
+    res.render('registration', {lang: req.params.lang});
 });
 
 router.post("/save/:lang", function (req, response, next) {
     var firstName = req.body.first_name;
     var lastName = req.body.last_name;
-    var companyName = req.body.company_name;
     var emailAdress = req.body.email;
     var userPassword = req.body.password;
     var confirmPassword = req.body.comfirm;
@@ -26,24 +27,28 @@ router.post("/save/:lang", function (req, response, next) {
             return;
         }
         if (res.length === 0) {
-            let guid = function() {
-                function s4() {
-                    return Math.floor((1 + Math.random()) * 0x10000)
-                        .toString(16)
-                        .substring(1);
-                }
-                return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-                    s4() + '-' + s4() + s4() + s4();
-            };
-            let sessionId = guid();
+
+            // let guid = function() {
+            //     function s4() {
+            //         return Math.floor((1 + Math.random()) * 0x10000)
+            //             .toString(16)
+            //             .substring(1);
+            //     }
+            //     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+            //         s4() + '-' + s4() + s4() + s4();
+            // };
+            // let sessionId = guid();
+            let confirmationNumber = Math.floor(Math.random() * 999999) + 100000;
             Users.create({
                 firstName: firstName,
                 lastName: lastName,
-                copmanyName: companyName,
                 email: emailAdress,
                 password: userPassword,
-                comfirms: confirmPassword,
+                confirmationNumber: confirmationNumber,
+                confirmed: false,
                 role: 'user',
+                imageUrl: '../../images/userprofile/user1.svg',
+                address: ''
             }, function(err, res) {
                 if (err) {
                     var err = new Error();
@@ -52,12 +57,34 @@ router.post("/save/:lang", function (req, response, next) {
                     next(err);
                     return;
                 }
-                response.json({
-                    message: "OK",
-                    sessionId: sessionId
+
+                let transporter = nodemailer.createTransport({
+                    service: "Gmail",
+                    auth: {
+                        user: 'basicstepsdevelopment@gmail.com', // generated ethereal user
+                        pass: '02082009madina' // generated ethereal password
+                    },
+                    tls: {
+                        rejectUnauthorized: false
+                    }
                 });
-                response.statusCode = 200;
-                response.send();
+
+                let mailOptions = {
+                    from: 'Multipos Support', // sender address
+                    to: emailAdress, // list of receivers
+                    subject: 'Activation Code', // Subject line
+                    text: "Dear " + firstName + " " + lastName + '\n' + "Your Activation Code: " + confirmationNumber + '\n' + "Best Regards," + '\n' + "Multipos Team" // plain text body
+                };
+
+
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        return console.log(error);
+                    }
+                    console.log('Message sent: %s', info.messageId);
+                    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+                    next(res)
+                });
             })
         } else {
             var err = new Error();

@@ -36,29 +36,29 @@ router.get('/:page/:lang', function(req, res, next) {
     });
 });
 
-router.post("/save", function (req, response, next) {
-
-    var newBlog = {
-        titleEn: req.body.titleEn,
-        titleRu: req.body.titleRu,
-        date : Date.now(),
-        image: req.body.image,
-        shortTextEn: req.body.shortTextEn,
-        shortTextRu: req.body.shortTextRu,
-        fullTextEn: req.body.fullTextEn,
-        fullTextRu: req.body.fullTextRu
-    };
-
-    Blogs.create(newBlog, function (err, res) {
-        if (err) {
-            var err = new Error();
-            err.status = 500;
-            err.message = "failed to write to DB";
-            next(err);
-        }
-    });
-    response.redirect("/blog/1/en");
-});
+// router.post("/save", function (req, response, next) {
+//
+//     var newBlog = {
+//         titleEn: req.body.titleEn,
+//         titleRu: req.body.titleRu,
+//         date : Date.now(),
+//         image: req.body.image,
+//         shortTextEn: req.body.shortTextEn,
+//         shortTextRu: req.body.shortTextRu,
+//         fullTextEn: req.body.fullTextEn,
+//         fullTextRu: req.body.fullTextRu
+//     };
+//
+//     Blogs.create(newBlog, function (err, res) {
+//         if (err) {
+//             var err = new Error();
+//             err.status = 500;
+//             err.message = "failed to write to DB";
+//             next(err);
+//         }
+//         response.redirect("/blog/1/en");
+//     });
+// });
 
 
 module.exports = router;

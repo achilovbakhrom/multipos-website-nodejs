@@ -1,51 +1,62 @@
 'use strict';
+// function showHide(){
+//     if($(".login-dropdown-content-custom").css("display") === "none"){
+//         $(".login-dropdown-content-custom").css("display", "block")
+//     } else {
+//         $(".login-dropdown-content-custom").css("display", "none")
+//     }
+// }
 
-(function() {
+(function () {
+    let username = $.cookie("username");
+    let urlParams = window.location.pathname.split('/');
+    let lang = urlParams[urlParams.length - 1];
 
-// <a class='nav-link dropdown-toggle' id='dropdown5' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><img src='../../images/profile/user.svg' style='height: 17px;'></a>
-//         <div class='dropdown-menu' style='min-width: auto; width: auto; padding: 20px 0;'>
-//         <a class='dropdown-item' id='enFlag' href='#' data-callLang='en'>
-//         Profile
-//         </a>
-//         <a class='dropdown-item' id='ruFlag' href='#' data-callLang='ru'>
-//         Logout
-//         </a>
-//         <script language='javascript' type='text/javascript'>
-//     var url = window.location.pathname
-//     var value = url.substring(url.lastIndexOf('/') + 1);
-//     document.getElementById("enFlag").href = url.replace(value, 'en');
-//     document.getElementById("ruFlag").href = url.replace(value, 'ru');
-//     document.getElementById("logoUrl").href = url;
-// </script>
-//     </div>
 
     if ($.cookie("username")) {
-        var username = $.cookie("username");
-        // $('#login_area').append("<a class='nav-link dropdown-toggle' id='dropdown5' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><img src='../../images/profile/user.svg' style='height: 17px;'></a>" +
-        //     "<div class='dropdown-menu' style='min-width: auto; width: auto; padding: 20px 0;'>" +
-        //     "<a class='dropdown-item' id='enFlag' href='#' data-callLang='en'>" +
-        //     "Profile" +
-        //     "</a>" +
-        //     "<a class='dropdown-item' id='ruFlag' href='#' data-callLang='ru'>" +
-        //     "Logout" +
-        //     "</a>" +
-        //     "</div>");
-        $('#login_area').append("<p><div class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" + username + " </a> <div class=\"dropdown-menu dropdown-menu-left\" aria-labelledby=\"dropdownMenuLink\"> <a class=\"dropdown-item\" href=\"#\"><h5> <i class=\"fas fa-user\"></i> &nbsp&nbsp Go to profile </h5></a><div class=\"dropdown-divider\"></div> <a class=\"dropdown-item\" href=\"#\"><h5> <i class=\"fas fa-sign-out-alt\"></i> &nbsp&nbsp Log out</h5></a></div></div></p>");
+        var profileBtn = "My Profile";
+        var logoutBtn = "Log Out";
+        if(lang === "ru"){
+            profileBtn = "Мой Профиль";
+            logoutBtn = "Выйти";
+        }
+
+        $('#login_area').append("<div class='login-dropdown-custom>'" +
+            // "<button onclick=\"showHide()\" class=\"login-dropbtn-custom\">Profile</button>" +
+            "<button class='login-dropbtn-custom'>" + username + "</button>" +
+            "<div class='login-dropdown-content-custom'>" +
+            "<a href=\"/userpage/" + lang + "\">" + profileBtn + "</a>" +
+            "<a id='logout' href='#'>"+logoutBtn+"</a>" +
+            "</div>" +
+            "</div>");
+
+
+        // <div class="dropdown">
+        //         <button class="dropbtn">Dropdown</button>
+        //         <div class="dropdown-content">
+        //         <a href="#">Link 1</a>
+        //     <a href="#">Link 2</a>
+        //     <a href="#">Link 3</a>
+        //     </div>
+        //     </div>
+
+        // var urlParams = window.location.pathname.split('/');
+        // // var localLang = urlParams[urlParams.length-1];
+        // $('#login_area').append("<p><a style=\"text-decoration: underline\" class=\"login_profile_area\" onclick='location.href = /userpage/ + urlParams[urlParams.length-1]'>" + username + " </a>&nbsp&nbsp|&nbsp&nbsp <a data-language='llogout'  class=\"btn blue\" id=\"logout\" href=\"#\"> Logout </a></p>");
     } else {
-        var urlParams = window.location.pathname.split('/');
-        var lang = urlParams[urlParams.length-1];
-        var username = $.cookie("username");
-        $('#login_area').append("<ul class=\"navbar-right d-flex\"> <li><a href=\"/login/"+lang+"\" data-language='lsignin'> Sign In </a> </li><li><a data-language='lsignup' href=\"/register/"+lang+"\"> Sign Up </a></li></ul>");
+        // var urlParams = window.location.pathname.split('/');
+        // var username = $.cookie("username");
+        $('#login_area').append("<ul style='margin-left: 5%;' class=\"navbar-right d-flex\"> <li><a href=\"/login/" + lang + "\" data-language='lsignin'> Sign In </a> </li><li><a data-language='lsignup' href=\"/register/" + lang + "\"> Sign Up </a></li></ul>");
     }
 
     $('#logout').click(function () {
-        $.removeCookie('username', { path: '/' });
-        $.removeCookie('expires', { path: '/' });
+        $.removeCookie('username', {path: '/'});
+        $.removeCookie('expires', {path: '/'});
         $.removeCookie('access_token', {path: '/'});
-        $.removeCookie('sessionId', {path:'/'});
-        $.removeCookie('user_role', {path:'/'});
+        $.removeCookie('sessionId', {path: '/'});
+        $.removeCookie('user_role', {path: '/'});
         var urlParams = window.location.pathname.split('/');
-        var lang = urlParams[urlParams.length-1];
+        var lang = urlParams[urlParams.length - 1];
         window.location.replace("http://localhost:3000/" + lang);
     });
 
@@ -57,7 +68,7 @@
         let password = $('#billing_password').val();
         $.ajax({
             type: "POST",
-            url:"http://localhost:3000/oauth/token",
+            url: "http://localhost:3000/oauth/token",
             data: {
                 "username": email,
                 "password": password,
@@ -65,36 +76,36 @@
                 "client_secret": 'secret',
                 "grant_type": "password"
             },
-            statusCode:{
+            statusCode: {
                 404: function (error) {
-                    alert(error.message);
+                    alert("Username or password are incorrect");
                     window.location.replace("http://localhost:3000/" + lang);
                 },
                 401: function (error) {
-                    alert(error.message);
+                    alert("Username or password are incorrect");
                     window.location.replace("http://localhost:3000/login/" + lang);
                 },
                 500: function (error) {
-                    alert(error.message);
+                    alert("Username or password are incorrect");
                     window.location.replace("http://localhost:3000/login/" + lang);
                 }
             },
             success: function (response) {
                 var userRole = "";
                 $.ajax({
-                   type: "POST",
-                   url: "http://localhost:3000/users/"+email,
-                    statusCode:{
+                    type: "POST",
+                    url: "http://localhost:3000/users/" + email,
+                    statusCode: {
                         404: function (error) {
-                            alert(error.message);
+                            alert("Username or password are incorrect");
                             window.location.replace("http://localhost:3000/" + lang);
                         },
                         401: function (error) {
-                            alert(error.message);
+                            alert("Username or password are incorrect");
                             window.location.replace("http://localhost:3000/login/" + lang);
                         },
                         500: function (error) {
-                            alert(error.message);
+                            alert("Username or password are incorrect");
                             window.location.replace("http://localhost:3000/login/" + lang);
                         }
                     },
@@ -105,27 +116,26 @@
                         $.cookie("user_role", response2, {path: '/'});
                         $.cookie("access_token", response.access_token, {path: '/'});
                         $.cookie("expires", expirationDateString, {path: '/'});
-                        window.location.replace("http://localhost:3000/"+ lang);
+                        window.location.replace("http://localhost:3000/" + lang);
 
                     }
                 });
             },
-            dataType:'json'
+            dataType: 'json'
         });
     }
 
     var sending = false;
 
-    $('#register_now').click(function() {
+    $('#register_now').click(function () {
         if (sending) return;
         var firstNameValue = $('#billing_first_name').val();
         var lastNameValue = $('#billing_last_name').val();
-        var companyNameValue = $('#billing_company_name').val();
         var emailValue = $('#billing_email').val();
         var passwordValue = $('#billing_password').val();
         var passwordConfirm = $('#confirm_password').val();
 
-        if(passwordConfirm == null || passwordConfirm !== passwordValue){
+        if (passwordConfirm == null || passwordConfirm !== passwordValue) {
             alert("Please replay password");
             return;
         }
@@ -136,10 +146,6 @@
 
         if (lastNameValue === null || lastNameValue.length < 3) {
             alert("Last name must contain at least 3 letters");
-            return;
-        }
-        if (companyNameValue === null || companyNameValue.length < 3) {
-            alert("Company name must contain at least 3 letters");
             return;
         }
 
@@ -167,23 +173,24 @@
             data: {
                 "first_name": firstNameValue,
                 "last_name": lastNameValue,
-                "company_name": companyNameValue,
                 "email": emailValue,
                 "password": passwordValue,
                 "comfirm": passwordConfirm
             },
             statusCode: {
-                500: function(error) {
-                    alert(error.message);
-                    window.location.replace("http://localhost:3000/" + lang);
+                500: function (error) {
+                    // alert("Email with confirmation code has been sent to email address indicated! \n Please check your email and activate profile to proceed!");
+                    window.location.replace("http://localhost:3000/confirmation/" + lang);
                 },
                 409: function () {
                     alert("Such email is already exists");
                     window.location.replace("http://localhost:3000/register/" + lang);
                 }
             },
-                success: function (response) {
-                login();
+            success: function (response) {
+                // login();
+                // alert("Email with confirmation code has been sent to email address indicated! \n Please check your email and activate profile to proceed!");
+                response.redirect("/confirmation/" + lang)
                 // var date = new Date(43200);
                 // var expirationDateString = date.toUTCString();
                 // var sessionId = response.sessionId;

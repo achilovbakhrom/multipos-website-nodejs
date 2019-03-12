@@ -5,7 +5,7 @@ var Users = require('../modal/user');
 
 /* GET home page. */
 router.get('/:lang', function(req, res, next) {
-    res.render('login');
+    res.render('login', {lang: req.params.lang});
 });
 
 router.post('/token', function (request, response, next) {

@@ -17,17 +17,18 @@
 **Header**
 =================================================== -->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container"><a id="homeUrl" href="" data-language="llogo" class="navbar-brand"><img
-                    src="../../images/logo.png" class="img-fluid" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><span
-                    class="navbar-toggler-icon"></span></button>
+    <div class="col-md-2 col-xs-2">
+        <a id="logoUrl" href="/<%=lang%>" data-language="llogo" class="navbar-brand">
+            <img src="../../images/logo.png" class="img-fluid" alt="">
+        </a>
+    </div>
+    <div class="col-md-8 col-xs-8">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="dropdown5" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"><img data-language="setflag" src="../../assets/flags/4x3/us.svg"
-                                                  style="height: 17px;"></a>
+                    <a class="nav-link dropdown-toggle" id="dropdown5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img data-language="setflag" src="../../assets/flags/4x3/us.svg" style="height: 17px;"></a>
                     <div class="dropdown-menu" style="min-width: auto; width: auto; padding: 20px 0;">
                         <a class="dropdown-item" id="enFlag" href="" data-callLang="en">
                             <img src="../../assets/flags/4x3/us.svg" style="height: 24px;">
@@ -40,21 +41,14 @@
                             var value = url.substring(url.lastIndexOf('/') + 1);
                             document.getElementById("enFlag").href = url.replace(value, 'en');
                             document.getElementById("ruFlag").href = url.replace(value, 'ru');
-                            var urlParams = window.location.pathname.split('/');
-                            var lang = urlParams[urlParams.length - 1];
-                            document.getElementById("homeUrl").href = "/" + lang;
                         </script>
                     </div>
                 </li>
             </ul>
-            <div id="login_area" class="col-md-4 text-center text-md-right"></div>
-            <!-- <div id="login_area">
-                <ul class="navbar-right d-flex">
-                    <li><a href="/register">Signup</a></li>
-                    <li><a href="/login">Login</a></li>
-                </ul>
-            </div> -->
         </div>
+    </div>
+    <div id="login_area"></div>
+    <!--<div id="login_area" class="col-md-2 col-xs-2" ></div>-->
     </div>
 </nav>
 <!-- ==============================================
@@ -82,15 +76,9 @@
         <div class="row">
             <div class="col-md-8 col-lg-9">
                 <div class="blog-content blog-detailed">
-                    <figure class="blog-pic"><img class="img-fluid" src="../../images/0.jfif" alt="">
+                    <figure class="blog-pic"><img class="img-fluid" src="<%= blog.image %>" alt="">
                     </figure>
                     <p class="time"><%= blog.date %></p>
-                    <!--<div class="box">-->
-                    <!--<ul class="blog-info">-->
-                    <!--<li class="comment">5623 <a href="#">Comments</a></li>-->
-                    <!--<li class="like">5623 <a href="#">Likes</a></li>-->
-                    <!--</ul>-->
-                    <!--</div>-->
                     <p>
                         <% if(lang == "en"){ %>
                         <%= blog.fullTextEn %>
@@ -98,113 +86,40 @@
                         <%= blog.fullTextRu %>
                         <% } %>
                     </p>
-                    <!--<ul class="blog-tag">-->
-                    <!--<li><a href="#">Editor</a></li>-->
-                    <!--<li><a href="#">Email Templaes</a></li>-->
-                    <!--</ul>-->
-                    <!--<div class="disqus-cmt">-->
-                    <!--<div id="disqus_thread"></div>-->
-                    <!--<script>-->
-
-                    <!--/**-->
-                    <!--*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.-->
-                    <!--*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/-->
-                    <!--/*-->
-                    <!--var disqus_config = function () {-->
-                    <!--this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable-->
-                    <!--this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable-->
-                    <!--};-->
-                    <!--*/-->
-                    <!--(function() { // DON'T EDIT BELOW THIS LINE-->
-                    <!--var d = document, s = d.createElement('script');-->
-                    <!--s.src = 'https://http-protechtheme-com.disqus.com/embed.js';-->
-                    <!--s.setAttribute('data-timestamp', +new Date());-->
-                    <!--(d.head || d.body).appendChild(s);-->
-                    <!--})();-->
-                    <!--</script>-->
-                    <!--<noscript>-->
-                    <!--Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>-->
-                    <!--</noscript>-->
-                    <!--</div>-->
                 </div>
             </div>
 
             <!-- ==============================================
             **Blog Sidebar**
             =================================================== -->
-            <aside class="col-md-4 col-lg-3">
-                <div class="blog-sidebar">
+            <!--<aside class="col-md-4 col-lg-3">-->
+                <!--<div class="blog-sidebar">-->
 
-                    <!--&lt;!&ndash;Start Categories&ndash;&gt;-->
-                    <!--<div class="cmn-box">-->
-                    <!--<h4>Categories</h4>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">Email <span class="count">65</span></a></li>-->
-                    <!--<li><a href="#">Premium Templates <span class="count">25</span></a></li>-->
-                    <!--<li><a href="#">Domain Registrations <span class="count">48</span></a></li>-->
-                    <!--<li><a href="#">Grid <span class="count">70</span></a></li>-->
-                    <!--<li><a href="#">API <span class="count">10</span></a></li>-->
-                    <!--<li><a href="#">VPS <span class="count">34</span></a></li>-->
-                    <!--<li><a href="#">(ve) Server <span class="count">25</span></a></li>-->
-                    <!--<li><a href="#">(ve) ProCDN <span class="count">76</span></a></li>-->
-                    <!--</ul>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash;End Categories&ndash;&gt;-->
-
-                    <!--&lt;!&ndash;Start Archieves&ndash;&gt;-->
+                    <!--&lt;!&ndash;Start Recent Articles&ndash;&gt;-->
                     <!--<div class="cmn-box archive">-->
-                    <!--<h4>Archieves</h4>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">December 22, 2017</a></li>-->
-                    <!--<li><a href="#">November 20, 2017</a></li>-->
-                    <!--<li><a href="#">October 18, 2017</a></li>-->
-                    <!--<li><a href="#">September 16, 2017</a></li>-->
-                    <!--<li><a href="#">August 15, 2017</a></li>-->
-                    <!--<li><a href="#">July 12, 2017</a></li>-->
-                    <!--</ul>-->
+                        <!--<h4>Recent Articles</h4>-->
+                        <!--<div class="article-box">-->
+                            <!--<figure class="article-pic"><img class="img-fluid" src="../images/blog-article-img-1.jpg"-->
+                                                             <!--alt=""></figure>-->
+                            <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>-->
+                            <!--<p class="time">December 10, <span>2017</span></p>-->
+                        <!--</div>-->
+                        <!--<div class="article-box">-->
+                            <!--<figure class="article-pic"><img class="img-fluid" src="../images/blog-article-img-2.jpg"-->
+                                                             <!--alt=""></figure>-->
+                            <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>-->
+                            <!--<p class="time">November 22, <span>2017</span></p>-->
+                        <!--</div>-->
+                        <!--<div class="article-box" style="padding-bottom:10px;">-->
+                            <!--<figure class="article-pic"><img class="img-fluid" src="../images/blog-article-img-3.jpg"-->
+                                                             <!--alt=""></figure>-->
+                            <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>-->
+                            <!--<p class="time">October 17, <span>2017</span></p>-->
+                        <!--</div>-->
                     <!--</div>-->
-                    <!--&lt;!&ndash;End Archieves&ndash;&gt;-->
 
-                    <!--Start Recent Articles-->
-                    <div class="cmn-box archive">
-                        <h4>Recent Articles</h4>
-                        <div class="article-box">
-                            <figure class="article-pic"><img class="img-fluid" src="../images/blog-article-img-1.jpg"
-                                                             alt=""></figure>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
-                            <p class="time">December 10, <span>2017</span></p>
-                        </div>
-                        <div class="article-box">
-                            <figure class="article-pic"><img class="img-fluid" src="../images/blog-article-img-2.jpg"
-                                                             alt=""></figure>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
-                            <p class="time">November 22, <span>2017</span></p>
-                        </div>
-                        <div class="article-box" style="padding-bottom:10px;">
-                            <figure class="article-pic"><img class="img-fluid" src="../images/blog-article-img-3.jpg"
-                                                             alt=""></figure>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
-                            <p class="time">October 17, <span>2017</span></p>
-                        </div>
-                    </div>
-                    <!--End Recent Articles-->
-
-                    <!--&lt;!&ndash;Start Tags&ndash;&gt;-->
-                    <!--<div class="cmn-box tags">-->
-                    <!--<h4>Tags</h4>-->
-                    <!--<ul class="blog-tag">-->
-                    <!--<li><a href="#">Email Templaes</a></li>-->
-                    <!--<li><a href="#">Html Editor</a></li>-->
-                    <!--<li><a href="#">Templates</a></li>-->
-                    <!--<li><a href="#">Email</a></li>-->
-                    <!--<li><a href="#">Editor</a></li>-->
-                    <!--<li><a href="#">Email Templaes</a></li>-->
-                    <!--</ul>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash;End Tags&ndash;&gt;-->
-
-                </div>
-            </aside>
+                <!--</div>-->
+            <!--</aside>-->
         </div>
     </div>
 </section>
@@ -261,10 +176,10 @@
 <script src="../../assets/select2/js/select2.min.js"></script>
 <!-- Display Comment Count JS -->
 <script id="dsq-count-scr" src="http-protechtheme-com.disqus.com/count.js" async></script>
-<!-- Custom JS -->
-<script src="../../js/custom.js"></script>
 <!--Cookie JS-->
 <script src="../../js/jquery.cookie.js"></script>
+<!-- Custom JS -->
 <script src="../../js/main.js"></script>
+<script src="../../js/custom.js"></script>
 </body>
 </html>

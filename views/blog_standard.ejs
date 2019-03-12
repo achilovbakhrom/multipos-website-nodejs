@@ -17,12 +17,17 @@
 **Header**
 =================================================== -->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container"><a id="homeUrl" href="" data-language="llogo" class="navbar-brand"><img
-                    src="../../images/logo.png" class="img-fluid" alt=""></a>
+    <div class="col-md-2 col-xs-2">
+        <a id="logoUrl" href="/<%= lang %>" data-language="llogo" class="navbar-brand">
+            <img src="../../images/logo.png" class="img-fluid" alt="">
+        </a>
+    </div>
+    <div class="col-md-8 col-xs-8">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><span
                     class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="dropdown5" data-toggle="dropdown" aria-haspopup="true"
@@ -40,21 +45,14 @@
                             var value = url.substring(url.lastIndexOf('/') + 1);
                             document.getElementById("enFlag").href = url.replace(value, 'en');
                             document.getElementById("ruFlag").href = url.replace(value, 'ru');
-                            var urlParams = window.location.pathname.split('/');
-                            var lang = urlParams[urlParams.length - 1];
-                            document.getElementById("homeUrl").href = "/" + lang;
                         </script>
                     </div>
                 </li>
             </ul>
-            <div id="login_area" class="col-md-4 text-center text-md-right"></div>
-            <!-- <div id="login_area">
-                <ul class="navbar-right d-flex">
-                    <li><a href="/register">Signup</a></li>
-                    <li><a href="/login">Login</a></li>
-                </ul>
-            </div> -->
         </div>
+    </div>
+    <div id="login_area"></div>
+    <!--<div id="login_area" class="col-md-2 col-xs-2" ></div>-->
     </div>
 </nav>
 
@@ -64,8 +62,13 @@
 <section class="inner-banner">
     <div class="container">
         <div class="contents">
-            <h1>Multipos Blog</h1>
-            <p>Latest news about Multipos <span></span></p>
+            <% if(lang === "en"){ %>
+                <h1>Multipos Blog</h1>
+                <p>Latest news about Multipos <span></span></p>
+            <% } else { %>
+                <h1>Блог</h1>
+                <p>Наши Последние новости <span></span></p>
+            <% } %>
         </div>
     </div>
 </section>
@@ -81,33 +84,39 @@
 
                 <ul>
                     <% result.forEach(function(item) { %>
-                    <li>
-                        <% if(lang == "ru") { %>
-                            <h4><%= item.titleRu %></h4>
-                        <% } else { %>
-                            <h4><%= item.titleEn %></h4>
-                        <% } %>
-                        <div class="box">
-                            <ul class="blog-tag">
-                                <li>
-                                    <p class="time"><%= item.date %></p>
+                        <li>
+                            <% if(lang == "ru") { %>
+                                <h4><%= item.titleRu %></h4>
+                            <% } else { %>
+                                <h4><%= item.titleEn %></h4>
+                            <% } %>
+                            <div class="box">
+                                <ul class="blog-tag">
+                                    <li>
+                                        <p class="time"><%= item.date %></p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <figure class="blog-pic"><img class="img-fluid" src="<%= item.image %>" alt="">
+                            </figure>
+                            <% if(lang == "ru") { %>
+                                <p><%= item.shortTextRu %></p>
+                            <% } else { %>
+                                <p><%= item.shortTextEn %></p>
+                            <% } %>
+                            <ul class="blog-info">
+                                <!--<li class="comment">5623 <a href="#">Comments</a></li>-->
+                                <!--<li class="like">455 <a href="#">Likes</a></li>-->
+                                <% if(lang === "en"){ %>
+                                <li><a href="../../blog-single/<%= item._id + '/' + lang %>" class="know-more">Know
+                                        more</a>
+                                    <% } else { %>
+                                <li><a href="../../blog-single/<%= item._id + '/' + lang %>" class="know-more">Узнать
+                                        Больше</a>
+                                    <% } %>
                                 </li>
                             </ul>
-                        </div>
-                        <figure class="blog-pic"><img class="img-fluid" src="../../images/0.jfif" alt="">
-                        </figure>
-                        <% if(lang == "ru") { %>
-                            <p><%= item.shortTextRu %></p>
-                        <% } else { %>
-                            <p><%= item.shortTextEn %></p>
-                        <% } %>
-                        <ul class="blog-info">
-                            <!--<li class="comment">5623 <a href="#">Comments</a></li>-->
-                            <!--<li class="like">455 <a href="#">Likes</a></li>-->
-                            <li><a href="../../blog-single/<%= item._id + '/' + lang %>" class="know-more">Know more</a>
-                            </li>
-                        </ul>
-                    </li>
+                        </li>
                     <% }) %>
                 </ul>
                 <div class="paging-block">
@@ -117,9 +126,9 @@
                                 <li><a href="#" style="padding: 0;"><span style="font-size: 22px;"><<</span></a></li>
                                 <li><a href="#" style="padding: 0;"><span style="font-size: 22px;"><</span></a></li>
                             <% } else { %>
-                            <li><a href="1" style="padding: 0;"><span style="font-size: 22px;"><<</span></a></li>
-                            <li><a href="<%= current-1 %>" style="padding: 0;"><span
-                                            style="font-size: 22px;"><</span></a></li>
+                                <li><a href="1" style="padding: 0;"><span style="font-size: 22px;"><<</span></a></li>
+                                <li><a href="<%= current - 1 %>" style="padding: 0;"><span
+                                                style="font-size: 22px;"><</span></a></li>
                             <% } %>
                             <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
                             <% if (i !== 1) { %>
@@ -139,10 +148,11 @@
                                 <li><a href="#" style="padding: 0;"><span style="font-size: 22px;">></span></a></li>
                                 <li><a href="#" style="padding: 0;"><span style="font-size: 22px;">>></span></a></li>
                             <% } else { %>
-                            <li><a href="<%= parseInt(current)+1 %>" style="padding: 0;"><span style="font-size: 22px;">></span></a>
-                            </li>
-                            <li><a href="<%= pages %>" style="padding: 0;"><span style="font-size: 22px;">>></span></a>
-                            </li>
+                                <li><a href="<%= parseInt(current) + 1 %>" style="padding: 0;"><span
+                                                style="font-size: 22px;">></span></a>
+                                </li>
+                                <li><a href="<%= pages %>" style="padding: 0;"><span style="font-size: 22px;">>></span></a>
+                                </li>
                             <% } %>
                         </ul>
                     <% } %>
@@ -202,11 +212,12 @@
 <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- Select2 JS -->
 <script src="../../assets/select2/js/select2.min.js"></script>
-<!-- Custom JS -->
-<script src="../../js/custom.js"></script>
+
 <!--Cookie JS-->
 <script src="../../js/jquery.cookie.js"></script>
+<!-- Custom JS -->
 <script src="../../js/main.js"></script>
-<script src="../../js/index.js"></script>
+<script src="../../js/custom.js"></script>
+
 </body>
 </html>

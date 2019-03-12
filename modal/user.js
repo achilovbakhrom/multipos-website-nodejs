@@ -25,7 +25,23 @@ exports.findById = function (id, callback)
 
 exports.findByEmail = function(email, callback)
 {
-    db.get().collection('users').find({email: email}).toArray(function (err, res) {
+    db.get().collection('users').find({email:email}).toArray(function(err, doc) {
+        callback(err, doc)
+    });
+};
+
+exports.findByEmailAndConfirmationNumber = function(email, confirmationNumber, callback)
+{
+    db.get().collection('users').find({email:email, confirmationNumber: confirmationNumber}).toArray(function(err, doc) {
+        callback(err, doc)
+    });
+};
+
+exports.update = function (user, callback)
+{
+    let SelectParas = {"_id": user._id};
+    db.get().collection('users').update(SelectParas, user, function(err, res)
+    {
         callback(err, res)
     });
 };

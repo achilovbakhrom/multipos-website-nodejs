@@ -56,66 +56,56 @@
         <div class="login-form-holder">
             <div class="inner">
                 <div class="login-form">
-                    <h3 data-language='lsignin'>Login Now</h3>
-                    <form class="contact-form" action="javascript:void(0);">
-                        <div class="mail">
-                            <%if(lang === "en"){ %>
+                    <% if(lang === "en"){ %>
+                        <h3 data-language='lsignin'>Confirm</h3>
+
+                        <p>Email with confirmation code has been sent to email address indicated!<br/>Please check your
+                            email and activate profile to proceed!</p><br/>
+                        <form class="contact-form" method="post" action="../confirmation/confirm">
+                            <div class="mail">
                                 <label>Email Address</label>
-                            <% } else { %>
-                                <label>Email Адрес</label>
-                            <% } %>
-                            <input name="Email Address" placeholder="" type="text" id="billing_email">
-                        </div>
-                        <div class="password">
-                            <%if(lang === "en"){ %>
-                                <label>Password</label>
-                            <% } else { %>
-                                <label>Пароль</label>
-                            <% } %>
-                            <input name="Password" placeholder="" type="password" id="billing_password">
-                        </div>
-                        <div class="forgot">
-                            <label>
-                                <input value="" type="checkbox">
-                                <% if(lang === "en"){ %>
-                                    <span>Remember me</span>
-                                <% } else { %>
-                                    <span>Запомнить меня</span>
-                                <% } %>
-                                </label>
-                            <% if(lang === "en"){ %>
-                                <a href="#"><span class="q-mark">?</span>Forgot password</a>
-                            <% } else { %>
-                                <a href="#"><span class="q-mark">?</span>Забыли пароль</a>
-                            <% } %>
+                                <input name="email" placeholder="" type="text" id="email">
                             </div>
-                        <button class="btn login-btn" type="submit" id="login_now" name="contact_submit"
-                                data-language='lsignin'>Login Now
-                        </button>
-                    </form>
+                            <div class="password">
+                                <label>Confirmation Code</label>
+                                <input name="confirmationNumber" placeholder="" type="text" id="confirmationNumber">
+                            </div>
+                            <button class="btn login-btn" type="submit" id="confirm" name="submit"
+                                    data-language='lsignin'>Confirm
+                            </button>
+                        </form>
+                    <% } else { %>
+                        <h3 data-language='lsignin'>Подтверждение</h3>
+
+                        <p>Email с кодом активации был отправлен на Вашу електроннею почту указанную при
+                            регистрации!<br/> Пожалуйста, проверьте вашу электронную почту и активируйте профиль чтобы
+                            продолжить!</p><br/>
+                        <form class="contact-form" method="post" action="../confirmation/confirm">
+                            <div class="mail">
+                                <label>Email Адрес</label>
+                                <input name="email" placeholder="" type="text" id="email">
+                            </div>
+                            <div class="password">
+                                <label>Код активации</label>
+                                <input name="confirmationNumber" placeholder="" type="text" id="confirmationNumber">
+                            </div>
+                            <button class="btn login-btn" type="submit" id="confirm" name="submit"
+                                    data-language='lsignin'>Подтвердить
+                            </button>
+                        </form>
+                    <% } %>
                 </div>
-                <!--<div class="social-media-box">-->
-                <!--<p>Or Sign In With</p>-->
-                <!--<ul>-->
-                <!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
-                <!--<li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
-                <!--<li><a href="#"><i class="fa fa-google-plus"></i></a></li>-->
-                <!--</ul>-->
-                <!--</div>-->
             </div>
             <div class="box-hav-accnt">
                 <% if(lang === "en"){ %>
                     <p>Don't have an account? <a id="signupUrl" href="" data-language='lsignup'>Sign up</a></p>
-                    <p>For activation of account click <a id="confirmUrl" href="" data-language='lsignup'>Here</a></p>
                 <% } else { %>
-                        <p>Ещё не зарегистрированы? <a id="signupUrl" href="" data-language='lsignup'>Регистрация</a></p>
-                        <p>Для активации аккаунта нажмите <a id="confirmUrl" href="">Здесь</a></p>
+                    <p>Ещё не зарегистрированы? <a id="signupUrl" href="" data-language='lsignup'>Регистрация</a></p>
                 <% } %>
                 <script language="javascript" type="text/javascript">
                     var urlParams = window.location.pathname.split('/');
                     var lang = urlParams[urlParams.length - 1];
                     document.getElementById("signupUrl").href = "/register/" + lang;
-                    document.getElementById("confirmUrl").href = "/confirmation/" + lang;
                 </script>
             </div>
         </div>

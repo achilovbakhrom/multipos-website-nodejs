@@ -146,7 +146,9 @@
             <div class="col-md-10">
                 <div class="head-block">
                     <h2 data-language="lourservices">Our Services</h2>
-                    <p data-language="lsubservices" style="font-size: 15px">Admin Panel - Fully secure panel for Business Administration, with easy to set-up roles available on Web, Tablet and Mobile devices.</p>
+                    <p data-language="lsubservices" style="font-size: 15px">Admin Panel - Fully secure panel for
+                        Business Administration, with easy to set-up roles available on Web, Tablet and Mobile
+                        devices.</p>
                 </div>
             </div>
         </div>
@@ -163,7 +165,7 @@
                     <div class="icon"><span>02</span></div>
                     <div class="text-area">
                         <h2 data-language="lscalability">SCALABILITY</h2>
-                        <p data-language="lsubscalability">Scale
+                        <p data-language="lsubscalability">
                             Scalability of the system that is contingent only on the
                             business size.</p>
                     </div>
@@ -243,25 +245,29 @@
                     <h2 data-language="lreadourlatest">Read our latest Stories</h2>
                     <p>An online journal or informational website displaying information in the reverse chronological
                         order, with latest posts appearing first.</p>
-                    <button class="btn submit" onclick="goToBlog()">Blog</button>
+                    <% if(data.lang === "en"){ %>
+                        <button class="btn submit" onclick="goToBlog()">Blog</button>
+                    <% } else { %>
+                        <button class="btn submit" onclick="goToBlog()">Блог</button>
+                    <% } %>
                 </div>
             </div>
             <% data.blog.forEach(function (item) { %>
-                <div class="card">
-                    <figure><img src="images/blog-img1.jpg" class="img-fluid" alt=""></figure>
-                    <div class="card-body">
-                        <% if(data.lang == "en"){ %>
-                            <h3><a id="blogUrl"
-                                   href="<%= '../blog-single/' + item._id + '/' + data.lang %>"><%= item.titleEn %></a>
-                            </h3>
-                        <% } else { %>
-                            <h3><a id="blogUrl"
-                                   href="<%= '../blog-single/' + item._id + '/' + data.lang %>"><%= item.titleEn %></a>
-                            </h3>
-                        <% } %>
-                        <span class="date"><%= item.date %></span>
-                    </div>
+            <div class="card">
+                <figure><img src="<%= item.image %>" class="img-fluid" alt=""></figure>
+                <div class="card-body">
+                    <% if(data.lang == "en"){ %>
+                        <h3><a id="blogUrl"
+                               href="<%= '../blog-single/' + item._id + '/' + data.lang %>"><%= item.titleEn %></a>
+                        </h3>
+                    <% } else { %>
+                        <h3><a id="blogUrl"
+                               href="<%= '../blog-single/' + item._id + '/' + data.lang %>"><%= item.titleRu %></a>
+                        </h3>
+                    <% } %>
+                    <span class="date"><%= item.date %></span>
                 </div>
+            </div>
             <% }) %>
         </div>
     </div>
@@ -525,33 +531,57 @@
                     <form name="contact-form" action="/support" method="POST">
                         <div class="row">
                             <div class="col-md-6 input-col">
-                                <label>Your Name</label>
+                                <% if(data.lang === "en"){ %>
+                                    <label>Your Name</label>
+                                <% } else { %>
+                                    <label>Ваше Имя</label>
+                                <% } %>
                                 <input name="name" placeholder="" type="text">
                             </div>
                             <div class="col-md-6 input-col">
-                                <label>Email Address</label>
+                                <% if(data.lang === "en"){ %>
+                                    <label>Email Address</label>
+                                <% } else { %>
+                                    <label>Email Адрес</label>
+                                <% } %>
                                 <input name="email" placeholder="" type="text">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 input-col">
-                                <label>Phone</label>
+                                <% if(data.lang === "en"){ %>
+                                    <label>Phone</label>
+                                <% } else { %>
+                                    <label>Телефон</label>
+                                <% } %>
                                 <input name="phone" placeholder="" type="text">
                             </div>
                             <div class="col-md-6 input-col">
-                                <label>Company</label>
+                                <% if(data.lang === "en"){ %>
+                                    <label>Company</label>
+                                <% } else { %>
+                                    <label>Компания</label>
+                                <% } %>
                                 <input name="company" placeholder="" type="text">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <label>Message</label>
+                                <% if(data.lang === "en"){ %>
+                                    <label>Message</label>
+                                <% } else { %>
+                                    <label>Письмо</label>
+                                <% } %>
                                 <textarea name="message" placeholder=""></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <button class="btn submit">Submit</button>
+                                <% if(data.lang === "en"){ %>
+                                    <button class="btn submit">Submit</button>
+                                <% } else { %>
+                                    <button class="btn submit">Отправить</button>
+                                <% } %>
                             </div>
                             <div class="col-md-12">
                                 <div class="msg"></div>
@@ -579,11 +609,15 @@
                         <h6><span data-language="lconnectwith">Connect with</span></h6>
                         <ul>
                             <li><a href="https://www.facebook.com/multiposERP"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="https://www.linkedin.com/company/basic-steps-development/about"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="https://www.linkedin.com/company/basic-steps-development/about"><i
+                                            class="fa fa-linkedin"></i></a></li>
                             <li><a href="https://twitter.com/LtdBasic?lang=en"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://plus.google.com/u/0/103005406419764022286"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="https://www.youtube.com/channel/UCV40QtoSeYS_dWHmuphpBVw"><i class="fa fa-youtube"></i></a></li>
-                            <li><a href="https://chat.whatsapp.com/invite/FK3Rk00MLqs74DZJmyL25v"><i class="fa fa-whatsapp"></i></a></li>
+                            <li><a href="https://plus.google.com/u/0/103005406419764022286"><i
+                                            class="fa fa-google-plus"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCV40QtoSeYS_dWHmuphpBVw"><i
+                                            class="fa fa-youtube"></i></a></li>
+                            <li><a href="https://chat.whatsapp.com/invite/FK3Rk00MLqs74DZJmyL25v"><i
+                                            class="fa fa-whatsapp"></i></a></li>
                             <li><a href="https://telegram.me/multipos_news"><i class="fa fa-telegram"></i></a></li>
                         </ul>
                     </div>
@@ -662,6 +696,8 @@
 <!-- Custom JS -->
 <script src="js/custom.js"></script>
 <script src="js/jquery.cookie.js"></script>
+<link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
 
 
 </body>
